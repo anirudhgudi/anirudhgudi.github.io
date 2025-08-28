@@ -7,7 +7,7 @@
     <title>Anirudh Gudi • CAD Files</title>
     <!-- Main stylesheet must be loaded first to define variables -->
     <link rel="stylesheet" href="style.css">
-    <!-- CAD page-specific styles -->
+    <!-- CAD page-specific styles, loaded after the main one -->
     <link rel="stylesheet" href="cad-style.css">
 </head>
 
@@ -30,11 +30,10 @@
         <section class="page-intro">
             <div class="intro-text">
                 <h1>My <span class="highlight">CAD Designs</span></h1>
-                <p class="tagline">A collection of my mechanical designs, from interactive 3D models to downloadable
-                    files.</p>
+                <p class="tagline">A collection of my mechanical designs, from interactive 3D models to downloadable files.</p>
             </div>
         </section>
-
+        
         <!-- Interactive 3D Models Section -->
         <section class="cad-grid">
             <!-- CAD Project 1 -->
@@ -44,8 +43,7 @@
                     <canvas id="viewer-1"></canvas>
                     <h4>Drag to Rotate</h4>
                 </div>
-                <p>A custom-designed two-finger gripper for a robotic manipulator, modeled in SolidWorks. This design
-                    focuses on a lightweight yet rigid structure for precision grasping.</p>
+                <p>A custom-designed two-finger gripper for a robotic manipulator, modeled in SolidWorks. This design focuses on a lightweight yet rigid structure for precision grasping.</p>
                 <a href="#" class="btn">View Details</a>
             </div>
 
@@ -56,8 +54,7 @@
                     <canvas id="viewer-2"></canvas>
                     <h4>Drag to Rotate</h4>
                 </div>
-                <p>A detailed model of a compact planetary gearbox, demonstrating an understanding of gearing principles
-                    and tolerance stack-up for high torque output.</p>
+                <p>A detailed model of a compact planetary gearbox, demonstrating an understanding of gearing principles and tolerance stack-up for high torque output.</p>
                 <a href="#" class="btn">View Details</a>
             </div>
 
@@ -68,8 +65,7 @@
                     <canvas id="viewer-3"></canvas>
                     <h4>Drag to Rotate</h4>
                 </div>
-                <p>A full-scale design of a single leg for a quadruped robot, featuring integrated servomotor mounts and
-                    custom linkages for dynamic locomotion.</p>
+                <p>A full-scale design of a single leg for a quadruped robot, featuring integrated servomotor mounts and custom linkages for dynamic locomotion.</p>
                 <a href="#" class="btn">View Details</a>
             </div>
 
@@ -94,7 +90,7 @@
                 <p>Brief description of your fifth project.</p>
                 <a href="#" class="btn">View Details</a>
             </div>
-
+            
             <!-- CAD Project 6 -->
             <div class="cad-project fade-in">
                 <h2>Project 6 Title</h2>
@@ -159,14 +155,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
-
+    
     <script>
         // JavaScript for the 3D viewers
         function setupViewer(canvasId, modelUrl) {
             const scene = new THREE.Scene();
             scene.background = new THREE.Color(0xf0f0f0);
             const container = document.getElementById(canvasId).parentElement;
-
+            
             const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
             camera.position.z = 1;
 
@@ -221,7 +217,7 @@
             animate();
         }
 
-        window.onload = function () {
+        window.onload = function() {
             // NOTE: Replace these placeholder URLs with your actual GLTF/GLB models
             setupViewer('viewer-1', 'https://cdn.jsdelivr.net/gh/KhronosGroup/glTF-Sample-Models@master/2.0/DamagedHelmet/glTF/DamagedHelmet.gltf');
             setupViewer('viewer-2', 'https://cdn.jsdelivr.net/gh/KhronosGroup/glTF-Sample-Models@master/2.0/FlightHelmet/glTF/FlightHelmet.gltf');
