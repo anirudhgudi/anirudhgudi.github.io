@@ -588,7 +588,7 @@ body.dark .availability-note {
     color: var(--accent-color-dark);
 }
 
-/* Hover-based Project Preview */
+/* Hover-based Project Preview - Title */
 .project-title-hover {
     cursor: help;
     position: relative;
@@ -641,6 +641,130 @@ body.dark .preview-compact {
 
 body.dark .preview-compact strong {
     color: var(--text-primary-dark);
+}
+
+/* Hover-based Project Preview - Media Overlay */
+.project-media-slider {
+    position: relative;
+}
+
+.project-media-slider::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.7) 100%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    border-radius: 0.5rem;
+}
+
+.project-media-slider:hover::after {
+    opacity: 1;
+}
+
+.project-media-slider .media-hover-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.5rem;
+    z-index: 10;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    pointer-events: none;
+}
+
+.project-media-slider:hover .media-hover-info {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.media-hover-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 0.5rem 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.media-hover-metrics {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.media-metric {
+    display: flex;
+    flex-direction: column;
+    color: #ffffff;
+}
+
+.media-metric-value {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--accent-color-dark);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.media-metric-label {
+    font-size: 0.75rem;
+    opacity: 0.9;
+}
+
+.media-hover-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.375rem;
+}
+
+.media-tech-badge {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 0.25rem 0.625rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Hover hint for media */
+.project-media-slider::before {
+    content: 'Hover for quick info';
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(74, 93, 80, 0.9);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: #ffffff;
+    padding: 0.375rem 0.75rem;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.project-detail-item:hover .project-media-slider::before {
+    opacity: 1;
+}
+
+.project-media-slider:hover::before {
+    opacity: 0;
+}
+
+body.dark .project-media-slider::before {
+    background: rgba(143, 188, 143, 0.9);
 }
 
 /* Keep existing Achievement Lists and Skills */
