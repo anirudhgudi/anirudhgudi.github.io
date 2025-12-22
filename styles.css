@@ -372,7 +372,7 @@ body.dark .project-nav-item a.active {
 
 /* Hide media sliders in main view since they're now in the modal */
 .project-detail-item .project-media-slider {
-    display: none;
+    display: none !important;
 }
 
 .project-detail-item:last-child {
@@ -687,6 +687,55 @@ body.dark .modal-content {
 
 body.dark .modal-close:hover {
     background: var(--accent-color-dark);
+}
+
+/* Project Navigation in Modal */
+.modal-project-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 100;
+    backdrop-filter: blur(5px);
+}
+
+.modal-project-nav:hover {
+    background: rgba(0, 0, 0, 0.8);
+    border-color: rgba(255, 255, 255, 0.6);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.modal-project-nav.prev-project {
+    left: -60px;
+}
+
+.modal-project-nav.next-project {
+    right: -60px;
+}
+
+@media (max-width: 968px) {
+    .modal-project-nav.prev-project {
+        left: 10px;
+        top: auto;
+        bottom: 10px;
+    }
+
+    .modal-project-nav.next-project {
+        right: 10px;
+        top: auto;
+        bottom: 10px;
+    }
 }
 
 .modal-grid {

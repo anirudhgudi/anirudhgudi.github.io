@@ -413,6 +413,8 @@ document.addEventListener('DOMContentLoaded', () => {
         <div id="project-preview-modal" class="project-preview-modal">
             <div class="modal-content">
                 <button class="modal-close" aria-label="Close">&times;</button>
+                <button class="modal-project-nav prev-project" aria-label="Previous Project">&#8249;</button>
+                <button class="modal-project-nav next-project" aria-label="Next Project">&#8250;</button>
                 <div class="modal-grid">
                     <div class="modal-media">
                         <div id="modal-media-container"></div>
@@ -433,6 +435,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const modal = document.getElementById('project-preview-modal');
     const modalClose = modal.querySelector('.modal-close');
+    const prevProjectBtn = modal.querySelector('.prev-project');
+    const nextProjectBtn = modal.querySelector('.next-project');
+    let currentProjectId = null;
+    const projectIds = Object.keys(projectData);
     let currentSlideIndex = 0;
     let currentMediaArray = [];
 
@@ -464,6 +470,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function openModal(projectId) {
         const data = projectData[projectId];
         if (!data) return;
+
+        currentProjectId = projectId;
 
         document.getElementById('modal-title').textContent = data.title;
         document.getElementById('modal-description').textContent = data.description;
@@ -577,13 +585,34 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.overflow = '';
     }
 
+    function navigateProject(direction) {
+        const currentIndex = projectIds.indexOf(currentProjectId);
+        let newIndex;
+
+        if (direction === 'next') {
+            newIndex = (currentIndex + 1) % projectIds.length;
+        } else {
+            newIndex = (currentIndex - 1 + projectIds.length) % projectIds.length;
+        }
+
+        openModal(projectIds[newIndex]);
+    }
+
     // Event listeners
     modalClose.addEventListener('click', closeModal);
+    prevProjectBtn.addEventListener('click', () => navigateProject('prev'));
+    nextProjectBtn.addEventListener('click', () => navigateProject('next'));
+
     modal.addEventListener('click', (e) => {
         if (e.target === modal) closeModal();
     });
+
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+        if (modal.classList.contains('active')) {
+            if (e.key === 'Escape') closeModal();
+            if (e.key === 'ArrowLeft') navigateProject('prev');
+            if (e.key === 'ArrowRight') navigateProject('next');
+        }
     });
 
     // Attach click handlers to all projects
