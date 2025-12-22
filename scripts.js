@@ -247,4 +247,65 @@ document.addEventListener('DOMContentLoaded', () => {
     createFloatingMotes();
     createShimmerPoints();
     animate();
+
+    // --- Quick Preview Toggle Functionality ---
+    const previewButtons = document.querySelectorAll('.toggle-preview-btn');
+    previewButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = button.getAttribute('data-target');
+            const projectItem = document.getElementById(targetId);
+            const preview = projectItem.querySelector('.project-quick-preview');
+
+            if (preview.style.display === 'none' || preview.style.display === '') {
+                preview.style.display = 'block';
+                button.textContent = 'Hide Preview ↑';
+            } else {
+                preview.style.display = 'none';
+                button.textContent = 'Quick Preview ↓';
+            }
+        });
+    });
+
+    // --- Featured Project Quick View ---
+    const featuredCards = document.querySelectorAll('.featured-card');
+    featuredCards.forEach(card => {
+        const quickViewBtn = card.querySelector('.quick-view-btn');
+        if (quickViewBtn) {
+            quickViewBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = quickViewBtn.getAttribute('data-target');
+                const targetElement = document.getElementById(targetId);
+
+                // Smooth scroll to project
+                targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                // Auto-expand preview after scroll
+                setTimeout(() => {
+                    const preview = targetElement.querySelector('.project-quick-preview');
+                    const toggleBtn = targetElement.querySelector('.toggle-preview-btn');
+                    if (preview && preview.style.display !== 'block') {
+                        preview.style.display = 'block';
+                        if (toggleBtn) toggleBtn.textContent = 'Hide Preview ↑';
+                    }
+                }, 600);
+            });
+        }
+    });
+
+    // --- Smooth Scroll for CTA Buttons ---
+    const ctaButtons = document.querySelectorAll('a[href^="#"]');
+    ctaButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            const href = button.getAttribute('href');
+            if (href.startsWith('#') && href !== '#') {
+                e.preventDefault();
+                const targetId = href.substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+        });
+    });
 });

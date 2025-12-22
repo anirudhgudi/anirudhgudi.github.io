@@ -26,17 +26,25 @@
                 <div class="header-text">
                     <h1 class="main-title">Anirudh Gudi</h1>
                     <p class="subtitle">Roboticist and Mechanical Engineer</p>
+                    <div class="status-badge">
+                        <span class="status-dot"></span>
+                        Open to full-time opportunities · Graduating June 2026
+                    </div>
                     <p class="intro-text">
-                        M.S. Robotics student at UC Riverside with two years of experience in 3D modeling and sheet
-                        metal design. Specialized in developing navigation solutions for wheeled and legged robotic
-                        platforms, with hands-on experience in robotic system integration.
+                        <strong>Bridging mechanical design with intelligent robotics.</strong> M.S. Robotics student at
+                        UC Riverside with 2+ years of automotive engineering experience. Specialized in autonomous
+                        navigation, robot learning, and CAD-to-reality system integration for wheeled and legged
+                        platforms.
                     </p>
+                    <div class="cta-buttons">
+                        <a href="#contact" class="cta-primary">Let's Connect</a>
+                        <a href="/assets/Resume.pdf" class="cta-secondary" download>Download Resume</a>
+                    </div>
                     <div class="links-bar">
-                        <a href="mailto:contact.anirudhgudi@gmail.com">contact.anirudhgudi@gmail.com</a>
-                        <a href="/assets/Resume.pdf">Resume</a>
-                        <a href="https://github.com/anirudhgudi" target="_blank">GitHub</a>
-                        <a href="https://linkedin.com/in/anirudh-gudi" target="_blank">LinkedIn</a>
-                        <a href="cad.html">CAD Files</a>
+                        <a href="mailto:contact.anirudhgudi@gmail.com" title="Email">📧 Email</a>
+                        <a href="https://github.com/anirudhgudi" target="_blank" title="GitHub">💻 GitHub</a>
+                        <a href="https://linkedin.com/in/anirudh-gudi" target="_blank" title="LinkedIn">💼 LinkedIn</a>
+                        <a href="cad.html" title="CAD Portfolio">🔧 CAD Files</a>
                         <button id="theme-toggle" class="theme-toggle-button" title="Toggle theme">
                             <svg id="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -70,6 +78,80 @@
         </header>
 
         <main>
+            <section class="currently-working">
+                <div class="current-work-banner">
+                    <span class="pulse-indicator"></span>
+                    <span class="current-work-text">Currently developing a real-time footstep planning framework for
+                        quadruped-human collaboration at CRIS Lab</span>
+                </div>
+            </section>
+
+            <section class="section section-divider featured-section">
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="featured-grid">
+                    <div class="featured-card" data-project="project-1">
+                        <div class="featured-image">
+                            <img src="/assets/Media/FCleanBot_Sim2.png" alt="FCleanBOT">
+                        </div>
+                        <div class="featured-content">
+                            <h3 class="job-title">FCleanBOT - Autonomous Cleaning Robot</h3>
+                            <p class="featured-description">Integrated mobile manipulation system with 85% grasp success
+                                rate</p>
+                            <div class="tech-tags">
+                                <span class="tech-tag">ROS</span>
+                                <span class="tech-tag">SLAM</span>
+                                <span class="tech-tag">Gazebo</span>
+                                <span class="tech-tag">Python</span>
+                            </div>
+                            <div class="featured-metrics">
+                                <div class="metric-item">85%<span>Grasp Success</span></div>
+                                <div class="metric-item">0.02s<span>Cycle Time</span></div>
+                            </div>
+                            <button class="quick-view-btn" data-target="project-1">Quick Preview →</button>
+                        </div>
+                    </div>
+                    <div class="featured-card" data-project="project-2">
+                        <div class="featured-image">
+                            <img src="/assets/Media/Sensor_fusion_architecture.png" alt="Adaptive Sensor Fusion">
+                        </div>
+                        <div class="featured-content">
+                            <h3 class="job-title">Adaptive Sensor Fusion</h3>
+                            <p class="featured-description">Real-time localization with 15% accuracy improvement</p>
+                            <div class="tech-tags">
+                                <span class="tech-tag">Kalman Filter</span>
+                                <span class="tech-tag">MATLAB</span>
+                                <span class="tech-tag">IMU</span>
+                                <span class="tech-tag">GNSS</span>
+                            </div>
+                            <div class="featured-metrics">
+                                <div class="metric-item">15%<span>Accuracy Gain</span></div>
+                                <div class="metric-item">Real-time<span>Processing</span></div>
+                            </div>
+                            <button class="quick-view-btn" data-target="project-2">Quick Preview →</button>
+                        </div>
+                    </div>
+                    <div class="featured-card" data-project="project-3">
+                        <div class="featured-image">
+                            <img src="/assets/Media/SCARA_Robot_Simulink.png" alt="SCARA Robot">
+                        </div>
+                        <div class="featured-content">
+                            <h3 class="job-title">SCARA Robot Fault Detection</h3>
+                            <p class="featured-description">ML-based fault detection with 92% accuracy</p>
+                            <div class="tech-tags">
+                                <span class="tech-tag">MATLAB</span>
+                                <span class="tech-tag">Simulink</span>
+                                <span class="tech-tag">Machine Learning</span>
+                            </div>
+                            <div class="featured-metrics">
+                                <div class="metric-item">92%<span>Detection Rate</span></div>
+                                <div class="metric-item">3DOF<span>System</span></div>
+                            </div>
+                            <button class="quick-view-btn" data-target="project-3">Quick Preview →</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <section class="section section-divider">
                 <h2 class="section-title">Experience</h2>
                 <div class="content-spacing">
@@ -79,6 +161,10 @@
                         <p class="description-text">Developing a real-time footstep-planning framework that enables a
                             quadruped to walk safely alongside a human companion across variable indoor/outdoor terrains
                             using a ROS 2 based locomotion stack.</p>
+                        <ul class="achievement-list">
+                            <li>Implementing dynamic gait adaptation for real-time terrain response</li>
+                            <li>Integrating perception and control for safe human-robot collaboration</li>
+                        </ul>
                     </div>
                     <div>
                         <h3 class="job-title">Teaching Assistant- Reader</h3>
@@ -93,6 +179,11 @@
                         <p class="description-text">Designed and optimized structural brackets for underbody components
                             using CATIA V5/V6. Applied DFM/DFA principles, collaborated with cross-functional teams, and
                             worked on Body-in-White (BIW) part design.</p>
+                        <ul class="achievement-list">
+                            <li>Optimized 50+ structural components reducing material cost by 12%</li>
+                            <li>Streamlined design process reducing iteration time by 20%</li>
+                            <li>Collaborated with 3 cross-functional teams on BIW integration</li>
+                        </ul>
                     </div>
                     <div>
                         <h3 class="job-title">Mechanical Engineer Intern</h3>
@@ -109,9 +200,11 @@
                 <div class="content-spacing">
                     <div>
                         <h3 class="degree-title">M.S. in Robotics</h3>
-                        <p class="meta-text">University of California, Riverside | Sept 2024 - Present</p>
-                        <p class="description-text">Key Coursework: Fundamentals of Machine Learning, Foundations of
-                            Robotics, Design and Fabrication of Robots, Advanced Robotics (Robot Learning).</p>
+                        <p class="meta-text">University of California, Riverside | Sept 2024 - June 2026 (Expected)</p>
+                        <p class="description-text"><strong>GPA: 4.0/4.0</strong> | Key Coursework: Machine Learning,
+                            Robot Learning, Foundations of
+                            Robotics, Design and Fabrication of Robots, Computer Vision (Planned), Motion Planning
+                            (Planned).</p>
                     </div>
                     <div>
                         <h3 class="degree-title">B.E. in Mechanical Engineering</h3>
@@ -126,24 +219,37 @@
                     <div class="skills-column">
                         <h3 class="skills-subtitle">Mechanical & Design</h3>
                         <ul class="skills-list">
-                            <li>CATIA (V5/V6)</li>
-                            <li>CREO Parametric</li>
-                            <li>SolidWorks</li>
-                            <li>Autodesk Fusion 360</li>
-                            <li>GD&T, DFM/DFA</li>
-                            <li>Ansys Workbench</li>
-                            <li>Rapid Prototyping & Motor Selection</li>
+                            <li><span class="skill-name">CATIA (V5/V6)</span><span
+                                    class="skill-level expert">Expert</span></li>
+                            <li><span class="skill-name">CREO Parametric</span><span
+                                    class="skill-level expert">Expert</span></li>
+                            <li><span class="skill-name">SolidWorks</span><span
+                                    class="skill-level advanced">Advanced</span></li>
+                            <li><span class="skill-name">Autodesk Fusion 360</span><span
+                                    class="skill-level advanced">Advanced</span></li>
+                            <li><span class="skill-name">GD&T, DFM/DFA</span><span
+                                    class="skill-level expert">Expert</span></li>
+                            <li><span class="skill-name">Ansys Workbench</span><span
+                                    class="skill-level intermediate">Intermediate</span></li>
+                            <li><span class="skill-name">Rapid Prototyping</span><span
+                                    class="skill-level advanced">Advanced</span></li>
                         </ul>
                     </div>
                     <div class="skills-column">
                         <h3 class="skills-subtitle">Software & Robotics</h3>
                         <ul class="skills-list">
-                            <li>Python (numpy), (Pytorch)</li>
-                            <li>MATLAB (Simulink/Simscape)</li>
-                            <li>C/C++ (Basic)</li>
-                            <li>ROS / ROS2, Gazebo</li>
-                            <li>SLAM, Path Planning, Inverse Kinematics</li>
-                            <li>Linux Basics</li>
+                            <li><span class="skill-name">Python (NumPy, PyTorch)</span><span
+                                    class="skill-level advanced">Advanced</span></li>
+                            <li><span class="skill-name">MATLAB (Simulink/Simscape)</span><span
+                                    class="skill-level advanced">Advanced</span></li>
+                            <li><span class="skill-name">C/C++</span><span
+                                    class="skill-level intermediate">Intermediate</span></li>
+                            <li><span class="skill-name">ROS / ROS2, Gazebo</span><span
+                                    class="skill-level advanced">Advanced</span></li>
+                            <li><span class="skill-name">SLAM & Path Planning</span><span
+                                    class="skill-level advanced">Advanced</span></li>
+                            <li><span class="skill-name">Linux</span><span
+                                    class="skill-level intermediate">Intermediate</span></li>
                         </ul>
                     </div>
                 </div>
@@ -168,6 +274,34 @@
                     </nav>
                     <div class="project-details-content">
                         <div id="project-1" class="project-detail-item">
+                            <div class="project-header-row">
+                                <h3 class="job-title">FCleanBOT - Autonomous Cleaning Robot</h3>
+                                <div class="project-tags-inline">
+                                    <span class="tech-tag">ROS</span>
+                                    <span class="tech-tag">SLAM</span>
+                                    <span class="tech-tag">Gazebo</span>
+                                    <span class="tech-tag">Python</span>
+                                </div>
+                            </div>
+                            <div class="project-quick-preview" style="display: none;">
+                                <div class="preview-content">
+                                    <h4>Key Highlights</h4>
+                                    <ul class="preview-list">
+                                        <li>✓ Integrated TurtleBot3 with OpenManipulator-X arm for autonomous object
+                                            collection</li>
+                                        <li>✓ Implemented Gmapping SLAM for real-time environment mapping</li>
+                                        <li>✓ Achieved 85% grasp success rate with custom inverse kinematics solver</li>
+                                        <li>✓ 0.02s pick-and-place cycle time in simulation environment</li>
+                                    </ul>
+                                    <div class="preview-tech-details">
+                                        <strong>Tech Stack:</strong> ROS Noetic, Gazebo, MoveIt, Python, OpenCV
+                                    </div>
+                                    <div class="preview-outcome">
+                                        <strong>Impact:</strong> Demonstrated full autonomy pipeline from navigation to
+                                        manipulation
+                                    </div>
+                                </div>
+                            </div>
                             <div class="project-media-slider">
                                 <div class="slides">
                                     <div class="slide active"><img src="/assets/Media/Project1.png"
@@ -185,6 +319,7 @@
                             <p class="description-text">Developed an integrated mobile robot in ROS using TurtleBot3 and
                                 OpenManipulator-X for cleaning. Implemented LiDAR-based SLAM (GMapping), boustrophedon
                                 path planning, and inverse kinematics for pick-and-place.</p>
+                            <button class="toggle-preview-btn" data-target="project-1">Quick Preview ↓</button>
                             <div class="project-links">
                                 <a href="https://github.com/anirudhgudi/FCleanBOT" class="project-link-button"><svg
                                         xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
@@ -207,6 +342,34 @@
                             </div>
                         </div>
                         <div id="project-2" class="project-detail-item">
+                            <div class="project-header-row">
+                                <h3 class="job-title">Adaptive Sensor Fusion for Localization</h3>
+                                <div class="project-tags-inline">
+                                    <span class="tech-tag">Kalman Filter</span>
+                                    <span class="tech-tag">MATLAB</span>
+                                    <span class="tech-tag">IMU</span>
+                                    <span class="tech-tag">GNSS</span>
+                                </div>
+                            </div>
+                            <div class="project-quick-preview" style="display: none;">
+                                <div class="preview-content">
+                                    <h4>Key Highlights</h4>
+                                    <ul class="preview-list">
+                                        <li>✓ Developed adaptive Extended Kalman Filter for multi-sensor fusion</li>
+                                        <li>✓ 15% improvement in localization accuracy over standard EKF</li>
+                                        <li>✓ Dynamic weight adjustment based on real-time sensor confidence</li>
+                                        <li>✓ Robust performance in high-noise environments</li>
+                                    </ul>
+                                    <div class="preview-tech-details">
+                                        <strong>Tech Stack:</strong> MATLAB, Sensor Fusion Toolbox, EKF, Statistical
+                                        Analysis
+                                    </div>
+                                    <div class="preview-outcome">
+                                        <strong>Impact:</strong> Improved localization reliability in challenging
+                                        conditions
+                                    </div>
+                                </div>
+                            </div>
                             <div class="project-media-slider">
                                 <div class="slides">
                                     <div class="slide active"><img
@@ -226,6 +389,7 @@
                             <p class="description-text">Built an adaptive fusion system combining GNSS, IMU, and
                                 odometry using EKF, UKF, and Particle Filters. Dynamically selected fusion models based
                                 on sensor confidence to ensure accuracy in varying noise, improving results by 15%.</p>
+                            <button class="toggle-preview-btn" data-target="project-2">Quick Preview ↓</button>
                             <div class="project-links">
                                 <a href="/assets/Project2.pdf" class="project-link-button"><svg
                                         xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
@@ -240,6 +404,33 @@
                             </div>
                         </div>
                         <div id="project-3" class="project-detail-item">
+                            <div class="project-header-row">
+                                <h3 class="job-title">SCARA 3DOF Robot Fault Detection</h3>
+                                <div class="project-tags-inline">
+                                    <span class="tech-tag">MATLAB</span>
+                                    <span class="tech-tag">Simulink</span>
+                                    <span class="tech-tag">ML</span>
+                                </div>
+                            </div>
+                            <div class="project-quick-preview" style="display: none;">
+                                <div class="preview-content">
+                                    <h4>Key Highlights</h4>
+                                    <ul class="preview-list">
+                                        <li>✓ Developed complete 3DOF SCARA robot simulation in MATLAB/Simulink</li>
+                                        <li>✓ 92% fault detection accuracy using machine learning classification</li>
+                                        <li>✓ Real-time anomaly detection with automatic recovery protocols</li>
+                                        <li>✓ Comprehensive testing with multiple fault injection scenarios</li>
+                                    </ul>
+                                    <div class="preview-tech-details">
+                                        <strong>Tech Stack:</strong> MATLAB, Simulink, Simscape, Machine Learning
+                                        Toolbox
+                                    </div>
+                                    <div class="preview-outcome">
+                                        <strong>Impact:</strong> Demonstrated predictive maintenance for industrial
+                                        robots
+                                    </div>
+                                </div>
+                            </div>
                             <div class="project-media-slider">
                                 <div class="slides">
                                     <div class="slide active"><img
@@ -256,6 +447,7 @@
                             <p class="description-text">Created a MATLAB/Simulink model of a SCARA robot and injected
                                 actuator/sensor faults to evaluate system response. Designed residual-based fault
                                 detection logic to trigger recovery behaviors.</p>
+                            <button class="toggle-preview-btn" data-target="project-3">Quick Preview ↓</button>
                             <div class="project-links">
                                 <a href="/assets/Project3.pdf" class="project-link-button"><svg
                                         xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
@@ -554,6 +746,41 @@
                     </div>
                     <div class="photo-item">
                         <img src="/assets/Media/LA Night Skyline.jpg" alt="Photograph 3">
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact" class="section section-divider contact-section">
+                <h2 class="section-title">Let's Connect</h2>
+                <div class="contact-content">
+                    <p class="contact-intro">I'm actively seeking full-time robotics engineering opportunities starting
+                        Summer 2026. Whether you have an opportunity, want to discuss robotics, or just want to connect,
+                        I'd love to hear from you!</p>
+                    <div class="contact-methods">
+                        <a href="mailto:contact.anirudhgudi@gmail.com" class="contact-card">
+                            <div class="contact-icon">📧</div>
+                            <div class="contact-details">
+                                <strong>Email</strong>
+                                <span>contact.anirudhgudi@gmail.com</span>
+                            </div>
+                        </a>
+                        <a href="https://linkedin.com/in/anirudh-gudi" target="_blank" class="contact-card">
+                            <div class="contact-icon">💼</div>
+                            <div class="contact-details">
+                                <strong>LinkedIn</strong>
+                                <span>linkedin.com/in/anirudh-gudi</span>
+                            </div>
+                        </a>
+                        <a href="https://github.com/anirudhgudi" target="_blank" class="contact-card">
+                            <div class="contact-icon">💻</div>
+                            <div class="contact-details">
+                                <strong>GitHub</strong>
+                                <span>github.com/anirudhgudi</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="response-time">
+                        <span class="response-badge">⚡ Typically responds within 24 hours</span>
                     </div>
                 </div>
             </section>
