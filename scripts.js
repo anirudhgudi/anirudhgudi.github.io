@@ -484,14 +484,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // Attach click handlers to all projects
     document.querySelectorAll('.project-detail-item').forEach(item => {
         const projectId = item.getAttribute('id');
-        const mediaSlider = item.querySelector('.project-media-slider');
-        const title = item.querySelector('.project-title-hover, .job-title');
 
-        if (mediaSlider) {
-            mediaSlider.addEventListener('click', () => openModal(projectId));
-        }
-        if (title) {
-            title.addEventListener('click', () => openModal(projectId));
-        }
+        // Make entire project item clickable
+        item.style.cursor = 'pointer';
+        item.addEventListener('click', (e) => {
+            // Prevent modal opening if clicking on a link
+            if (e.target.tagName !== 'A') {
+                openModal(projectId);
+            }
+        });
     });
 });
