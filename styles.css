@@ -691,13 +691,25 @@ body.dark .project-title-hover:hover {
     border-radius: 1.25rem;
     max-width: 1400px;
     width: 95%;
-    max-height: 92vh;
-    overflow: hidden;
+    max-height: 90vh;
+    overflow-y: auto;
     position: relative;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25),
         0 0 0 1px rgba(255, 255, 255, 0.1);
     animation: modalSlideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    backdrop-filter: blur(20px);
+}
+
+.modal-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
 }
 
 body.dark .modal-content {
@@ -705,6 +717,10 @@ body.dark .modal-content {
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5),
         0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+body.dark .modal-content::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
 }
 
 @keyframes modalSlideIn {
@@ -805,11 +821,10 @@ body.dark .modal-close:hover {
 
 .modal-grid {
     display: grid;
-    grid-template-columns: 1.4fr 1fr;
+    grid-template-columns: 1.2fr 1fr;
     gap: 2.5rem;
     padding: 2.5rem;
-    max-height: 92vh;
-    overflow-y: auto;
+    align-items: start;
 }
 
 .modal-grid::-webkit-scrollbar {
@@ -842,11 +857,12 @@ body.dark .modal-grid::-webkit-scrollbar-thumb {
     border-radius: 1rem;
     overflow: hidden;
     background: linear-gradient(135deg, rgba(0, 0, 0, 0.02) 0%, rgba(0, 0, 0, 0.05) 100%);
-    aspect-ratio: 16/9;
     display: flex;
     align-items: center;
     justify-content: center;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    min-height: 300px;
+    max-height: 500px;
 }
 
 body.dark .modal-media {
