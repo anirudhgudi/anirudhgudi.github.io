@@ -2070,22 +2070,70 @@ body.dark .skill-level.intermediate {
 
 /* Contact Section */
 .contact-section {
-    background: linear-gradient(135deg, rgba(74, 93, 80, 0.05) 0%, rgba(74, 93, 80, 0.02) 100%);
-    padding: 3rem 1.5rem;
-    margin: 2rem -1.5rem;
-    border-radius: 0.5rem;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.03) 0%, rgba(118, 75, 162, 0.02) 100%);
+    padding: 4rem 1.5rem;
+    margin: 3rem -1.5rem 0;
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.3), transparent);
 }
 
 body.dark .contact-section {
-    background: linear-gradient(135deg, rgba(143, 188, 143, 0.08) 0%, rgba(143, 188, 143, 0.03) 100%);
+    background: linear-gradient(135deg, rgba(240, 147, 251, 0.05) 0%, rgba(245, 87, 108, 0.03) 100%);
+}
+
+body.dark .contact-section::before {
+    background: linear-gradient(90deg, transparent, rgba(240, 147, 251, 0.4), transparent);
+}
+
+.contact-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.contact-title {
+    margin-bottom: 0.75rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+body.dark .contact-title {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.contact-subtitle {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+}
+
+body.dark .contact-subtitle {
+    color: var(--text-secondary-dark);
 }
 
 .contact-intro {
     text-align: center;
-    max-width: 42rem;
-    margin: 0 auto 2rem;
-    font-size: 1.125rem;
+    max-width: 600px;
+    margin: 0 auto 2.5rem;
+    font-size: 1.05rem;
     color: var(--text-secondary);
+    line-height: 1.6;
 }
 
 body.dark .contact-intro {
@@ -2094,52 +2142,116 @@ body.dark .contact-intro {
 
 .contact-methods {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
 }
 
 .contact-card {
+    position: relative;
     display: flex;
     align-items: center;
     gap: 1rem;
-    background-color: var(--bg-color);
-    border: 1px solid var(--divider-color);
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 0, 0, 0.08);
     padding: 1.5rem;
-    border-radius: 0.5rem;
-    transition: all 0.3s;
+    border-radius: 12px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     text-decoration: none;
+    overflow: hidden;
 }
 
-.contact-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 15px -3px var(--shadow-color);
-    text-decoration: none;
+.contact-card-bg {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.email-card .contact-card-bg {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%);
+}
+
+.linkedin-card .contact-card-bg {
+    background: linear-gradient(135deg, rgba(0, 119, 181, 0.08) 0%, rgba(0, 99, 154, 0.08) 100%);
+}
+
+.github-card .contact-card-bg {
+    background: linear-gradient(135deg, rgba(36, 41, 46, 0.08) 0%, rgba(22, 27, 34, 0.08) 100%);
 }
 
 body.dark .contact-card {
-    background-color: var(--bg-color-dark);
-    border-color: var(--divider-color-dark);
+    background: rgba(26, 24, 21, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+body.dark .email-card .contact-card-bg {
+    background: linear-gradient(135deg, rgba(240, 147, 251, 0.12) 0%, rgba(245, 87, 108, 0.12) 100%);
+}
+
+body.dark .linkedin-card .contact-card-bg {
+    background: linear-gradient(135deg, rgba(0, 119, 181, 0.15) 0%, rgba(0, 99, 154, 0.15) 100%);
+}
+
+body.dark .github-card .contact-card-bg {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(200, 200, 200, 0.08) 100%);
+}
+
+.contact-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.12);
+    border-color: rgba(0, 0, 0, 0.15);
+}
+
+.contact-card:hover .contact-card-bg {
+    opacity: 1;
 }
 
 body.dark .contact-card:hover {
-    box-shadow: 0 10px 15px -3px var(--shadow-color-dark);
+    box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
 .contact-icon {
-    font-size: 2rem;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.04);
     flex-shrink: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    color: var(--text-primary);
+}
+
+body.dark .contact-icon {
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--text-primary-dark);
+}
+
+.contact-card:hover .contact-icon {
+    transform: scale(1.1);
+    background: rgba(0, 0, 0, 0.08);
+}
+
+body.dark .contact-card:hover .contact-icon {
+    background: rgba(255, 255, 255, 0.12);
 }
 
 .contact-details {
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
+    flex: 1;
 }
 
 .contact-details strong {
     color: var(--text-primary);
     font-size: 1rem;
+    font-weight: 600;
 }
 
 .contact-details span {
@@ -2155,23 +2267,98 @@ body.dark .contact-details span {
     color: var(--text-secondary-dark);
 }
 
+.contact-arrow {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0.5;
+}
+
+body.dark .contact-arrow {
+    color: var(--text-secondary-dark);
+}
+
+.contact-card:hover .contact-arrow {
+    transform: translateX(4px);
+    opacity: 1;
+}
+
 .response-time {
     text-align: center;
 }
 
 .response-badge {
-    display: inline-block;
-    background-color: #fef3c7;
-    color: #92400e;
-    padding: 0.5rem 1rem;
-    border-radius: 9999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(0, 0, 0, 0.04);
+    backdrop-filter: blur(8px);
+    color: var(--text-secondary);
+    padding: 0.65rem 1.25rem;
+    border-radius: 50px;
     font-size: 0.875rem;
-    font-weight: 600;
+    font-weight: 500;
+    border: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 body.dark .response-badge {
-    background-color: #78350f;
-    color: #fcd34d;
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--text-secondary-dark);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pulse-dot {
+    width: 8px;
+    height: 8px;
+    background: #10b981;
+    border-radius: 50%;
+    position: relative;
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.pulse-dot::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border: 2px solid #10b981;
+    border-radius: 50%;
+    animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
+}
+
+@keyframes ping {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    75%,
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-section {
+        padding: 3rem 1rem;
+        margin: 2rem -1rem 0;
+    }
+
+    .contact-methods {
+        grid-template-columns: 1fr;
+    }
 }
 
 
