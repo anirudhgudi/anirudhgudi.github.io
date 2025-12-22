@@ -11,6 +11,25 @@ document.addEventListener('DOMContentLoaded', () => {
     let shimmerPoints = [];
     const GRID_SIZE = 50; // Size of the grid cells in pixels
 
+    // --- Smooth Scroll Navigation ---
+    document.querySelectorAll('.nav-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = btn.getAttribute('href').slice(1);
+            const targetSection = document.getElementById(targetId);
+
+            if (targetSection) {
+                const navHeight = document.querySelector('.sticky-nav').offsetHeight;
+                const targetPosition = targetSection.offsetTop - navHeight - 20;
+
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
     // --- Theme Toggle Functionality ---
     function applyTheme(theme) {
         if (theme === 'dark') {
