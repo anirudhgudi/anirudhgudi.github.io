@@ -269,28 +269,15 @@ body.dark .section-divider {
 /* Floating Side Navigation */
 .floating-nav {
     position: fixed;
-    right: 2rem;
+    right: 2.5rem;
     top: 50%;
     transform: translateY(-50%);
     z-index: 999;
     display: flex;
     flex-direction: column;
-    gap: 0.3rem;
-    padding: 1rem 0.75rem;
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-radius: 12px;
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    gap: 1.5rem;
     opacity: 0;
-    animation: fadeInNav 0.8s ease 1s forwards;
-}
-
-body.dark .floating-nav {
-    background: rgba(26, 24, 21, 0.7);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    animation: fadeInNav 0.8s ease 1.5s forwards;
 }
 
 @keyframes fadeInNav {
@@ -303,51 +290,44 @@ body.dark .floating-nav {
     position: relative;
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.nav-dot .dot {
-    width: 10px;
-    height: 10px;
+.nav-dot::after {
+    content: '';
+    width: 3px;
+    height: 3px;
     border-radius: 50%;
-    background: rgba(0, 0, 0, 0.3);
-    border: 2px solid rgba(0, 0, 0, 0.15);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
+    background: rgba(0, 0, 0, 0.25);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-body.dark .nav-dot .dot {
-    background: rgba(255, 255, 255, 0.35);
-    border: 2px solid rgba(255, 255, 255, 0.2);
+body.dark .nav-dot::after {
+    background: rgba(255, 255, 255, 0.3);
 }
 
 .nav-dot::before {
     content: attr(data-tooltip);
     position: absolute;
     right: 100%;
-    margin-right: 1rem;
-    padding: 0.5rem 1rem;
-    background: rgba(0, 0, 0, 0.92);
+    margin-right: 1.2rem;
+    padding: 0.35rem 0.85rem;
+    background: rgba(0, 0, 0, 0.85);
     color: white;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-weight: 500;
-    letter-spacing: 0.02em;
-    border-radius: 8px;
+    letter-spacing: 0.03em;
+    border-radius: 6px;
     white-space: nowrap;
     opacity: 0;
     pointer-events: none;
-    transform: translateX(10px);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateX(8px);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body.dark .nav-dot::before {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.92);
     color: #1a1815;
 }
 
@@ -356,31 +336,26 @@ body.dark .nav-dot::before {
     transform: translateX(0);
 }
 
-.nav-dot:hover .dot {
-    width: 14px;
-    height: 14px;
+.nav-dot:hover::after {
+    width: 8px;
+    height: 8px;
     background: rgba(0, 0, 0, 0.5);
-    border-color: rgba(0, 0, 0, 0.3);
-    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.08);
 }
 
-body.dark .nav-dot:hover .dot {
+body.dark .nav-dot:hover::after {
     background: rgba(255, 255, 255, 0.6);
-    border-color: rgba(255, 255, 255, 0.35);
-    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
 }
 
-.nav-dot.active .dot {
-    width: 14px;
-    height: 14px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border: none;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2), 0 2px 8px rgba(102, 126, 234, 0.3);
+.nav-dot.active::after {
+    width: 10px;
+    height: 10px;
+    background: var(--text-primary);
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
 }
 
-body.dark .nav-dot.active .dot {
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-    box-shadow: 0 0 0 3px rgba(240, 147, 251, 0.2), 0 2px 8px rgba(240, 147, 251, 0.3);
+body.dark .nav-dot.active::after {
+    background: var(--text-primary-dark);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.15);
 }
 
 @media (max-width: 1024px) {
