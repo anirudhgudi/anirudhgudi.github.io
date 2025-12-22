@@ -275,6 +275,7 @@ body.dark .section-divider {
     z-index: 999;
     display: flex;
     flex-direction: column;
+    align-items: flex-end;
     gap: 1.5rem;
     opacity: 0;
     animation: fadeInNav 0.8s ease 1.5s forwards;
@@ -297,15 +298,16 @@ body.dark .section-divider {
 
 .nav-dot::after {
     content: '';
-    width: 4px;
-    height: 4px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.35);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    flex-shrink: 0;
 }
 
 body.dark .nav-dot::after {
-    background: rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.4);
 }
 
 .nav-dot::before {
@@ -317,6 +319,7 @@ body.dark .nav-dot::after {
     opacity: 0;
     transform: translateX(5px);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    white-space: nowrap;
 }
 
 body.dark .nav-dot::before {
@@ -330,8 +333,8 @@ body.dark .nav-dot::before {
 }
 
 .nav-dot:hover::after {
-    width: 8px;
-    height: 8px;
+    width: 12px;
+    height: 12px;
     background: rgba(0, 0, 0, 0.6);
 }
 
@@ -340,8 +343,8 @@ body.dark .nav-dot:hover::after {
 }
 
 .nav-dot.active::after {
-    width: 8px;
-    height: 8px;
+    width: 12px;
+    height: 12px;
     background: var(--text-primary);
 }
 
