@@ -370,6 +370,11 @@ body.dark .project-nav-item a.active {
     transition: opacity 0.4s, transform 0.4s;
 }
 
+/* Hide media sliders in main view since they're now in the modal */
+.project-detail-item .project-media-slider {
+    display: none;
+}
+
 .project-detail-item:last-child {
     padding-bottom: 20vh;
 }
@@ -704,10 +709,102 @@ body.dark .modal-close:hover {
     border-radius: 0.5rem;
     overflow: hidden;
     background: var(--divider-color);
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 body.dark .modal-media {
     background: var(--divider-color-dark);
+}
+
+.modal-media-slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.modal-slides {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.modal-slide {
+    display: none;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-slide.active {
+    display: flex;
+}
+
+.modal-slide img,
+.modal-slide video {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    max-height: 500px;
+    border-radius: 0.5rem;
+}
+
+.modal-slide-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+    z-index: 10;
+}
+
+.modal-slide-nav:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.modal-slide-nav.prev {
+    left: 10px;
+}
+
+.modal-slide-nav.next {
+    right: 10px;
+}
+
+.modal-slide-indicators {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+}
+
+.modal-slide-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.modal-slide-indicator.active {
+    background: rgba(255, 255, 255, 0.9);
 }
 
 .modal-media img,

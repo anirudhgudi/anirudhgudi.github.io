@@ -252,7 +252,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const projectData = {
         'project-1': {
             title: 'FCleanBOT - Autonomous Cleaning Robot',
-            image: '/assets/Media/FCleanBot_Sim2.png',
+            media: [
+                { type: 'image', src: '/assets/Media/Project1.png' },
+                { type: 'video', src: '/assets/Media/Move Robot 1.mp4' },
+                { type: 'image', src: '/assets/Media/Project1_1.png' }
+            ],
             metrics: [
                 { value: '85%', label: 'Grasp Success' },
                 { value: '0.02s', label: 'Cycle Time' }
@@ -270,7 +274,9 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'project-2': {
             title: 'Adaptive Sensor Fusion for Localization',
-            image: '/assets/Media/Sensor_fusion_architecture.png',
+            media: [
+                { type: 'image', src: '/assets/Media/Sensor_fusion_architecture.png' }
+            ],
             metrics: [
                 { value: '15%', label: 'Accuracy Gain' },
                 { value: 'Real-time', label: 'Processing' }
@@ -287,7 +293,9 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'project-3': {
             title: 'SCARA 3DOF Robot Fault Detection',
-            image: '/assets/Media/SCARA_Robot_Simulink.png',
+            media: [
+                { type: 'image', src: '/assets/Media/SCARA_Robot_Simulink.png' }
+            ],
             metrics: [
                 { value: '92%', label: 'Detection Rate' },
                 { value: '3DOF', label: 'System' }
@@ -304,7 +312,9 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'project-4': {
             title: 'Gantry Loader Robot for CNC Machine',
-            image: '/assets/Media/Gantry_Robot.png',
+            media: [
+                { type: 'image', src: '/assets/Media/Gantry_Robot.png' }
+            ],
             metrics: [
                 { value: '3DOF', label: 'System' },
                 { value: '4 Members', label: 'Team' }
@@ -321,7 +331,9 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'project-5': {
             title: 'Design and Optimization of Flywheel',
-            image: '/assets/Media/Flywheel.png',
+            media: [
+                { type: 'image', src: '/assets/Media/Flywheel.png' }
+            ],
             metrics: [],
             tech: ['CREO', 'Ansys', 'Optimization', 'FEA'],
             description: 'Flywheel optimization project exploring different design approaches and materials to achieve optimal energy storage and structural integrity.',
@@ -335,7 +347,9 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'project-6': {
             title: 'SMAC-Robot',
-            image: '/assets/Media/SMAC_Robot.png',
+            media: [
+                { type: 'image', src: '/assets/Media/SMAC_Robot.png' }
+            ],
             metrics: [],
             tech: ['Mechanical Design', 'Arduino', 'Automation'],
             description: 'Autonomous floor cleaning robot designed with a mechanical approach, focusing on robust mechanical systems for effective cleaning operations.',
@@ -349,7 +363,9 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'project-7': {
             title: 'Worktable Positioning System',
-            image: '/assets/Media/Worktable.png',
+            media: [
+                { type: 'image', src: '/assets/Media/Worktable.png' }
+            ],
             metrics: [],
             tech: ['Mechanical Design', 'Precision Engineering'],
             description: 'Precision worktable positioning system for manufacturing applications.',
@@ -362,7 +378,9 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'project-8': {
             title: 'Surveillance Robot',
-            image: '/assets/Media/Surveillance_Robot.png',
+            media: [
+                { type: 'image', src: '/assets/Media/Surveillance_Robot.png' }
+            ],
             metrics: [],
             tech: ['Robotics', 'Surveillance', 'Mobile Platform'],
             description: 'Mobile surveillance robot for monitoring and security applications.',
@@ -375,7 +393,9 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'project-9': {
             title: 'Missile Launching Robot',
-            image: '/assets/Media/Missile_Robot.png',
+            media: [
+                { type: 'image', src: '/assets/Media/Missile_Robot.png' }
+            ],
             metrics: [],
             tech: ['Robotics', 'Targeting', 'Control Systems'],
             description: 'Robotic system for missile launching with precision targeting capabilities.',
@@ -395,7 +415,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <button class="modal-close" aria-label="Close">&times;</button>
                 <div class="modal-grid">
                     <div class="modal-media">
-                        <img id="modal-image" src="" alt="">
+                        <div id="modal-media-container"></div>
                     </div>
                     <div class="modal-details">
                         <h3 id="modal-title"></h3>
@@ -413,14 +433,99 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const modal = document.getElementById('project-preview-modal');
     const modalClose = modal.querySelector('.modal-close');
+    let currentSlideIndex = 0;
+    let currentMediaArray = [];
+
+    function updateSlide(index) {
+        const slides = modal.querySelectorAll('.modal-slide');
+        const indicators = modal.querySelectorAll('.modal-slide-indicator');
+
+        slides.forEach((slide, i) => {
+            slide.classList.toggle('active', i === index);
+        });
+
+        indicators.forEach((indicator, i) => {
+            indicator.classList.toggle('active', i === index);
+        });
+
+        currentSlideIndex = index;
+    }
+
+    function nextSlide() {
+        const newIndex = (currentSlideIndex + 1) % currentMediaArray.length;
+        updateSlide(newIndex);
+    }
+
+    function prevSlide() {
+        const newIndex = (currentSlideIndex - 1 + currentMediaArray.length) % currentMediaArray.length;
+        updateSlide(newIndex);
+    }
 
     function openModal(projectId) {
         const data = projectData[projectId];
         if (!data) return;
 
         document.getElementById('modal-title').textContent = data.title;
-        document.getElementById('modal-image').src = data.image;
         document.getElementById('modal-description').textContent = data.description;
+
+        // Handle media (single or slider)
+        const mediaContainer = document.getElementById('modal-media-container');
+        currentMediaArray = data.media;
+        currentSlideIndex = 0;
+
+        if (data.media.length === 1) {
+            // Single media item
+            const media = data.media[0];
+            if (media.type === 'video') {
+                mediaContainer.innerHTML = `<video autoplay loop muted playsinline style="width:100%;height:auto;display:block;border-radius:0.5rem;max-height:500px;">
+                    <source src="${media.src}" type="video/mp4">
+                </video>`;
+            } else {
+                mediaContainer.innerHTML = `<img src="${media.src}" alt="${data.title}" style="width:100%;height:auto;display:block;border-radius:0.5rem;max-height:500px;">`;
+            }
+        } else {
+            // Multiple media items - create slider
+            const slidesHTML = data.media.map((media, index) => {
+                const activeClass = index === 0 ? 'active' : '';
+                if (media.type === 'video') {
+                    return `<div class="modal-slide ${activeClass}">
+                        <video autoplay loop muted playsinline>
+                            <source src="${media.src}" type="video/mp4">
+                        </video>
+                    </div>`;
+                } else {
+                    return `<div class="modal-slide ${activeClass}">
+                        <img src="${media.src}" alt="${data.title}">
+                    </div>`;
+                }
+            }).join('');
+
+            const indicatorsHTML = data.media.map((_, index) => {
+                const activeClass = index === 0 ? 'active' : '';
+                return `<div class="modal-slide-indicator ${activeClass}" data-index="${index}"></div>`;
+            }).join('');
+
+            mediaContainer.innerHTML = `
+                <div class="modal-media-slider">
+                    <div class="modal-slides">
+                        ${slidesHTML}
+                    </div>
+                    <button class="modal-slide-nav prev" id="modal-prev">&lt;</button>
+                    <button class="modal-slide-nav next" id="modal-next">&gt;</button>
+                    <div class="modal-slide-indicators">
+                        ${indicatorsHTML}
+                    </div>
+                </div>
+            `;
+
+            // Attach slider event listeners
+            modal.querySelector('#modal-prev').addEventListener('click', prevSlide);
+            modal.querySelector('#modal-next').addEventListener('click', nextSlide);
+
+            modal.querySelectorAll('.modal-slide-indicator').forEach((indicator, index) => {
+                indicator.addEventListener('click', () => updateSlide(index));
+            });
+        }
 
         // Metrics
         const metricsContainer = document.getElementById('modal-metrics');
