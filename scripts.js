@@ -11,17 +11,19 @@ document.addEventListener('DOMContentLoaded', () => {
     let shimmerPoints = [];
     const GRID_SIZE = 50; // Size of the grid cells in pixels
 
-    // --- Smooth Scroll Navigation ---
-    document.querySelectorAll('.nav-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
+    // --- Floating Navigation ---
+    const navDots = document.querySelectorAll('.nav-dot');
+    const sections = document.querySelectorAll('section[id]');
+
+    // Smooth scroll on click
+    navDots.forEach(dot => {
+        dot.addEventListener('click', (e) => {
             e.preventDefault();
-            const targetId = btn.getAttribute('href').slice(1);
+            const targetId = dot.getAttribute('href').slice(1);
             const targetSection = document.getElementById(targetId);
 
             if (targetSection) {
-                const navHeight = document.querySelector('.sticky-nav').offsetHeight;
-                const targetPosition = targetSection.offsetTop - navHeight - 20;
-
+                const targetPosition = targetSection.offsetTop - 80;
                 window.scrollTo({
                     top: targetPosition,
                     behavior: 'smooth'
@@ -29,6 +31,31 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Update active dot on scroll
+    function updateActiveNav() {
+        let currentSection = '';
+        const scrollPosition = window.scrollY + 200;
+
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                currentSection = section.getAttribute('id');
+            }
+        });
+
+        navDots.forEach(dot => {
+            dot.classList.remove('active');
+            if (dot.getAttribute('href') === `#${currentSection}`) {
+                dot.classList.add('active');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', updateActiveNav);
+    updateActiveNav(); // Initial call
 
     // --- Theme Toggle Functionality ---
     function applyTheme(theme) {
