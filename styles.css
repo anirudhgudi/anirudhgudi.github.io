@@ -575,7 +575,153 @@ body.dark .photo-item:hover img {
     box-shadow: 0 10px 15px -3px var(--shadow-color-dark), 0 4px 6px -2px var(--shadow-color-dark);
 }
 
-/* Status Badge & CTA Buttons */
+/* Minimal Availability Note */
+.availability-note {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--accent-color);
+    font-style: italic;
+}
+
+body.dark .availability-note {
+    color: var(--accent-color-dark);
+}
+
+/* Hover-based Project Preview */
+.project-title-hover {
+    cursor: help;
+    position: relative;
+    display: inline-block;
+    transition: color 0.3s;
+}
+
+.project-title-hover:hover {
+    color: var(--accent-color);
+}
+
+body.dark .project-title-hover:hover {
+    color: var(--accent-color-dark);
+}
+
+.hover-preview {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, opacity 0.5s ease, margin 0.3s ease;
+    margin: 0;
+}
+
+.project-title-hover:hover+.hover-preview,
+.hover-preview:hover {
+    max-height: 200px;
+    opacity: 1;
+    margin: 0.75rem 0;
+}
+
+.preview-compact {
+    background-color: rgba(74, 93, 80, 0.05);
+    border-left: 2px solid var(--accent-color);
+    padding: 0.75rem 1rem;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+body.dark .preview-compact {
+    background-color: rgba(143, 188, 143, 0.08);
+    border-left-color: var(--accent-color-dark);
+    color: var(--text-secondary-dark);
+}
+
+.preview-compact strong {
+    color: var(--text-primary);
+}
+
+body.dark .preview-compact strong {
+    color: var(--text-primary-dark);
+}
+
+/* Keep existing Achievement Lists and Skills */
+.achievement-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 0.75rem;
+}
+
+.achievement-list li {
+    padding-left: 1.5rem;
+    position: relative;
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+}
+
+.achievement-list li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-weight: 700;
+}
+
+body.dark .achievement-list li {
+    color: var(--text-secondary-dark);
+}
+
+body.dark .achievement-list li:before {
+    color: var(--accent-color-dark);
+}
+
+/* Skills with Proficiency Levels */
+.skills-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.skill-name {
+    flex: 1;
+}
+
+.skill-level {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-weight: 600;
+}
+
+.skill-level.expert {
+    background-color: #dcfce7;
+    color: #15803d;
+}
+
+.skill-level.advanced {
+    background-color: #dbeafe;
+    color: #1e40af;
+}
+
+.skill-level.intermediate {
+    background-color: #fef3c7;
+    color: #92400e;
+}
+
+body.dark .skill-level.expert {
+    background-color: #14532d;
+    color: #86efac;
+}
+
+body.dark .skill-level.advanced {
+    background-color: #1e3a8a;
+    color: #93c5fd;
+}
+
+body.dark .skill-level.intermediate {
+    background-color: #78350f;
+    color: #fcd34d;
+}
+
+/* Status Badge & CTA Buttons - REMOVED FOR MINIMAL DESIGN */
 .status-badge {
     display: inline-flex;
     align-items: center;
