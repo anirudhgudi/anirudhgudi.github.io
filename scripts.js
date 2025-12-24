@@ -321,7 +321,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'project-2': {
             title: 'Adaptive Sensor Fusion for Localization',
             media: [
-                { type: 'image', src: '/assets/Media/Sensor_fusion_architecture.png' }
+                { type: 'image', src: '/assets/Media/Adaptive Arch.png' }
             ],
             metrics: [
                 { value: '15%', label: 'Accuracy Gain' },
