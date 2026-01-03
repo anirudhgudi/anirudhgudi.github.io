@@ -652,175 +652,26 @@ document.addEventListener('DOMContentLoaded', () => {
     modal.addEventListener('click', (e) => {
         if (e.target === modal) closeModal();
     });
-    document.addEventListener('DOMContentLoaded', () => {
-        // --- DOM Elements ---
-        const body = document.body;
-        const themeToggleButton = document.getElementById('theme-toggle');
-        const canvas = document.getElementById('shooting-stars-canvas');
-        const ctx = canvas.getContext('2d');
 
-        // --- 1. Theme Toggle ---
-        function applyTheme(theme) {
-            if (theme === 'dark') {
-                body.setAttribute('data-theme', 'dark');
-                body.classList.add('dark'); // For canvas check
-            } else {
-                body.setAttribute('data-theme', 'light');
-                body.classList.remove('dark');
-            }
-            localStorage.setItem('theme', theme);
+    document.addEventListener('keydown', (e) => {
+        if (modal.classList.contains('active')) {
+            if (e.key === 'Escape') closeModal();
+            if (e.key === 'ArrowLeft') navigateProject('prev');
+            if (e.key === 'ArrowRight') navigateProject('next');
         }
+    });
 
-        function initializeTheme() {
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme) {
-                applyTheme(savedTheme);
-            } else {
-                const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                applyTheme(systemPrefersDark ? 'dark' : 'light');
+    // Attach click handlers to all projects
+    document.querySelectorAll('.project-detail-item').forEach(item => {
+        const projectId = item.getAttribute('id');
+
+        // Make entire project item clickable
+        item.style.cursor = 'pointer';
+        item.addEventListener('click', (e) => {
+            // Prevent modal opening if clicking on a link
+            if (e.target.tagName !== 'A') {
+                openModal(projectId);
             }
-        }
-
-        themeToggleButton.addEventListener('click', () => {
-            const isDark = body.getAttribute('data-theme') === 'dark';
-            applyTheme(isDark ? 'light' : 'dark');
-            // Redraw canvas immediately for color update
-            if (isDark) { createFloatingMotes(); } else { createShimmerPoints(); }
-        });
-
-        initializeTheme();
-
-        // --- 2. Interactive Project Index (Hover & Accordion) ---
-        const projectRows = document.querySelectorAll('.project-row');
-        const previewOverlay = document.getElementById('project-preview-overlay');
-        const previewImage = document.getElementById('project-preview-image');
-
-        // Accordion Logic
-        projectRows.forEach(row => {
-            row.addEventListener('click', (e) => {
-                // If clicking a link inside, don't toggle
-                if (e.target.tagName === 'A') return;
-
-                const isActive = row.classList.contains('active');
-
-                // Close all
-                projectRows.forEach(r => r.classList.remove('active'));
-
-                // If it wasn't active, open it
-                if (!isActive) {
-                    row.classList.add('active');
-                }
-            });
-
-            // Hover Preview Logic
-            row.addEventListener('mouseenter', () => {
-                const imgSrc = row.getAttribute('data-preview-img');
-                if (imgSrc) {
-                    previewImage.src = imgSrc;
-                    previewOverlay.classList.add('is-visible');
-                }
-            });
-
-            row.addEventListener('mouseleave', () => {
-                previewOverlay.classList.remove('is-visible');
-            });
-        });
-
-        // Cursor Follow Logic for Preview
-        let mouseX = 0, mouseY = 0;
-        let cursorX = 0, cursorY = 0;
-
-        window.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-        });
-
-        function animateCursor() {
-            // Smooth lerp
-            const dt = 0.15;
-            cursorX += (mouseX - cursorX) * dt;
-            cursorY += (mouseY - cursorY) * dt;
-
-            if (previewOverlay.classList.contains('is-visible')) {
-                previewOverlay.style.left = `${cursorX}px`;
-                previewOverlay.style.top = `${cursorY}px`;
-            }
-
-            requestAnimationFrame(animateCursor);
-        }
-        animateCursor();
-
-
-        // --- 3. Background Animation (Canvas) ---
-        // Kept the same logic as before but cleaned up
-        let particles = [];
-        const GRID_SIZE = 50;
-
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-
-        class Particle {
-            constructor(isDark) {
-                this.reset(isDark);
-            }
-            reset(isDark) {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 2 + 0.5;
-                this.speedX = (Math.random() - 0.5) * 0.5;
-                this.speedY = (Math.random() - 0.5) * 0.5;
-                this.opacity = Math.random() * 0.5 + 0.1;
-                this.isDark = isDark;
-            }
-            update() {
-                this.x += this.speedX;
-                this.y += this.speedY;
-
-                if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
-                if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
-            }
-            draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fillStyle = this.isDark
-                    ? `rgba(143, 188, 143, ${this.opacity})` // Light green for dark mode
-                    : `rgba(47, 79, 79, ${this.opacity})`;   // Dark slate for light mode
-                ctx.fill();
-            }
-        }
-
-        function createParticles() {
-            particles = [];
-            const isDark = body.getAttribute('data-theme') === 'dark';
-            const count = 50;
-            for (let i = 0; i < count; i++) {
-                particles.push(new Particle(isDark));
-            }
-        }
-
-        function animateCanvas() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particles.forEach(p => {
-                p.update();
-                p.draw();
-            });
-            requestAnimationFrame(animateCanvas);
-        }
-
-        window.addEventListener('resize', () => {
-            resizeCanvas();
-            createParticles();
-        });
-
-        // Start Canvas
-        resizeCanvas();
-        createParticles();
-        animateCanvas();
-
-        // Re-create particles on theme switch to change color
-        themeToggleButton.addEventListener('click', () => {
-            setTimeout(createParticles, 50);
         });
     });
+});
