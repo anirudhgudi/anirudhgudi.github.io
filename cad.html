@@ -4,211 +4,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anirudh Gudi - CAD Files</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Source+Sans+3:wght@400;600&display=swap"
+    <title>Anirudh Gudi - CAD Portfolio</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500&family=Source+Sans+3:wght@300;400;600&display=swap"
         rel="stylesheet">
-    <!-- Model Viewer for GLTF models -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Model Viewer -->
     <script type="module" src="https://unpkg.com/@google/model-viewer@2.1.1/dist/model-viewer.min.js"></script>
 </head>
 
 <body>
-    <canvas id="shooting-stars-canvas"></canvas>
+    <div class="background-effects">
+        <canvas id="shooting-stars-canvas"></canvas>
+    </div>
 
     <div class="container">
-        <header class="header section-divider">
+        <!-- Header (Compact Version) -->
+        <header class="header section-divider" style="padding-top: 4rem; padding-bottom: 2rem;">
             <div class="header-layout">
-                <div class="profile-image-container">
-                    <img src="assets/Media/ProfilePicture.JPG" alt="Anirudh Gudi" class="profile-image default">
-                    <img src="assets/Media/ProfilePicture2.JPG" alt="Anirudh Gudi Funny" class="profile-image funny">
-                </div>
                 <div class="header-text">
-                    <h1 class="main-title">Anirudh Gudi</h1>
-                    <p class="subtitle">Roboticist and Mechanical Engineer</p>
-                    <p class="intro-text">M.S. Robotics student at UC Riverside with two years of experience in 3D
-                        modeling and sheet metal design. Specialized in developing navigation solutions for wheeled and
-                        legged robotic platforms, with hands-on experience in robotic system integration.</p>
+                    <h1 class="main-title" style="font-size: 2.5rem;">Anirudh Gudi <span
+                            style="font-size: 1.5rem; color: var(--text-secondary); font-weight: 300;">/ CAD
+                            Portfolio</span></h1>
+
+                    <div class="links-bar" style="margin-top: 1.5rem;">
+                        <a href="index.html" class="link-item">← Home</a>
+                        <span class="separator">/</span>
+                        <a href="mailto:contact.anirudhgudi@gmail.com" class="link-item">Email</a>
+                        <span class="separator">/</span>
+                        <a href="index.html#contact" class="link-item">Contact</a>
+
+                        <button id="theme-toggle" class="theme-toggle-button" aria-label="Toggle theme">
+                            <svg class="theme-icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="5"></circle>
+                                <line x1="12" y1="1" x2="12" y2="3"></line>
+                                <line x1="12" y1="21" x2="12" y2="23"></line>
+                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                <line x1="1" y1="12" x2="3" y2="12"></line>
+                                <line x1="21" y1="12" x2="23" y2="12"></line>
+                                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                            </svg>
+                            <svg class="theme-icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
-            </div>
-            <div class="links-bar">
-                <a href="mailto:contact.anirudhgudi@gmail.com">contact.anirudhgudi@gmail.com</a>
-                <a href="resume.pdf">Resume</a>
-                <a href="https://github.com/anirudhgudi">GitHub</a>
-                <a href="https://linkedin.com/in/anirudhgudi">LinkedIn</a>
-                <a href="index.html">Home</a>
-                <button id="theme-toggle" class="theme-toggle-button">
-                    <svg id="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                    <svg id="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                </button>
             </div>
         </header>
 
-        <section class="section">
-            <h2 class="section-title">CAD Files</h2>
-            <p class="intro-text">Explore my collection of 3D models created in SolidWorks and exported to GLTF for
-                efficient viewing. Rotate, zoom, and inspect each model interactively. These showcase robotic
-                components, mechanical designs, and prototypes.</p>
-            <div class="cad-grid">
-                <!-- Model 1 -->
-                <div class="cad-item">
-                    <model-viewer src="cad/model1.gltf" alt="Quadruped Leg Assembly" shadow-intensity="1"
-                        camera-controls touch-action="pan-y" auto-rotate ar poster="cad/model1-poster.jpg">
-                        <div slot="poster" class="cad-poster">Loading model...</div>
-                    </model-viewer>
-                    <h3 class="cad-title">Quadruped Leg Assembly</h3>
-                    <p class="cad-description">A detailed model of a robotic leg for quadruped navigation.</p>
-                </div>
-                <!-- Model 2 -->
-                <div class="cad-item">
-                    <model-viewer src="cad/model2.gltf" alt="SCARA Arm" shadow-intensity="1" camera-controls
-                        touch-action="pan-y" auto-rotate ar poster="cad/model2-poster.jpg">
-                        <div slot="poster" class="cad-poster">Loading model...</div>
-                    </model-viewer>
-                    <h3 class="cad-title">SCARA Arm</h3>
-                    <p class="cad-description">3DOF SCARA robot arm with fault detection features.</p>
-                </div>
-                <!-- Model 3 -->
-                <div class="cad-item">
-                    <model-viewer src="cad/model3.gltf" alt="Gantry Loader" shadow-intensity="1" camera-controls
-                        touch-action="pan-y" auto-rotate ar poster="cad/model3-poster.jpg">
-                        <div slot="poster" class="cad-poster">Loading model...</div>
-                    </model-viewer>
-                    <h3 class="cad-title">Gantry Loader</h3>
-                    <p class="cad-description">3DOF gantry for CNC workpiece handling.</p>
-                </div>
-                <!-- Model 4 -->
-                <div class="cad-item">
-                    <model-viewer src="cad/model4.gltf" alt="Flywheel Optimized" shadow-intensity="1" camera-controls
-                        touch-action="pan-y" auto-rotate ar poster="cad/model4-poster.jpg">
-                        <div slot="poster" class="cad-poster">Loading model...</div>
-                    </model-viewer>
-                    <h3 class="cad-title">Optimized Flywheel</h3>
-                    <p class="cad-description">Flywheel design with structural optimizations.</p>
-                </div>
-                <!-- Model 5 -->
-                <div class="cad-item">
-                    <model-viewer src="cad/model5.gltf" alt="Worktable Positioner" shadow-intensity="1" camera-controls
-                        touch-action="pan-y" auto-rotate ar poster="cad/model5-poster.jpg">
-                        <div slot="poster" class="cad-poster">Loading model...</div>
-                    </model-viewer>
-                    <h3 class="cad-title">Worktable Positioner</h3>
-                    <p class="cad-description">Precision positioning system for worktables.</p>
-                </div>
-                <!-- Model 6 -->
-                <div class="cad-item">
-                    <model-viewer src="cad/model6.gltf" alt="Surveillance Robot Chassis" shadow-intensity="1"
-                        camera-controls touch-action="pan-y" auto-rotate ar poster="cad/model6-poster.jpg">
-                        <div slot="poster" class="cad-poster">Loading model...</div>
-                    </model-viewer>
-                    <h3 class="cad-title">Surveillance Robot Chassis</h3>
-                    <p class="cad-description">Chassis design for a mobile surveillance robot.</p>
-                </div>
-                <!-- Model 7 -->
-                <div class="cad-item">
-                    <model-viewer src="cad/model7.gltf" alt="Missile Launcher Mechanism" shadow-intensity="1"
-                        camera-controls touch-action="pan-y" auto-rotate ar poster="cad/model7-poster.jpg">
-                        <div slot="poster" class="cad-poster">Loading model...</div>
-                    </model-viewer>
-                    <h3 class="cad-title">Missile Launcher Mechanism</h3>
-                    <p class="cad-description">Mechanical assembly for missile launching robot.</p>
-                </div>
-                <!-- Model 8 -->
-                <div class="cad-item">
-                    <model-viewer src="cad/model8.gltf" alt="Underbody Bracket" shadow-intensity="1" camera-controls
-                        touch-action="pan-y" auto-rotate ar poster="cad/model8-poster.jpg">
-                        <div slot="poster" class="cad-poster">Loading model...</div>
-                    </model-viewer>
-                    <h3 class="cad-title">Underbody Bracket</h3>
-                    <p class="cad-description">Structural bracket for automotive underbody.</p>
-                </div>
-                <!-- Model 9 -->
-                <div class="cad-item">
-                    <model-viewer src="cad/model9.gltf" alt="BIW Part" shadow-intensity="1" camera-controls
-                        touch-action="pan-y" auto-rotate ar poster="cad/model9-poster.jpg">
-                        <div slot="poster" class="cad-poster">Loading model...</div>
-                    </model-viewer>
-                    <h3 class="cad-title">Body-in-White Part</h3>
-                    <p class="cad-description">Optimized BIW component design.</p>
-                </div>
-                <!-- Model 10 -->
-                <div class="cad-item">
-                    <model-viewer src="cad/model10.gltf" alt="TurtleBot3 Mod" shadow-intensity="1" camera-controls
-                        touch-action="pan-y" auto-rotate ar poster="cad/model10-poster.jpg">
-                        <div slot="poster" class="cad-poster">Loading model...</div>
-                    </model-viewer>
-                    <h3 class="cad-title">TurtleBot3 Modification</h3>
-                    <p class="cad-description">Custom modifications for cleaning robot base.</p>
-                </div>
-                <!-- Model 11 -->
-                <div class="cad-item">
-                    <model-viewer src="cad/model11.gltf" alt="OpenManipulator-X Arm" shadow-intensity="1"
-                        camera-controls touch-action="pan-y" auto-rotate ar poster="cad/model11-poster.jpg">
-                        <div slot="poster" class="cad-poster">Loading model...</div>
-                    </model-viewer>
-                    <h3 class="cad-title">OpenManipulator-X Arm</h3>
-                    <p class="cad-description">Manipulator arm for pick-and-place tasks.</p>
-                </div>
-                <!-- Model 12 -->
-                <div class="cad-item">
-                    <model-viewer src="cad/model12.gltf" alt="Sensor Mount" shadow-intensity="1" camera-controls
-                        touch-action="pan-y" auto-rotate ar poster="cad/model12-poster.jpg">
-                        <div slot="poster" class="cad-poster">Loading model...</div>
-                    </model-viewer>
-                    <h3 class="cad-title">Sensor Mount</h3>
-                    <p class="cad-description">Mount for IMU and GNSS sensors.</p>
-                </div>
-                <!-- Model 13 -->
-                <div class="cad-item">
-                    <model-viewer src="cad/model13.gltf" alt="Motor Housing" shadow-intensity="1" camera-controls
-                        touch-action="pan-y" auto-rotate ar poster="cad/model13-poster.jpg">
-                        <div slot="poster" class="cad-poster">Loading model...</div>
-                    </model-viewer>
-                    <h3 class="cad-title">Motor Housing</h3>
-                    <p class="cad-description">Custom housing for robotic motors.</p>
-                </div>
-                <!-- Model 14 -->
-                <div class="cad-item">
-                    <model-viewer src="cad/model14.gltf" alt="Wheel Assembly" shadow-intensity="1" camera-controls
-                        touch-action="pan-y" auto-rotate ar poster="cad/model14-poster.jpg">
-                        <div slot="poster" class="cad-poster">Loading model...</div>
-                    </model-viewer>
-                    <h3 class="cad-title">Wheel Assembly</h3>
-                    <p class="cad-description">Wheeled platform component.</p>
-                </div>
-                <!-- Model 15 -->
-                <div class="cad-item">
-                    <model-viewer src="cad/model15.gltf" alt="Frame Prototype" shadow-intensity="1" camera-controls
-                        touch-action="pan-y" auto-rotate ar poster="cad/model15-poster.jpg">
-                        <div slot="poster" class="cad-poster">Loading model...</div>
-                    </model-viewer>
-                    <h3 class="cad-title">Frame Prototype</h3>
-                    <p class="cad-description">Prototype frame for legged robot.</p>
-                </div>
-            </div>
-        </section>
+        <main>
+            <section class="section">
+                <p class="cad-intro">
+                    A collection of mechanical designs, from robotic limbs to structural optimization studies.
+                    Interactive 3D models demonstrate topology optimization, DFM considerations, and assembly fit.
+                </p>
 
-        <footer class="footer">
-            <p class="footer-text">© 2025 Anirudh Gudi</p>
-        </footer>
+                <div class="cad-grid">
+                    <!-- Model 1 -->
+                    <div class="cad-item">
+                        <model-viewer src="cad/model1.gltf" alt="Quadruped Leg Assembly" shadow-intensity="1"
+                            camera-controls touch-action="pan-y" auto-rotate ar>
+                            <div slot="poster" class="cad-poster"></div>
+                        </model-viewer>
+                        <h3 class="cad-title">Quadruped Leg Assembly</h3>
+                        <p class="cad-description">3-DOF leg design for dynamic locomotion over uneven terrain.</p>
+                    </div>
+
+                    <!-- Model 2 -->
+                    <div class="cad-item">
+                        <model-viewer src="cad/model2.gltf" alt="SCARA Arm" shadow-intensity="1" camera-controls
+                            touch-action="pan-y" auto-rotate ar>
+                            <div slot="poster" class="cad-poster"></div>
+                        </model-viewer>
+                        <h3 class="cad-title">SCARA Arm</h3>
+                        <p class="cad-description">Industrial robotic arm for high-speed pick and place operations.</p>
+                    </div>
+
+                    <!-- Model 3 -->
+                    <div class="cad-item">
+                        <model-viewer src="cad/model3.gltf" alt="Gantry Loader" shadow-intensity="1" camera-controls
+                            touch-action="pan-y" auto-rotate ar>
+                            <div slot="poster" class="cad-poster"></div>
+                        </model-viewer>
+                        <h3 class="cad-title">Gantry Loader</h3>
+                        <p class="cad-description">Heavy-duty gantry system for CNC machine tending.</p>
+                    </div>
+
+                    <!-- Model 4 -->
+                    <div class="cad-item">
+                        <model-viewer src="cad/model4.gltf" alt="Optimized Flywheel" shadow-intensity="1"
+                            camera-controls touch-action="pan-y" auto-rotate ar>
+                            <div slot="poster" class="cad-poster"></div>
+                        </model-viewer>
+                        <h3 class="cad-title">Topology Optimized Flywheel</h3>
+                        <p class="cad-description">Mass-reduced flywheel design maintaining high rotational inertia.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <script src="scripts.js"></script>
     </div>
-
-    <script src="scripts.js"></script>
 </body>
 
 </html>
