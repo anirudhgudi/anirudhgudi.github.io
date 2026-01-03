@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Floating Navigation ---
     const navDots = document.querySelectorAll('.nav-dot');
-    const sections = document.querySelectorAll('section[id]');
+    const sections = document.querySelectorAll('header[id], section[id]');
 
     // Smooth scroll on click
     navDots.forEach(dot => {
@@ -35,16 +35,21 @@ document.addEventListener('DOMContentLoaded', () => {
     // Update active dot on scroll
     function updateActiveNav() {
         let currentSection = '';
-        const scrollPosition = window.scrollY + 200;
+        const scrollPosition = window.scrollY + 250; // Increased offset for better feel
 
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
             const sectionHeight = section.offsetHeight;
 
-            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            if (scrollPosition >= sectionTop) {
                 currentSection = section.getAttribute('id');
             }
         });
+
+        // Special case for bottom of page
+        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
+            currentSection = 'contact';
+        }
 
         navDots.forEach(dot => {
             dot.classList.remove('active');
@@ -297,158 +302,177 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Click-based Project Preview Modal ---
     const projectData = {
         'project-1': {
-            title: 'FCleanBOT - Autonomous Cleaning Robot',
+            title: 'Smart Floor-Cleaning Robot with Robotic Arm',
             media: [
                 { type: 'image', src: '/assets/Media/Project1.png' },
                 { type: 'video', src: '/assets/Media/Move Robot 1.mp4' },
                 { type: 'image', src: '/assets/Media/Project1_1.png' }
             ],
             metrics: [
-                { value: '85%', label: 'Grasp Success' },
-                { value: '0.02s', label: 'Cycle Time' }
+                { value: 'ROS', label: 'Framework' },
+                { value: '4-DOF', label: 'Arm' }
             ],
-            tech: ['ROS', 'SLAM', 'Gazebo', 'Python', 'MoveIt'],
-            description: 'Developed an integrated mobile manipulation system combining TurtleBot3 with OpenManipulator-X arm for autonomous object collection. Implemented LiDAR-based SLAM (GMapping) for real-time environment mapping, boustrophedon path planning for complete coverage, and custom inverse kinematics solver for precise pick-and-place operations.',
+            tech: ['ROS', 'SLAM', 'GMapping', 'Gazebo', 'Inverse Kinematics', 'Boustrophedon'],
+            description: 'Developed an integrated mobile manipulation system using TurtleBot3 and OpenManipulator-X for autonomous floor cleaning and object relocation. Implemented LiDAR-based SLAM and systematic coverage algorithms in ROS Gazebo simulation.',
             highlights: [
-                'Integrated TurtleBot3 with OpenManipulator-X arm for autonomous object collection',
-                'Implemented Gmapping SLAM for real-time environment mapping',
-                'Achieved 85% grasp success rate with custom inverse kinematics solver',
-                '0.02s pick-and-place cycle time in simulation environment'
+                'Implemented ROS GMapping for real-time SLAM and 2D occupancy grid mapping',
+                'Developed Boustrophedon Coverage algorithm for systematic path planning',
+                'Utilized Inverse Kinematics for target-based control of the OpenManipulator-X arm',
+                'Integrated hardware components: TurtleBot3 Waffle Pi, LiDAR, and depth cameras'
             ],
             github: 'https://github.com/anirudhgudi/FCleanBOT',
             report: '/assets/Project1.pdf'
         },
         'project-2': {
-            title: 'Adaptive Sensor Fusion for Localization',
+            title: 'Adaptive Sensor Fusion for Vehicle Localization',
             media: [
                 { type: 'image', src: '/assets/Media/Adaptive Arch.png' }
             ],
             metrics: [
-                { value: '15%', label: 'Accuracy Gain' },
-                { value: 'Real-time', label: 'Processing' }
+                { value: 'EKF/UKF', label: 'Filters' },
+                { value: 'GNSS', label: 'Denied' }
             ],
-            tech: ['Kalman Filter', 'MATLAB', 'IMU', 'GNSS', 'EKF', 'UKF'],
-            description: 'Built an adaptive multi-sensor fusion system combining GNSS, IMU, and odometry using Extended Kalman Filter (EKF), Unscented Kalman Filter (UKF), and Particle Filters. System dynamically selects fusion models based on real-time sensor confidence metrics to ensure robust localization accuracy in varying environmental noise conditions.',
+            tech: ['MATLAB', 'EKF', 'UKF', 'Particle Filter', 'FGO', 'Confidence Scores'],
+            description: 'Engineered a robust vehicle state estimation system integrating GNSS, IMU, and odometry. Developed an adaptive framework that dynamically selects the optimal fusion algorithm based on real-time sensor reliability metrics.',
             highlights: [
-                'Developed adaptive Extended Kalman Filter for multi-sensor fusion',
-                '15% improvement in localization accuracy over standard EKF',
-                'Dynamic weight adjustment based on real-time sensor confidence',
-                'Robust performance in high-noise environments'
+                'Implemented EKF, UKF, Particle Filter (PF), and Factor Graph Optimization (FGO)',
+                'Developed dynamic confidence scores for real-time algorithm selection',
+                'Significantly enhanced localization accuracy over standalone sensor estimates',
+                'Demonstrated resilience in high-noise environments and GNSS-denied scenarios'
             ],
             report: '/assets/Project2.pdf'
         },
         'project-3': {
-            title: 'SCARA 3DOF Robot Fault Detection',
+            title: 'Fault Detection and Isolation for SCARA Robot',
             media: [
-                { type: 'image', src: '/assets/Media/SCARA_Robot_Simulink.png' }
+                { type: 'image', src: '/assets/Media/SF2.png' }
             ],
             metrics: [
-                { value: '92%', label: 'Detection Rate' },
-                { value: '3DOF', label: 'System' }
+                { value: '2-DOF', label: 'SCARA' },
+                { value: 'Observer', label: 'Based' }
             ],
-            tech: ['MATLAB', 'Simulink', 'Simscape', 'Machine Learning'],
-            description: 'Created a comprehensive MATLAB/Simulink model of a 3DOF SCARA robot with fault injection capabilities for actuator and sensor failures. Designed and implemented residual-based fault detection logic using machine learning classification to identify anomalies and trigger automatic recovery behaviors.',
+            tech: ['MATLAB', 'Simulink', 'Jacobian Matrices', 'Observer Design', 'FDI'],
+            description: 'Implemented a fault detection and isolation (FDI) technique for a 2-DOF SCARA robot using an observer-based approach. focused on ensuring reliability and safety in automated manufacturing pick-and-place tasks.',
             highlights: [
-                'Developed complete 3DOF SCARA robot simulation in MATLAB/Simulink',
-                '92% fault detection accuracy using machine learning classification',
-                'Real-time anomaly detection with automatic recovery protocols',
-                'Comprehensive testing with multiple fault injection scenarios'
+                'Developed observer-based residual generation for precise fault detection',
+                'Linearized complex dynamic systems using Jacobian matrices for state estimation',
+                'Designed observers to isolate specific sensor and actuator failures',
+                'Established a robust framework for structural anomaly detection'
             ],
-            report: '/assets/Project3.pdf'
+            report: '/assets/Project3.pdf',
+            presentation: '/assets/SCARA_Fault_Detection_Presentation.pdf'
         },
         'project-4': {
-            title: 'Gantry Loader Robot for CNC Machine',
+            title: 'Gantry Loader Industrial Automation',
             media: [
-                { type: 'image', src: '/assets/Media/Gantry_Robot.png' }
+                { type: 'image', src: 'https://placehold.co/600x400/d6d3d1/292524?text=Gantry+Loader' }
             ],
             metrics: [
-                { value: '3DOF', label: 'System' },
-                { value: '4 Members', label: 'Team' }
+                { value: 'L&T', label: 'Industrial' },
+                { value: 'Turning', label: 'Machine' }
             ],
-            tech: ['CREO', 'Ansys', 'Arduino', 'Mechanical Design'],
-            description: 'Led a 4-member team to design and build a 3DOF gantry robot for automated part loading/unloading in CNC turning machines. Managed complete project lifecycle from concept to implementation, including CAD modeling, structural analysis, and Arduino-based motion control.',
+            tech: ['Mechanical Design', 'Automation', 'CNC Tending', 'SolidWorks', 'Industrial Engineering'],
+            description: 'Designed and developed a Gantry Loader for a Turning Machine during an internship at L&T Technology Services. The system automates workpiece handling to enhance industrial productivity and factory safety.',
             highlights: [
-                'Led 4-member team for complete design and fabrication',
-                '3DOF gantry system for precise part handling',
-                'Validated structural integrity through Ansys simulations',
-                'Automated loading/unloading for improved efficiency'
+                'Automated heavy workpiece loading/unloading for manufacturing efficiency',
+                'Integrated high-precision mechanical design with automated control systems',
+                'Improved productivity and significantly reduced factory manual labor',
+                'Applied real-world mechanical engineering principles in a professional setting'
             ],
             report: '/assets/Project4.pdf'
         },
         'project-5': {
-            title: 'Design and Optimization of Flywheel',
+            title: 'Design Optimization of Cast Iron Flywheel',
             media: [
-                { type: 'image', src: '/assets/Media/Flywheel.png' }
+                { type: 'image', src: 'https://placehold.co/600x400/d6d3d1/292524?text=Flywheel+Optimization' }
             ],
-            metrics: [],
-            tech: ['CREO', 'Ansys', 'Optimization', 'FEA'],
-            description: 'Flywheel optimization project exploring different design approaches and materials to achieve optimal energy storage and structural integrity.',
+            metrics: [
+                { value: 'Ansys', label: 'FEA' },
+                { value: 'Mass', label: 'Reduced' }
+            ],
+            tech: ['FEA', 'Ansys', 'Structural Analysis', 'Material Optimization', 'Static Loading'],
+            description: 'Focused on the structural analysis and optimization of a cast iron flywheel. Utilized FEA to identify critical stress areas and reduce rotating mass without compromising energy storage performance.',
             highlights: [
-                'Multiple design iterations and approaches',
-                'FEA analysis for stress and deformation',
-                'Material selection optimization',
-                'Performance validation'
+                'Applied Finite Element Analysis (FEA) for structural verification and stress analysis',
+                'Identified critical stress areas to enable strategic material optimization',
+                'Successfully reduced rotating mass for improved energy efficiency',
+                'Validated design iterations for manufacturing cost-effectiveness'
             ],
             report: '/assets/Project5.pdf'
         },
         'project-6': {
-            title: 'SMAC-Robot',
+            title: 'SMACBOT - Autonomous Cleaning Platform',
             media: [
-                { type: 'image', src: '/assets/Media/SMAC_Robot.png' }
+                { type: 'image', src: 'https://placehold.co/600x400/d6d3d1/292524?text=SMACBOT' }
             ],
-            metrics: [],
-            tech: ['Mechanical Design', 'Arduino', 'Automation'],
-            description: 'Autonomous floor cleaning robot designed with a mechanical approach, focusing on robust mechanical systems for effective cleaning operations.',
+            metrics: [
+                { value: 'Dry/Wet', label: 'Cleaning' },
+                { value: 'Autonomous', label: 'Nav' }
+            ],
+            tech: ['Obstacle Avoidance', 'Multi-surface', 'Mechatronics', 'Arduino', 'Sensors'],
+            description: 'Developed an autonomous cleaning platform for wet and dry floor maintenance. Designed for cost-effective household and industrial floor care with integrated obstacle avoidance and surface detection.',
             highlights: [
-                'Mechanical-focused autonomous cleaning system',
-                'Robust design for floor cleaning',
-                'Arduino-based control system',
-                'Practical implementation and testing'
+                'Integrated dual dry and wet cleaning mechanisms in a single autonomous unit',
+                'Created navigation with obstacle avoidance and surface detection sensors',
+                'Designed modular mechatronic components for ease of maintenance',
+                'Implemented multi-surface cleaning strategies for varied environments'
             ],
             report: '/assets/Project6.pdf'
         },
         'project-7': {
-            title: 'Worktable Positioning System',
+            title: 'Precision Worktable Positioning System',
             media: [
-                { type: 'image', src: '/assets/Media/Worktable.png' }
+                { type: 'image', src: 'https://placehold.co/600x400/d6d3d1/292524?text=Worktable' }
             ],
-            metrics: [],
-            tech: ['Mechanical Design', 'Precision Engineering'],
-            description: 'Precision worktable positioning system for manufacturing applications.',
+            metrics: [
+                { value: 'PID', label: 'Control' },
+                { value: 'High', label: 'Repeatability' }
+            ],
+            tech: ['PID Control', 'State-Space', 'Ball Screws', 'Linear Guides', 'Servo Motors'],
+            description: 'Designed a high-precision positioning system for industrial worktables, common in CNC and automated assembly. Focused on achieving extreme repeatability and minimizing motion errors.',
             highlights: [
-                'High-precision positioning mechanism',
-                'Mechanical design optimization',
-                'Manufacturing application focus'
+                'Implemented PID and State-Space algorithms for high-accuracy positioning',
+                'Analyzed precision mechanical components: ball screws and linear guides',
+                'Achieved high repeatability and error minimization in motion control',
+                'Conducted system stability analysis and response simulation'
             ],
             report: '/assets/Project7.pdf'
         },
         'project-8': {
-            title: 'Surveillance Robot',
+            title: 'Automated Surveillance and Tracking System',
             media: [
-                { type: 'image', src: '/assets/Media/Surveillance_Robot.png' }
+                { type: 'image', src: 'https://placehold.co/600x400/d6d3d1/292524?text=Surveillance' }
             ],
-            metrics: [],
-            tech: ['Robotics', 'Surveillance', 'Mobile Platform'],
-            description: 'Mobile surveillance robot for monitoring and security applications.',
+            metrics: [
+                { value: 'Computer', label: 'Vision' },
+                { value: 'Target', label: 'Tracking' }
+            ],
+            tech: ['Computer Vision', 'Multi-axis Motion', 'Motion Control', 'Targeting', 'Mechatronics'],
+            description: 'Designed an automated surveillance system capable of detecting and tracking intruders using real-time computer vision and multi-axis hardware control.',
             highlights: [
-                'Mobile surveillance platform',
-                'Remote monitoring capabilities',
-                'Autonomous navigation'
+                'Integrated computer vision algorithms for real-time target detection and tracking',
+                'Developed a multi-axis motion control system for precise sensor pointing',
+                'Achieved hardware-level responsiveness using real-time microcontroller processing',
+                'Implemented automated response protocols for area defense and security'
             ],
             report: '/assets/Project8.pdf'
         },
         'project-9': {
-            title: 'Missile Launching Robot',
+            title: 'Army Missile Launcher System Analysis',
             media: [
-                { type: 'image', src: '/assets/Media/Missile_Robot.png' }
+                { type: 'image', src: 'https://placehold.co/600x400/d6d3d1/292524?text=Missile+Launcher' }
             ],
-            metrics: [],
-            tech: ['Robotics', 'Targeting', 'Control Systems'],
-            description: 'Robotic system for missile launching with precision targeting capabilities.',
+            metrics: [
+                { value: 'Strategic', label: 'Mobility' },
+                { value: 'Armored', label: 'AFV' }
+            ],
+            tech: ['Strategic Mobility', 'Weapon Integration', 'Launch Mechanisms', 'AFV Design', 'Modularity'],
+            description: 'Conducted a strategic and functional analysis of mobile missile launcher systems and armored fighting vehicles (AFVs). focused on the evolution of survivable and tech-heavy modern combat platforms.',
             highlights: [
-                'Precision targeting system',
-                'Launch mechanism design',
-                'Control system integration'
+                'Analyzed mobile armor platforms for future battlefield survivability and strategic challenges',
+                'Explored automatic loading and launch mechanisms for advanced missile systems',
+                'Evaluated firepower, strategic mobility, and defense trade-offs in AFV design',
+                'Studied the transition from traditional MBTs to modular combat vehicle architectures'
             ],
             report: '/assets/Project9.pdf'
         }
