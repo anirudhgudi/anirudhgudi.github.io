@@ -1025,13 +1025,14 @@ body.dark .project-highlights li::before {
 }
 
 .project-detail-item {
-    padding-bottom: 10vh;
     opacity: 0.5;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
-    margin-bottom: 8rem;
+    margin-bottom: 4rem;
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 1px solid transparent;
     scroll-margin-top: 100px;
-    padding-top: 1rem;
 }
 
 #project-5 .project-title {
@@ -1048,14 +1049,31 @@ body.dark .project-highlights li::before {
 
 .project-detail-item:hover {
     opacity: 0.85;
+    background-color: rgba(74, 93, 80, 0.02);
+}
+
+body.dark .project-detail-item:hover {
+    background-color: rgba(168, 213, 168, 0.02);
 }
 
 .project-detail-item.is-visible {
     opacity: 1;
+    border-color: var(--divider-color);
+    background-color: rgba(74, 93, 80, 0.04);
+}
+
+body.dark .project-detail-item.is-visible {
+    border-color: var(--divider-color-dark);
+    background-color: rgba(168, 213, 168, 0.04);
 }
 
 .project-detail-item.is-visible:hover {
-    transform: scale(1.01);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px -10px var(--shadow-color);
+}
+
+body.dark .project-detail-item.is-visible:hover {
+    box-shadow: 0 4px 25px -10px var(--shadow-color-dark);
 }
 
 /* Show only first slide in main view */
