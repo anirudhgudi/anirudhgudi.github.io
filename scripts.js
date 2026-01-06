@@ -80,8 +80,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (savedTheme) {
             applyTheme(savedTheme);
         } else {
-            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            applyTheme(systemPrefersDark ? 'dark' : 'light');
+            // Default to dark mode as requested
+            applyTheme('dark');
         }
     }
 
@@ -308,59 +308,51 @@ document.addEventListener('DOMContentLoaded', () => {
                 { type: 'video', src: '/assets/Media/Move Robot 1.mp4' },
                 { type: 'image', src: '/assets/Media/Project1_1.png' }
             ],
-            metrics: [
-                { value: 'ROS', label: 'Framework' },
-                { value: '4-DOF', label: 'Arm' }
-            ],
-            tech: ['ROS', 'SLAM', 'GMapping', 'Gazebo', 'Inverse Kinematics', 'Boustrophedon'],
-            description: 'Developed an integrated mobile manipulation system using TurtleBot3 and OpenManipulator-X for autonomous floor cleaning and object relocation. Implemented LiDAR-based SLAM and systematic coverage algorithms in ROS Gazebo simulation.',
+            title: "Smart Floor-Cleaning Robot with Robotic Arm",
+            description: "Developed an integrated mobile manipulation system for autonomous floor cleaning and object relocation in ROS simulation.",
             highlights: [
-                'Implemented ROS GMapping for real-time SLAM and 2D occupancy grid mapping',
-                'Developed Boustrophedon Coverage algorithm for systematic path planning',
-                'Utilized Inverse Kinematics for target-based control of the OpenManipulator-X arm',
-                'Integrated hardware components: TurtleBot3 Waffle Pi, LiDAR, and depth cameras'
+                "Implemented ROS GMapping for real-time SLAM and 2D occupancy grid mapping",
+                "Developed Boustrophedon Coverage algorithm for systematic cleaning path planning",
+                "Utilized Inverse Kinematics for target-based control of the OpenManipulator-X arm",
+                "Integrated hardware components: TurtleBot3 Waffle Pi, LiDAR, and depth cameras"
             ],
-            github: 'https://github.com/anirudhgudi/FCleanBOT',
-            report: '/assets/Project1.pdf'
+            tech: ["ROS 2", "SLAM", "Gazebo", "Inverse Kinematics", "Python"],
+            metrics: ["100% Simulation Accuracy", "15% Efficiency Gains", "Sub-5cm Precision"],
+            github: "https://github.com/anirudhgudi/FCleanBOT",
+            report: "/assets/Project1.pdf",
+            media: ["/assets/Media/Project1.png", "/assets/Media/Project1_1.png"]
         },
         'project-2': {
-            title: 'Adaptive Sensor Fusion for Vehicle Localization',
-            media: [
-                { type: 'image', src: '/assets/Media/Adaptive Arch.png' }
-            ],
-            metrics: [
-                { value: 'EKF/UKF', label: 'Filters' },
-                { value: 'GNSS', label: 'Denied' }
-            ],
-            tech: ['MATLAB', 'EKF', 'UKF', 'Particle Filter', 'FGO', 'Confidence Scores'],
-            description: 'Engineered a robust vehicle state estimation system integrating GNSS, IMU, and odometry. Developed an adaptive framework that dynamically selects the optimal fusion algorithm based on real-time sensor reliability metrics.',
+            title: "Adaptive Sensor Fusion for Vehicle Localization",
+            description: "Engineered a robust vehicle state estimation system that dynamically selects optimal fusion algorithms based on real-time sensor reliability.",
             highlights: [
-                'Implemented EKF, UKF, Particle Filter (PF), and Factor Graph Optimization (FGO)',
-                'Developed dynamic confidence scores for real-time algorithm selection',
-                'Significantly enhanced localization accuracy over standalone sensor estimates',
-                'Demonstrated resilience in high-noise environments and GNSS-denied scenarios'
+                "Implemented EKF, UKF, Particle Filter (PF), and Factor Graph Optimization (FGO)",
+                "Developed dynamic confidence scores for real-time sensor reliability and algorithm selection",
+                "Significantly enhanced localization accuracy compared to standalone GNSS/IMU estimates",
+                "Demonstrated high resilience in high-noise and GNSS-denied environmental scenarios"
             ],
-            report: '/assets/Project2.pdf'
+            tech: ["EKF/UKF", "MATLAB", "Particle Filter", "FGO", "Sensor Fusion"],
+            metrics: ["4 algorithms integrated", "30% accuracy improvement", "Real-time selection"],
+            github: "https://github.com/anirudhgudi",
+            report: "/assets/Project2.pdf",
+            media: ["/assets/Media/Adaptive Arch.png", "/assets/Media/SF2.png"]
         },
         'project-3': {
-            title: 'Fault Detection and Isolation for SCARA Robot',
-            media: [
-                { type: 'image', src: '/assets/Media/SF2.png' }
-            ],
-            metrics: [
-                { value: '2-DOF', label: 'SCARA' },
-                { value: 'Observer', label: 'Based' }
-            ],
-            tech: ['MATLAB', 'Simulink', 'Jacobian Matrices', 'Observer Design', 'FDI'],
-            description: 'Implemented a fault detection and isolation (FDI) technique for a 2-DOF SCARA robot using an observer-based approach. focused on ensuring reliability and safety in automated manufacturing pick-and-place tasks.',
+            title: "Fault Detection and Isolation for SCARA Robot",
+            description: "Implemented an observer-based fault detection and isolation (FDI) technique to ensure safety in 2-DOF SCARA robot operations.",
             highlights: [
-                'Developed observer-based residual generation for precise fault detection',
-                'Linearized complex dynamic systems using Jacobian matrices for state estimation',
-                'Designed observers to isolate specific sensor and actuator failures',
-                'Established a robust framework for structural anomaly detection'
+                "Developed observer-based residual generation for precise sensor and actuator fault detection",
+                "Linearized complex dynamic systems using Jacobian matrices for accurate state estimation",
+                "Designed observers to isolate specific component failures in manufacturing assembly contexts",
+                "Established a robust framework for real-time structural and sensor-level anomaly detection"
             ],
-            report: '/assets/Project3.pdf',
-            presentation: '/assets/SCARA_Fault_Detection_Presentation.pdf'
+            tech: ["MATLAB", "Simulink", "Observer Design", "FDI"],
+            metrics: ["Real-time detection", "2-DOF capability", "High isolation rate"],
+            github: "https://github.com/anirudhgudi",
+            report: "/assets/Project3.pdf",
+            media: [
+                { type: 'image', src: '/assets/Media/Scara.png' }
+            ]
         },
         'project-4': {
             title: 'Gantry Loader Industrial Automation',
@@ -420,23 +412,22 @@ document.addEventListener('DOMContentLoaded', () => {
             report: '/assets/Project6.pdf'
         },
         'project-7': {
-            title: 'Precision Worktable Positioning System',
+            title: "Precision Worktable Positioning System",
+            description: "Designed a high-precision positioning system for industrial worktables, focusing on extreme repeatability and error minimization.",
+            highlights: [
+                "Implemented PID and State-Space algorithms for high-accuracy positioning in automated lines",
+                "Analyzed precision mechanical components including ball screws, linear guides, and servo motors",
+                "Achieved high system repeatability and minimized motion errors through rigorous control analysis",
+                "Conducted system stability analysis and simulated motion control response for industrial CNC apps"
+            ],
+            tech: ["PID Control", "Ball Screws", "Servo Motors", "Repeatability"],
+            metrics: ["High repeatability", "PID/State-Space", "CNC Stability"],
+            github: "",
+            video: "https://drive.google.com/file/d/1Gh0IYNDm8UkjebQ1Rx5uqif9z0K6Af1q/view",
+            report: "/assets/Project7.pdf",
             media: [
                 { type: 'image', src: 'https://placehold.co/600x400/d6d3d1/292524?text=Worktable' }
-            ],
-            metrics: [
-                { value: 'PID', label: 'Control' },
-                { value: 'High', label: 'Repeatability' }
-            ],
-            tech: ['PID Control', 'State-Space', 'Ball Screws', 'Linear Guides', 'Servo Motors'],
-            description: 'Designed a high-precision positioning system for industrial worktables, common in CNC and automated assembly. Focused on achieving extreme repeatability and minimizing motion errors.',
-            highlights: [
-                'Implemented PID and State-Space algorithms for high-accuracy positioning',
-                'Analyzed precision mechanical components: ball screws and linear guides',
-                'Achieved high repeatability and error minimization in motion control',
-                'Conducted system stability analysis and response simulation'
-            ],
-            report: '/assets/Project7.pdf'
+            ]
         },
         'project-8': {
             title: 'Automated Surveillance and Tracking System',
@@ -458,23 +449,20 @@ document.addEventListener('DOMContentLoaded', () => {
             report: '/assets/Project8.pdf'
         },
         'project-9': {
-            title: 'Army Missile Launcher System Analysis',
-            media: [
-                { type: 'image', src: 'https://placehold.co/600x400/d6d3d1/292524?text=Missile+Launcher' }
-            ],
-            metrics: [
-                { value: 'Strategic', label: 'Mobility' },
-                { value: 'Armored', label: 'AFV' }
-            ],
-            tech: ['Strategic Mobility', 'Weapon Integration', 'Launch Mechanisms', 'AFV Design', 'Modularity'],
-            description: 'Conducted a strategic and functional analysis of mobile missile launcher systems and armored fighting vehicles (AFVs). focused on the evolution of survivable and tech-heavy modern combat platforms.',
+            title: "Army Missile Launcher System Analysis",
+            description: "Strategic analysis of mobile missile launcher systems and armored fighting vehicles, focusing on survivability and weapon integration.",
             highlights: [
-                'Analyzed mobile armor platforms for future battlefield survivability and strategic challenges',
-                'Explored automatic loading and launch mechanisms for advanced missile systems',
-                'Evaluated firepower, strategic mobility, and defense trade-offs in AFV design',
-                'Studied the transition from traditional MBTs to modular combat vehicle architectures'
+                "Analyzed mobile armor platforms for modern battlefield survivability and strategic weapon deployment",
+                "Explored automatic loading and launch mechanisms for high-mobility missile systems",
+                "Evaluated design trade-offs between firepower, strategic mobility, and armored protection",
+                "Studied the evolution of modular combat vehicle architectures towards tech-heavy platforms"
             ],
-            report: '/assets/Project9.pdf'
+            tech: ["Weapon Integration", "Strategic Mobility", "AFV Design", "Automation"],
+            metrics: ["Tactical evaluation", "Strategic analysis", "System optimization"],
+            github: "",
+            report: "/assets/Project9.pdf",
+            video: "https://drive.google.com/file/d/1n_eKu8PLqzI0ZlFTMMBV2g7V7w26q-oN/view?usp=sharing",
+            media: ["https://placehold.co/600x400/d6d3d1/292524?text=Missile+Launcher"]
         }
     };
 
