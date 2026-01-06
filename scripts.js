@@ -302,52 +302,65 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Click-based Project Preview Modal ---
     const projectData = {
         'project-1': {
-            title: 'Smart Floor-Cleaning Robot with Robotic Arm',
+            title: "Smart Floor-Cleaning Robot with Robotic Arm",
+            description: "Developed an integrated mobile manipulation system for autonomous floor cleaning and object relocation in ROS simulation.",
+            highlights: [
+                "Orchestrated real-time SLAM using ROS GMapping for precise 2D occupancy grid mapping",
+                "Architected Boustrophedon Coverage paths for systematic area cleaning",
+                "Mastered Inverse Kinematics for target-based control of the OpenManipulator-X arm",
+                "Configured hardware stack: TurtleBot3 Waffle Pi, LiDAR, and depth cameras"
+            ],
+            tech: ["ROS 2", "SLAM", "Kinematics"],
+            metrics: [
+                { value: "100%", label: "Sim. Accuracy" },
+                { value: "15%", label: "Efficiency Gain" },
+                { value: "<5cm", label: "Precision" }
+            ],
+            github: "https://github.com/anirudhgudi/FCleanBOT",
+            report: "/assets/Project1.pdf",
             media: [
                 { type: 'image', src: '/assets/Media/Project1.png' },
                 { type: 'video', src: '/assets/Media/Move Robot 1.mp4' },
                 { type: 'image', src: '/assets/Media/Project1_1.png' }
-            ],
-            title: "Smart Floor-Cleaning Robot with Robotic Arm",
-            description: "Developed an integrated mobile manipulation system for autonomous floor cleaning and object relocation in ROS simulation.",
-            highlights: [
-                "Implemented ROS GMapping for real-time SLAM and 2D occupancy grid mapping",
-                "Developed Boustrophedon Coverage algorithm for systematic cleaning path planning",
-                "Utilized Inverse Kinematics for target-based control of the OpenManipulator-X arm",
-                "Integrated hardware components: TurtleBot3 Waffle Pi, LiDAR, and depth cameras"
-            ],
-            tech: ["ROS 2", "SLAM", "Gazebo", "Inverse Kinematics", "Python"],
-            metrics: ["100% Simulation Accuracy", "15% Efficiency Gains", "Sub-5cm Precision"],
-            github: "https://github.com/anirudhgudi/FCleanBOT",
-            report: "/assets/Project1.pdf",
-            media: ["/assets/Media/Project1.png", "/assets/Media/Project1_1.png"]
+            ]
         },
         'project-2': {
             title: "Adaptive Sensor Fusion for Vehicle Localization",
             description: "Engineered a robust vehicle state estimation system that dynamically selects optimal fusion algorithms based on real-time sensor reliability.",
             highlights: [
-                "Implemented EKF, UKF, Particle Filter (PF), and Factor Graph Optimization (FGO)",
-                "Developed dynamic confidence scores for real-time sensor reliability and algorithm selection",
-                "Significantly enhanced localization accuracy compared to standalone GNSS/IMU estimates",
-                "Demonstrated high resilience in high-noise and GNSS-denied environmental scenarios"
+                "Engineered EKF, UKF, and Factor Graph Optimization for high-fidelity state estimation",
+                "Programmed dynamic confidence scoring for real-time sensor reliability auditing",
+                "Boosted localization accuracy significantly compared to standalone GNSS/IMU streams",
+                "Validated system resilience in high-noise and GNSS-denied environmental scenarios"
             ],
-            tech: ["EKF/UKF", "MATLAB", "Particle Filter", "FGO", "Sensor Fusion"],
-            metrics: ["4 algorithms integrated", "30% accuracy improvement", "Real-time selection"],
+            tech: ["EKF/UKF", "Sensor Fusion", "MATLAB"],
+            metrics: [
+                { value: "4", label: "Algorithms" },
+                { value: "30%", label: "Accuracy Up" },
+                { value: "Real-time", label: "Reliability" }
+            ],
             github: "https://github.com/anirudhgudi",
             report: "/assets/Project2.pdf",
-            media: ["/assets/Media/Adaptive Arch.png", "/assets/Media/SF2.png"]
+            media: [
+                { type: 'image', src: '/assets/Media/Adaptive Arch.png' },
+                { type: 'image', src: '/assets/Media/SF2.png' }
+            ]
         },
         'project-3': {
             title: "Fault Detection and Isolation for SCARA Robot",
             description: "Implemented an observer-based fault detection and isolation (FDI) technique to ensure safety in 2-DOF SCARA robot operations.",
             highlights: [
-                "Developed observer-based residual generation for precise sensor and actuator fault detection",
-                "Linearized complex dynamic systems using Jacobian matrices for accurate state estimation",
-                "Designed observers to isolate specific component failures in manufacturing assembly contexts",
-                "Established a robust framework for real-time structural and sensor-level anomaly detection"
+                "Formulated observer-based residual generation for sub-centimeter fault identification",
+                "Linearized complex dynamic systems using Jacobian matrices for state estimation",
+                "Isolated specific component failures within manufacturing assembly contexts",
+                "Secured a robust framework for real-time structural and sensor-level anomaly tracking"
             ],
-            tech: ["MATLAB", "Simulink", "Observer Design", "FDI"],
-            metrics: ["Real-time detection", "2-DOF capability", "High isolation rate"],
+            tech: ["MATLAB/Simulink", "Fault Detection", "Observers"],
+            metrics: [
+                { value: "Real-time", label: "Detection" },
+                { value: "2-DOF", label: "SCARA" },
+                { value: "High", label: "Isolation" }
+            ],
             github: "https://github.com/anirudhgudi",
             report: "/assets/Project3.pdf",
             media: [
@@ -355,74 +368,77 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         },
         'project-4': {
-            title: 'Gantry Loader Industrial Automation',
-            media: [
-                { type: 'image', src: 'https://placehold.co/600x400/d6d3d1/292524?text=Gantry+Loader' }
-            ],
-            metrics: [
-                { value: 'L&T', label: 'Industrial' },
-                { value: 'Turning', label: 'Machine' }
-            ],
-            tech: ['Mechanical Design', 'Automation', 'CNC Tending', 'SolidWorks', 'Industrial Engineering'],
-            description: 'Designed and developed a Gantry Loader for a Turning Machine during an internship at L&T Technology Services. The system automates workpiece handling to enhance industrial productivity and factory safety.',
+            title: 'Gantry Loader Robot for CNC',
+            description: 'Designed and validated a 3DOF heavy-duty gantry system for industrial CNC workpiece handling.',
             highlights: [
-                'Automated heavy workpiece loading/unloading for manufacturing efficiency',
-                'Integrated high-precision mechanical design with automated control systems',
-                'Improved productivity and significantly reduced factory manual labor',
-                'Applied real-world mechanical engineering principles in a professional setting'
+                "Spearheaded a 4-member team for high-load 3DOF gantry conceptualization",
+                "Executed rigorous engineering calculations for structural rigidity validation",
+                "Confirmed hardware integrity using Ansys static and modal simulations",
+                "Refined pick-and-place kinematics for high-precision workpiece alignment"
             ],
-            report: '/assets/Project4.pdf'
+            tech: ['CATIA V5', 'FEA', 'Hardware Design'],
+            metrics: [
+                { value: '3-DOF', label: 'Robotic Stack' },
+                { value: 'L&T', label: 'Internship' }
+            ],
+            report: '/assets/Project4.pdf',
+            media: [
+                { type: 'image', src: 'https://placehold.co/600x400/fde68a/7c2d12?text=Gantry+Robot+1' }
+            ]
         },
         'project-5': {
             title: 'Design Optimization of Cast Iron Flywheel',
-            media: [
-                { type: 'image', src: 'https://placehold.co/600x400/d6d3d1/292524?text=Flywheel+Optimization' }
-            ],
-            metrics: [
-                { value: 'Ansys', label: 'FEA' },
-                { value: 'Mass', label: 'Reduced' }
-            ],
-            tech: ['FEA', 'Ansys', 'Structural Analysis', 'Material Optimization', 'Static Loading'],
-            description: 'Focused on the structural analysis and optimization of a cast iron flywheel. Utilized FEA to identify critical stress areas and reduce rotating mass without compromising energy storage performance.',
+            description: 'Applied finite element analysis to optimize flywheel geometry for maximum energy storage with minimum material weight.',
             highlights: [
-                'Applied Finite Element Analysis (FEA) for structural verification and stress analysis',
-                'Identified critical stress areas to enable strategic material optimization',
-                'Successfully reduced rotating mass for improved energy efficiency',
-                'Validated design iterations for manufacturing cost-effectiveness'
+                "Performed meticulous stress analysis and material weight reduction using Ansys",
+                "Optimized flywheel geometry for uniform stress distribution across rotation cycles",
+                "Reduced material consumption by 15% while maintaining safety factors",
+                "Calculated fatigue life and rotational stability for industrial power applications"
             ],
-            report: '/assets/Project5.pdf'
+            tech: ['FEA', 'Ansys', 'Optimization'],
+            metrics: [
+                { value: '15%', label: 'Mass Reduced' },
+                { value: 'Ansys', label: 'FEA Stack' }
+            ],
+            report: '/assets/Project5.pdf',
+            media: [
+                { type: 'image', src: 'https://placehold.co/600x400/60a5fa/1e3a8a?text=Flywheel+Optimization' }
+            ]
         },
         'project-6': {
             title: 'SMACBOT - Autonomous Cleaning Platform',
-            media: [
-                { type: 'image', src: 'https://placehold.co/600x400/d6d3d1/292524?text=SMACBOT' }
+            description: 'Designed an autonomous cleaning robot for both dry and wet maintenance, providing cost-effective smart solutions for industrial floor care.',
+            highlights: [
+                "Synthesized dual-action cleaning mechanisms into a single modular autonomous platform",
+                "Implemented navigation with obstacle detection and specialized surface sensors",
+                "Constructed a robust mechatronic chassis for multi-surface operation in varied environments",
+                "Streamlined power consumption for extended autonomous industrial floor maintenance cycles"
             ],
+            tech: ['Mechatronics', 'Arduino', 'Obstacle Avoidance'],
             metrics: [
                 { value: 'Dry/Wet', label: 'Cleaning' },
-                { value: 'Autonomous', label: 'Nav' }
+                { value: 'Modular', label: 'Hardware' }
             ],
-            tech: ['Obstacle Avoidance', 'Multi-surface', 'Mechatronics', 'Arduino', 'Sensors'],
-            description: 'Developed an autonomous cleaning platform for wet and dry floor maintenance. Designed for cost-effective household and industrial floor care with integrated obstacle avoidance and surface detection.',
-            highlights: [
-                'Integrated dual dry and wet cleaning mechanisms in a single autonomous unit',
-                'Created navigation with obstacle avoidance and surface detection sensors',
-                'Designed modular mechatronic components for ease of maintenance',
-                'Implemented multi-surface cleaning strategies for varied environments'
-            ],
-            report: '/assets/Project6.pdf'
+            report: '/assets/Project6.pdf',
+            media: [
+                { type: 'image', src: 'https://placehold.co/600x400/d6d3d1/292524?text=SMACBOT' }
+            ]
         },
         'project-7': {
             title: "Precision Worktable Positioning System",
             description: "Designed a high-precision positioning system for industrial worktables, focusing on extreme repeatability and error minimization.",
             highlights: [
-                "Implemented PID and State-Space algorithms for high-accuracy positioning in automated lines",
-                "Analyzed precision mechanical components including ball screws, linear guides, and servo motors",
-                "Achieved high system repeatability and minimized motion errors through rigorous control analysis",
-                "Conducted system stability analysis and simulated motion control response for industrial CNC apps"
+                "Formulated PID and State-Space algorithms for micron-level positioning in production lines",
+                "Analyzed precision mechanical components: ball screws, linear guides, and servo motors",
+                "Achieved extreme system repeatability through rigorous frequency-response control analysis",
+                "Simulated motion control profiles for high-speed industrial CNC applications"
             ],
-            tech: ["PID Control", "Ball Screws", "Servo Motors", "Repeatability"],
-            metrics: ["High repeatability", "PID/State-Space", "CNC Stability"],
-            github: "",
+            tech: ["Control Systems", "Mechatronics", "CNC"],
+            metrics: [
+                { value: "Micron", label: "Precision" },
+                { value: "PID", label: "Control" },
+                { value: "Stable", label: "Dynamics" }
+            ],
             video: "https://drive.google.com/file/d/1Gh0IYNDm8UkjebQ1Rx5uqif9z0K6Af1q/view",
             report: "/assets/Project7.pdf",
             media: [
@@ -431,38 +447,42 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'project-8': {
             title: 'Automated Surveillance and Tracking System',
+            description: 'Designed an automated surveillance system capable of detecting and tracking intruders using computer vision and multi-axis hardware control.',
+            highlights: [
+                "Engineered real-time target detection and motion tracking using advanced CV algorithms",
+                "Architected a multi-axis motion control stack for precise sensor pointing",
+                "Attained high responsiveness using low-latency microcontroller processing",
+                "Deployed autonomous security response protocols for area defense and intrusion monitoring"
+            ],
+            tech: ['Computer Vision', 'Target Tracking', 'Mechatronics'],
+            metrics: [
+                { value: 'Real-time', label: 'Vision' },
+                { value: 'Multi-axis', label: 'Tracking' }
+            ],
+            report: '/assets/Project8.pdf',
             media: [
                 { type: 'image', src: 'https://placehold.co/600x400/d6d3d1/292524?text=Surveillance' }
-            ],
-            metrics: [
-                { value: 'Computer', label: 'Vision' },
-                { value: 'Target', label: 'Tracking' }
-            ],
-            tech: ['Computer Vision', 'Multi-axis Motion', 'Motion Control', 'Targeting', 'Mechatronics'],
-            description: 'Designed an automated surveillance system capable of detecting and tracking intruders using real-time computer vision and multi-axis hardware control.',
-            highlights: [
-                'Integrated computer vision algorithms for real-time target detection and tracking',
-                'Developed a multi-axis motion control system for precise sensor pointing',
-                'Achieved hardware-level responsiveness using real-time microcontroller processing',
-                'Implemented automated response protocols for area defense and security'
-            ],
-            report: '/assets/Project8.pdf'
+            ]
         },
         'project-9': {
             title: "Army Missile Launcher System Analysis",
             description: "Strategic analysis of mobile missile launcher systems and armored fighting vehicles, focusing on survivability and weapon integration.",
             highlights: [
-                "Analyzed mobile armor platforms for modern battlefield survivability and strategic weapon deployment",
-                "Explored automatic loading and launch mechanisms for high-mobility missile systems",
-                "Evaluated design trade-offs between firepower, strategic mobility, and armored protection",
-                "Studied the evolution of modular combat vehicle architectures towards tech-heavy platforms"
+                "Evaluated modular combat vehicle architectures for strategic survivability and weapon deployment",
+                "Hypothesized automatic loading and launch mechanisms for high-mobility missile systems",
+                "Studied design trade-offs between firepower, strategic mobility, and armored protection",
+                "Analyzed the evolution of modular combat platforms toward tech-heavy battlefield solutions"
             ],
-            tech: ["Weapon Integration", "Strategic Mobility", "AFV Design", "Automation"],
-            metrics: ["Tactical evaluation", "Strategic analysis", "System optimization"],
-            github: "",
+            tech: ["AFV Design", "Weapon Integration", "Strategic Mobility"],
+            metrics: [
+                { value: "Strategic", label: "Analysis" },
+                { value: "Tactical", label: "Evaluation" }
+            ],
             report: "/assets/Project9.pdf",
             video: "https://drive.google.com/file/d/1n_eKu8PLqzI0ZlFTMMBV2g7V7w26q-oN/view?usp=sharing",
-            media: ["https://placehold.co/600x400/d6d3d1/292524?text=Missile+Launcher"]
+            media: [
+                { type: 'image', src: 'https://placehold.co/600x400/d6d3d1/292524?text=Missile+Launcher' }
+            ]
         }
     };
 
@@ -615,8 +635,17 @@ document.addEventListener('DOMContentLoaded', () => {
         // Actions
         const actionsContainer = document.getElementById('modal-actions');
         let actions = '';
+        if (data.video) {
+            actions += `<a href="${data.video}" target="_blank" class="modal-action-btn primary video-demo-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
+                    <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+                </svg>
+                Video Demo
+            </a>`;
+        }
         if (data.github) {
-            actions += `<a href="${data.github}" target="_blank" class="modal-action-btn primary">
+            actions += `<a href="${data.github}" target="_blank" class="modal-action-btn ${data.video ? 'secondary' : 'primary'}">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
                 </svg>
