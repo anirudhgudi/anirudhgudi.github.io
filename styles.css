@@ -481,8 +481,9 @@ body.dark .icon-link:hover {
 .award-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1.5rem;
+    gap: 2rem;
     margin-top: 1rem;
+    margin-bottom: 2rem;
 }
 
 .award-card {
