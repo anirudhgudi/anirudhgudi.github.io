@@ -516,7 +516,7 @@ body.dark .award-card:hover {
 
 .award-thumbnail {
     width: 100%;
-    height: 140px;
+    height: 100px;
     background-color: var(--divider-color);
     display: flex;
     align-items: center;
@@ -559,7 +559,7 @@ body.dark .award-icon-overlay {
 }
 
 .award-info {
-    padding: 1rem;
+    padding: 0.75rem;
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
