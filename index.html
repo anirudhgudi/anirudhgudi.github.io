@@ -1,938 +1,576 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anirudh Gudi - Robotics Portfolio</title>
+    <meta name="description"
+        content="Anirudh Gudi - Mechanical Engineer specializing in Robotics, CAD Design, FEA, and Control Systems. M.S. Robotics with 2+ years automotive engineering experience.">
+    <title>Anirudh Gudi | Mechanical Engineer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Source+Sans+3:wght@400;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="projects.css">
 </head>
 
 <body>
 
-    <div class="background-effects">
-        <canvas id="shooting-stars-canvas"></canvas>
-    </div>
+    <!-- Sticky Navigation -->
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">AG</a>
+            <div class="nav-links">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#expertise" class="nav-link">Expertise</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
 
-    <div class="container">
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" aria-label="Toggle theme">
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+    </button>
 
-        <header id="home" class="header section-divider">
-            <div class="header-layout">
-                <div class="header-text">
-                    <h1 class="main-title">Anirudh Gudi</h1>
-                    <p class="subtitle">M.S. Robotics | 2+ Years Automotive Engineering Exp.</p>
-
-                    <div class="quick-specs">
-                        <span class="spec-item">Autonomous Systems</span>
-                        <span class="spec-separator">|</span>
-                        <span class="spec-item">Hardware Design</span>
-                        <span class="spec-separator">|</span>
-                        <!-- <span class="spec-item">ROS 2 &amp; CAD Expert</span> -->
-                    </div>
-
-                    <p class="intro-text">
-                        Delivering high-performance robotics solutions by bridging <strong>mechanical integrity</strong>
-                        and <strong>intelligent control</strong>.
-                        Leveraging 2+ years of automotive engineering experience to build production-ready autonomous
-                        systems and robust hardware.
-                        <span class="availability-note">Ready for Industry Engagement: Feb 09, 2026.</span>
-                    </p>
-                    <div class="links-bar">
-                        <a href="/assets/Resume.pdf" id="resume-link" download class="btn-primary">
-                            <span class="btn-text">Resume</span>
-                            <span class="btn-icon">↓</span>
-                        </a>
-                        <a href="mailto:contact.anirudhgudi@gmail.com" class="btn-secondary">Email</a>
-                        <a href="https://linkedin.com/in/anirudh-gudi" target="_blank"
-                            class="btn-secondary">LinkedIn</a>
-                        <a href="https://github.com/anirudhgudi" target="_blank" class="icon-link" aria-label="GitHub">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2">
-                                <path
-                                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
-                                </path>
-                            </svg>
-                        </a>
-                        <a href="cad.html" class="btn-text-only">CAD Portfolio →</a>
-                        <button id="theme-toggle" class="theme-toggle-button" title="Toggle theme">
-                            <svg id="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="12" cy="12" r="5"></circle>
-                                <line x1="12" y1="1" x2="12" y2="3"></line>
-                                <line x1="12" y1="21" x2="12" y2="23"></line>
-                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                                <line x1="1" y1="12" x2="3" y2="12"></line>
-                                <line x1="21" y1="12" x2="23" y2="12"></line>
-                                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                            </svg>
-                            <svg id="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-                <div class="header-image">
-                    <div class="profile-image-container">
-                        <img src="/assets/Media/ProfilePicture.JPG" alt="Anirudh Gudi" class="profile-image default">
-                        <img src="/assets/Media/ProfilePicture2.JPG" alt="Anirudh Gudi - Funny"
-                            class="profile-image funny">
+    <!-- Full-Screen Cinematic Hero -->
+    <section id="home" class="hero">
+        <div class="hero-grid">
+            <!-- Left: Profile -->
+            <div class="hero-left">
+                <div class="profile-container">
+                    <div class="profile-frame">
+                        <img src="assets/Media/ProfilePicture.JPG" alt="Anirudh Gudi" class="profile-picture">
+                        <div class="profile-ring"></div>
+                        <div class="profile-ring-2"></div>
                     </div>
                 </div>
             </div>
-        </header>
 
-        <!-- Floating Side Navigation -->
-        <nav class="floating-nav" aria-label="Section Navigation">
-            <a href="#home" class="nav-dot" data-tooltip="Home"></a>
-            <a href="#mission" class="nav-dot" data-tooltip="Mission"></a>
-            <a href="#journey" class="nav-dot" data-tooltip="Journey"></a>
-            <a href="#skills" class="nav-dot" data-tooltip="Skills"></a>
-            <a href="#projects" class="nav-dot" data-tooltip="Projects"></a>
-            <a href="#photography" class="nav-dot" data-tooltip="Photography"></a>
-            <a href="#contact" class="nav-dot" data-tooltip="Contact"></a>
-        </nav>
+            <!-- Right: Content -->
+            <div class="hero-right">
+                <div class="hero-content-wrapper">
+                    <h1 class="hero-name">Anirudh Gudi</h1>
+                    <p class="hero-title">Mechanical Engineer</p>
 
-        <main>
-            <section id="mission" class="motivation-section">
-                <h2 class="philosophy-title">The Engineering Mission</h2>
-                <p class="motivation-text">
-                    "I engineer robots that excel in the <span class="motivation-highlight">real world</span>. My
-                    approach combines the precision of automotive-grade hardware with the adaptability of modern AI
-                    control, ensuring systems are as reliable as they are intelligent."
-                </p>
-            </section>
+                    <!-- Engaging Professional Summary -->
+                    <p class="hero-summary">
+                        I'm a mechanical engineer who loves bringing ideas to life—whether that's designing robust
+                        automotive components,
+                        programming autonomous robots, or optimizing structures through FEA. With a fresh M.S. in
+                        Robotics from UC Riverside
+                        and 2+ years of hands-on automotive engineering experience, I bridge the gap between traditional
+                        mechanical design
+                        and cutting-edge robotics. When I'm not deep in CATIA or debugging ROS 2 nodes, you'll find me
+                        exploring how AI
+                        and control systems can make machines smarter and safer.
+                    </p>
 
-            <section id="journey" class="section section-divider">
-                <h2 class="section-title">Professional Journey</h2>
-                <div class="timeline-container">
-
-                    <!-- Timeline Item: M.S. Robotics (Graduate) -->
-                    <div class="timeline-item education">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <span class="timeline-date">Sept 2024 - Dec 2025</span>
-                            <h3 class="timeline-title">M.S. in Robotics</h3>
-                            <h4 class="timeline-subtitle">University of California, Riverside</h4>
-                            <p class="timeline-desc">
-                                <strong>GPA: 3.77/4.0</strong><br>
-                                Key Coursework: Machine Learning, Robot Learning, Foundations of Robotics, Design and
-                                Fabrication of Robots.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Timeline Item: Grad Researcher (Current) -->
-                    <div class="timeline-item experience current">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <span class="timeline-date">Apr 2025 - Present</span>
-                            <h3 class="timeline-title">Graduate Student Researcher</h3>
-                            <h4 class="timeline-subtitle">CRIS Lab, UC Riverside</h4>
-                            <p class="timeline-desc">
-                                Developing a real-time footstep-planning framework for safe quadruped-human
-                                collaboration using ROS 2.
-                            </p>
-                            <ul class="timeline-list">
-                                <li>Implementing dynamic gait adaptation for real-time terrain response</li>
-                                <li>Integrating perception and control for safe human-robot collaboration</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Timeline Item: TA (Past) -->
-                    <div class="timeline-item experience">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <span class="timeline-date">Apr 2025 - Jun 2025</span>
-                            <h3 class="timeline-title">Teaching Assistant - Reader</h3>
-                            <h4 class="timeline-subtitle">University of California, Riverside - CS Dept.</h4>
-                            <p class="timeline-desc">
-                                Graded assignments and projects for CS170: Introduction to Artificial Intelligence.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Timeline Item: Engineer (L&T) -->
-                    <div class="timeline-item experience">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <span class="timeline-date">Sept 2022 - Jul 2024</span>
-                            <h3 class="timeline-title">Engineer, Automotive</h3>
-                            <h4 class="timeline-subtitle">L&T Technology Services</h4>
-                            <p class="timeline-desc">
-                                Designed and optimized structural brackets for underbody components using CATIA V5/V6.
-                            </p>
-                            <ul class="timeline-list">
-                                <li>Optimized 50+ structural components reducing material cost by 12%</li>
-                                <li>Streamlined design process reducing iteration time by 20%</li>
-                                <li>Collaborated with 3 cross-functional teams on BIW integration</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Timeline Item: Intern (L&T) -->
-                    <div class="timeline-item experience">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <span class="timeline-date">Feb 2022 - Jun 2022</span>
-                            <h3 class="timeline-title">Mechanical Engineer Intern</h3>
-                            <h4 class="timeline-subtitle">L&T Technology Services</h4>
-                            <p class="timeline-desc">
-                                Training in 3D modelling/design (CREO, CATIA v5). Team project for Gantry Loader robot.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Timeline Item: Bachelor's -->
-                    <div class="timeline-item education">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <span class="timeline-date">Graduated 2022</span>
-                            <h3 class="timeline-title">B.E. in Mechanical Engineering</h3>
-                            <h4 class="timeline-subtitle">KLE Technological University, Hubballi</h4>
-                            <p class="timeline-desc">
-                                <strong>GPA: 8.0/10</strong><br>
-                                Key Coursework: Finite Element Methods, Machine Design, CAD, MAchines and Mechanisms,
-                                Engineering Materials, Mechatronics.
-                            </p>
-                        </div>
-                    </div>
-
-                </div>
-            </section>
-
-            <section id="skills" class="section section-divider">
-                <h2 class="section-title">Technical Expertise</h2>
-                <div class="skills-layout">
-                    <div class="skills-column">
-                        <h3 class="skills-subtitle">Mechanical & Design</h3>
-                        <ul class="skills-list">
-                            <li><span class="skill-name">CATIA (V5/V6)</span><span
-                                    class="skill-level expert">Expert</span></li>
-                            <li><span class="skill-name">CREO Parametric</span><span
-                                    class="skill-level expert">Expert</span></li>
-                            <li><span class="skill-name">SolidWorks</span><span
-                                    class="skill-level advanced">Advanced</span></li>
-                            <li><span class="skill-name">Autodesk Fusion 360</span><span
-                                    class="skill-level advanced">Advanced</span></li>
-                            <li><span class="skill-name">GD&T, DFM/DFA</span><span
-                                    class="skill-level expert">Expert</span></li>
-                            <li><span class="skill-name">Ansys Workbench</span><span
-                                    class="skill-level intermediate">Intermediate</span></li>
-                            <li><span class="skill-name">Rapid Prototyping</span><span
-                                    class="skill-level advanced">Advanced</span></li>
-                        </ul>
-                    </div>
-                    <div class="skills-column">
-                        <h3 class="skills-subtitle">Software & Robotics</h3>
-                        <ul class="skills-list">
-                            <li><span class="skill-name">Python (NumPy, PyTorch)</span><span
-                                    class="skill-level advanced">Advanced</span></li>
-                            <li><span class="skill-name">MATLAB (Simulink/Simscape)</span><span
-                                    class="skill-level intermediate">Intermediate</span></li>
-                            <li><span class="skill-name">C/C++</span><span class="skill-level beginner">Beginner</span>
-                            </li>
-                            <li><span class="skill-name">ROS / ROS2, Gazebo, Mujoco</span><span
-                                    class="skill-level advanced">Advanced</span></li>
-                            <li><span class="skill-name">SLAM & Path Planning</span><span
-                                    class="skill-level advanced">Advanced</span></li>
-                            <li><span class="skill-name">Linux</span><span class="skill-level beginner">Beginner</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <section id="projects" class="section">
-                <div class="project-logbook-layout">
-                    <nav class="project-nav">
-                        <h2 class="section-title project-sidebar-title">Engineering Logbook</h2>
-                        <ul class="project-nav-list">
-                            <li class="project-nav-item"><a href="#project-1">FCleanBOT</a></li>
-                            <li class="project-nav-item"><a href="#project-2">Adaptive Sensor Fusion</a></li>
-                            <li class="project-nav-item"><a href="#project-3">SCARA Robot Fault Detection</a></li>
-                            <li class="project-nav-item"><a href="#project-4">Gantry Loader Robot</a></li>
-                            <li class="project-nav-item"><a href="#project-5">Design and optimization of flywheel</a>
-                            </li>
-                            <li class="project-nav-item"><a href="#project-6">SMAC-Robot</a></li>
-                            <li class="project-nav-item"><a href="#project-7">Worktable positioning</a></li>
-                            <li class="project-nav-item"><a href="#project-8">Surveillance Robot</a></li>
-                            <li class="project-nav-item"><a href="#project-9">Missile Launching robot</a></li>
-                        </ul>
-                    </nav>
-                    <div class="project-details-content">
-                        <div id="project-1" class="project-detail-item">
-                            <div class="project-header">
-                                <h3 class="project-title">Smart Floor-Cleaning Robot with Robotic Arm</h3>
-                                <div class="project-tech-stack">
-                                    <span class="tech-tag">ROS 2</span>
-                                    <span class="tech-tag">SLAM</span>
-                                    <span class="tech-tag">Kinematics</span>
-                                </div>
-                            </div>
-                            <div class="project-media-slider">
-                                <div class="slides">
-                                    <div class="slide active"><img src="/assets/Media/Project1.png"
-                                            class="project-image" alt="Project 1"></div>
-                                    <div class="slide"><img src="/assets/Media/Project1_1.png" class="project-image"
-                                            alt="Project 1"></div>
-                                </div>
-                                <button class="slide-nav-btn prev">&lt;</button>
-                                <button class="slide-nav-btn next">&gt;</button>
-                            </div>
-                            <div class="project-summary">
-                                <p class="project-mission">Developed an integrated mobile manipulation system for
-                                    autonomous floor cleaning and object relocation in ROS simulation.</p>
-                                <ul class="project-highlights">
-                                    <li>Orchestrated real-time SLAM using ROS GMapping for precise 2D occupancy grid
-                                        mapping</li>
-                                    <li>Architected Boustrophedon Coverage paths for systematic area cleaning</li>
-                                    <li>Mastered Inverse Kinematics for target-based control of the OpenManipulator-X
-                                        arm</li>
-                                    <li>Configured hardware stack: TurtleBot3 Waffle Pi, LiDAR, and depth cameras</li>
-                                </ul>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://github.com/anirudhgudi/FCleanBOT" class="project-link-button"><svg
-                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <path
-                                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
-                                        </path>
-                                    </svg>GitHub</a>
-                                <a href="/assets/Project1.pdf" class="project-link-button"><svg
-                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                                        <polyline points="14 2 14 8 20 8"></polyline>
-                                        <line x1="16" y1="13" x2="8" y2="13"></line>
-                                        <line x1="16" y1="17" x2="8" y2="17"></line>
-                                        <polyline points="10 9 9 9 8 9"></polyline>
-                                    </svg>Report</a>
-                            </div>
-                        </div>
-
-                        <div id="project-2" class="project-detail-item">
-                            <div class="project-header">
-                                <h3 class="project-title">Adaptive Sensor Fusion for Vehicle Localization</h3>
-                                <div class="project-tech-stack">
-                                    <span class="tech-tag">EKF/UKF</span>
-                                    <span class="tech-tag">Sensor Fusion</span>
-                                    <span class="tech-tag">MATLAB</span>
-                                </div>
-                            </div>
-                            <div class="project-media-slider">
-                                <div class="slides">
-                                    <div class="slide active"><img src="/assets/Media/Adaptive Arch.png"
-                                            class="project-image" alt="Project 2"></div>
-                                    <div class="slide active"><img src="/assets/Media/SF2.png" class="project-image"
-                                            alt="Project 2"></div>
-                                </div>
-                                <button class="slide-nav-btn prev">&lt;</button>
-                                <button class="slide-nav-btn next">&gt;</button>
-                            </div>
-                            <div class="project-summary">
-                                <p class="project-mission">Engineered a robust vehicle state estimation system that
-                                    dynamically selects optimal fusion algorithms based on real-time sensor reliability.
-                                </p>
-                                <ul class="project-highlights">
-                                    <li>Engineered EKF, UKF, and Factor Graph Optimization for high-fidelity state
-                                        estimation</li>
-                                    <li>Programmed dynamic confidence scoring for real-time sensor reliability auditing
-                                    </li>
-                                    <li>Boosted localization accuracy significantly compared to standalone GNSS/IMU
-                                        streams</li>
-                                    <li>Validated system resilience in high-noise and GNSS-denied environmental
-                                        scenarios</li>
-                                </ul>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://github.com/anirudhgudi" class="project-link-button"><svg
-                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <path
-                                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
-                                        </path>
-                                    </svg>GitHub</a>
-                                <a href="/assets/Project2.pdf" class="project-link-button"><svg
-                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                                        <polyline points="14 2 14 8 20 8"></polyline>
-                                        <line x1="16" y1="13" x2="8" y2="13"></line>
-                                        <line x1="16" y1="17" x2="8" y2="17"></line>
-                                        <polyline points="10 9 9 9 8 9"></polyline>
-                                    </svg>Report</a>
-                            </div>
-                        </div>
-                        <div id="project-3" class="project-detail-item">
-                            <div class="project-header">
-                                <h3 class="project-title">Fault Detection and Isolation for SCARA Robot</h3>
-                                <div class="project-tech-stack">
-                                    <span class="tech-tag">MATLAB/Simulink</span>
-                                    <span class="tech-tag">Fault Detection</span>
-                                    <span class="tech-tag">Observers</span>
-                                </div>
-                            </div>
-                            <div class="project-media-slider">
-                                <div class="slides">
-                                    <div class="slide active"><img src="/assets/Media/Scara.png" class="project-image"
-                                            alt="Project 3"></div>
-                                </div>
-                                <button class="slide-nav-btn prev">&lt;</button>
-                                <button class="slide-nav-btn next">&gt;</button>
-                            </div>
-                            <div class="project-summary">
-                                <p class="project-mission">Implemented an observer-based fault detection and isolation
-                                    (FDI) technique to ensure safety in 2-DOF SCARA robot operations.</p>
-                                <ul class="project-highlights">
-                                    <li>Formulated observer-based residual generation for sub-centimeter fault
-                                        identification</li>
-                                    <li>Linearized complex dynamic systems using Jacobian matrices for state estimation
-                                    </li>
-                                    <li>Isolated specific component failures within manufacturing assembly contexts</li>
-                                    <li>Secured a robust framework for real-time structural and sensor-level anomaly
-                                        tracking</li>
-                                </ul>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://github.com/anirudhgudi" class="project-link-button"><svg
-                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <path
-                                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
-                                        </path>
-                                    </svg>GitHub</a>
-                                <a href="/assets/Project3.pdf" class="project-link-button"><svg
-                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                                        <polyline points="14 2 14 8 20 8"></polyline>
-                                        <line x1="16" y1="13" x2="8" y2="13"></line>
-                                        <line x1="16" y1="17" x2="8" y2="17"></line>
-                                        <polyline points="10 9 9 9 8 9"></polyline>
-                                    </svg>Slides</a>
-                            </div>
-                        </div>
-                        <div id="project-4" class="project-detail-item">
-                            <div class="project-header">
-                                <h3 class="project-title">Gantry Loader Robot for CNC</h3>
-                                <div class="project-tech-stack">
-                                    <span class="tech-tag">CATIA V5</span>
-                                    <span class="tech-tag">FEA</span>
-                                    <span class="tech-tag">Hardware Design</span>
-                                </div>
-                            </div>
-                            <div class="project-media-slider">
-                                <div class="slides">
-                                    <div class="slide active"><img
-                                            src="https://placehold.co/600x400/fde68a/7c2d12?text=Gantry+Robot+1"
-                                            class="project-image" alt="Gantry Loader Robot Image 1"></div>
-                                    <div class="slide"><img
-                                            src="https://placehold.co/600x400/fde68a/7c2d12?text=Gantry+Robot+2"
-                                            class="project-image" alt="Gantry Loader Robot Image 2"></div>
-                                    <div class="slide"><img
-                                            src="https://placehold.co/600x400/fde68a/7c2d12?text=Gantry+Robot+3"
-                                            class="project-image" alt="Gantry Loader Robot Image 3"></div>
-                                </div>
-                                <button class="slide-nav-btn prev">&lt;</button>
-                                <button class="slide-nav-btn next">&gt;</button>
-                            </div>
-                            <div class="project-summary">
-                                <p class="project-mission">Designed and validated a 3DOF heavy-duty gantry system for
-                                    industrial CNC workpiece handling.</p>
-                                <ul class="project-highlights">
-                                    <li>Spearheaded a 4-member team for high-load 3DOF gantry conceptualization</li>
-                                    <li>Executed rigorous engineering calculations for structural rigidity validation
-                                    </li>
-                                    <li>Confirmed hardware integrity using Ansys static and modal simulations</li>
-                                    <li>Refined pick-and-place kinematics for high-precision workpiece alignment</li>
-                                </ul>
-                            </div>
-                            <div class="project-links">
-                                <a href="/assets/Project4.pdf" class="project-link-button"><svg
-                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                                        <polyline points="14 2 14 8 20 8"></polyline>
-                                        <line x1="16" y1="13" x2="8" y2="13"></line>
-                                        <line x1="16" y1="17" x2="8" y2="17"></line>
-                                        <polyline points="10 9 9 9 8 9"></polyline>
-                                    </svg>Report</a>
-                            </div>
-                        </div>
-
-                        <div id="project-5" class="project-detail-item">
-                            <div class="project-header">
-                                <h3 class="project-title">Design Optimization of Cast Iron Flywheel</h3>
-                                <div class="project-tech-stack">
-                                    <span class="tech-tag">FEA</span>
-                                    <span class="tech-tag">Ansys</span>
-                                    <span class="tech-tag">Optimization</span>
-                                </div>
-                            </div>
-                            <div class="project-media-slider">
-                                <div class="slides">
-                                    <div class="slide active"><img
-                                            src="https://placehold.co/600x400/60a5fa/1e3a8a?text=Flywheel+Optimization"
-                                            class="project-image" alt="Project 5"></div>
-                                </div>
-                                <button class="slide-nav-btn prev">&lt;</button>
-                                <button class="slide-nav-btn next">&gt;</button>
-                            </div>
-                            <div class="project-summary">
-                                <p class="project-mission">Applied finite element analysis to optimize flywheel geometry
-                                    for maximum energy storage with minimum material weight.</p>
-                                <ul class="project-highlights">
-                                    <li>Performed meticulous stress analysis and material weight reduction using Ansys
-                                    </li>
-                                    <li>Optimized flywheel geometry for uniform stress distribution across rotation
-                                        cycles</li>
-                                    <li>Reduced material consumption by 15% while maintaining safety factors</li>
-                                    <li>Calculated fatigue life and rotational stability for industrial power
-                                        applications</li>
-                                </ul>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://github.com/anirudhgudi" class="project-link-button"><svg
-                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <path
-                                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
-                                        </path>
-                                    </svg>GitHub</a>
-                                <a href="/assets/Project5.pdf" class="project-link-button"><svg
-                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                                        <polyline points="14 2 14 8 20 8"></polyline>
-                                        <line x1="16" y1="13" x2="8" y2="13"></line>
-                                        <line x1="16" y1="17" x2="8" y2="17"></line>
-                                        <polyline points="10 9 9 9 8 9"></polyline>
-                                    </svg>Report</a>
-                            </div>
-                        </div>
-
-                        <div id="project-6" class="project-detail-item">
-                            <div class="project-header">
-                                <h3 class="project-title">SMACBOT - Autonomous Cleaning Platform</h3>
-                                <div class="project-tech-stack">
-                                    <span class="tech-tag">Mechatronics</span>
-                                    <span class="tech-tag">Arduino</span>
-                                    <span class="tech-tag">Obstacle Avoidance</span>
-                                </div>
-                            </div>
-                            <div class="project-media-slider">
-                                <div class="slides">
-                                    <div class="slide active"><img
-                                            src="https://placehold.co/600x400/d6d3d1/292524?text=SMACBOT"
-                                            class="project-image" alt="Project 6"></div>
-                                </div>
-                                <button class="slide-nav-btn prev">&lt;</button>
-                                <button class="slide-nav-btn next">&gt;</button>
-                            </div>
-                            <div class="project-summary">
-                                <p class="project-mission">Designed an autonomous cleaning robot for both dry and wet
-                                    maintenance, providing cost-effective smart solutions for industrial floor care.</p>
-                                <ul class="project-highlights">
-                                    <li>Synthesized dual-action cleaning mechanisms into a single modular autonomous
-                                        platform</li>
-                                    <li>Implemented navigation with obstacle detection and specialized surface sensors
-                                    </li>
-                                    <li>Constructed a robust mechatronic chassis for multi-surface operation in varied
-                                        environments</li>
-                                    <li>Streamlined power consumption for extended autonomous industrial floor
-                                        maintenance cycles</li>
-                                </ul>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://github.com/anirudhgudi" class="project-link-button"><svg
-                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <path
-                                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
-                                        </path>
-                                    </svg>GitHub</a>
-                                <a href="/assets/Project6.pdf" class="project-link-button"><svg
-                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                                        <polyline points="14 2 14 8 20 8"></polyline>
-                                        <line x1="16" y1="13" x2="8" y2="13"></line>
-                                        <line x1="16" y1="17" x2="8" y2="17"></line>
-                                        <polyline points="10 9 9 9 8 9"></polyline>
-                                    </svg>Report</a>
-                            </div>
-                        </div>
-
-                        <div id="project-7" class="project-detail-item">
-                            <div class="project-header">
-                                <h3 class="project-title">Precision Worktable Positioning System</h3>
-                                <div class="project-tech-stack">
-                                    <span class="tech-tag">Control Systems</span>
-                                    <span class="tech-tag">Mechatronics</span>
-                                    <span class="tech-tag">CNC</span>
-                                </div>
-                            </div>
-                            <div class="project-media-slider">
-                                <div class="slides">
-                                    <div class="slide active"><img
-                                            src="https://placehold.co/600x400/d6d3d1/292524?text=Worktable"
-                                            class="project-image" alt="Project 7"></div>
-                                </div>
-                                <button class="slide-nav-btn prev">&lt;</button>
-                                <button class="slide-nav-btn next">&gt;</button>
-                            </div>
-                            <div class="project-summary">
-                                <p class="project-mission">Designed a high-precision positioning system for
-                                    industrial worktables, focusing on extreme repeatability and error minimization.
-                                </p>
-                                <ul class="project-highlights">
-                                    <li>Formulated PID and State-Space algorithms for micron-level positioning in
-                                        production lines</li>
-                                    <li>Analyzed precision mechanical components: ball screws, linear guides, and
-                                        servo
-                                        motors</li>
-                                    <li>Achieved extreme system repeatability through rigorous frequency-response
-                                        control analysis</li>
-                                    <li>Simulated motion control profiles for high-speed industrial CNC applications
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="project-links">
-                                <a href="/assets/Project7.pdf" class="project-link-button"><svg
-                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                                        <polyline points="14 2 14 8 20 8"></polyline>
-                                        <line x1="16" y1="13" x2="8" y2="13"></line>
-                                        <line x1="16" y1="17" x2="8" y2="17"></line>
-                                        <polyline points="10 9 9 9 8 9"></polyline>
-                                    </svg>Report</a>
-                                <a href="https://drive.google.com/file/d/1Gh0IYNDm8UkjebQ1Rx5uqif9z0K6Af1q/view"
-                                    class="project-link-button" target="_blank"><svg xmlns="http://www.w3.org/2000/svg"
-                                        width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path
-                                            d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z">
-                                        </path>
-                                        <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
-                                    </svg>Video</a>
-                            </div>
-                        </div>
-
-                        <div id="project-8" class="project-detail-item">
-                            <div class="project-header">
-                                <h3 class="project-title">Automated Surveillance and Tracking System</h3>
-                                <div class="project-tech-stack">
-                                    <span class="tech-tag">Computer Vision</span>
-                                    <span class="tech-tag">Target Tracking</span>
-                                    <span class="tech-tag">Mechatronics</span>
-                                </div>
-                            </div>
-                            <div class="project-media-slider">
-                                <div class="slides">
-                                    <div class="slide active"><img
-                                            src="https://placehold.co/600x400/d6d3d1/292524?text=Surveillance"
-                                            class="project-image" alt="Project 8"></div>
-                                </div>
-                                <button class="slide-nav-btn prev">&lt;</button>
-                                <button class="slide-nav-btn next">&gt;</button>
-                            </div>
-                            <div class="project-summary">
-                                <p class="project-mission">Designed an automated surveillance system capable of
-                                    detecting and tracking intruders using computer vision and multi-axis hardware
-                                    control.</p>
-                                <ul class="project-highlights">
-                                    <li>Engineered real-time target detection and motion tracking using advanced CV
-                                        algorithms</li>
-                                    <li>Architected a multi-axis motion control stack for precise sensor pointing
-                                    </li>
-                                    <li>Attained high responsiveness using low-latency microcontroller processing
-                                    </li>
-                                    <li>Deployed autonomous security response protocols for area defense and
-                                        intrusion
-                                        monitoring</li>
-                                </ul>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://github.com/anirudhgudi" class="project-link-button"><svg
-                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <path
-                                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
-                                        </path>
-                                    </svg>GitHub</a>
-                                <a href="/assets/Project8.pdf" class="project-link-button"><svg
-                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                                        <polyline points="14 2 14 8 20 8"></polyline>
-                                        <line x1="16" y1="13" x2="8" y2="13"></line>
-                                        <line x1="16" y1="17" x2="8" y2="17"></line>
-                                        <polyline points="10 9 9 9 8 9"></polyline>
-                                    </svg>Report</a>
-                            </div>
-                        </div>
-
-                        <div id="project-9" class="project-detail-item">
-                            <div class="project-header">
-                                <h3 class="project-title">Army Missile Launcher System Analysis</h3>
-                                <div class="project-tech-stack">
-                                    <span class="tech-tag">AFV Design</span>
-                                    <span class="tech-tag">Weapon Integration</span>
-                                    <span class="tech-tag">Strategic Mobility</span>
-                                </div>
-                            </div>
-                            <div class="project-media-slider">
-                                <div class="slides">
-                                    <div class="slide active"><img
-                                            src="https://placehold.co/600x400/d6d3d1/292524?text=Missile+Launcher"
-                                            class="project-image" alt="Project 9"></div>
-                                </div>
-                                <button class="slide-nav-btn prev">&lt;</button>
-                                <button class="slide-nav-btn next">&gt;</button>
-                            </div>
-                            <div class="project-summary">
-                                <p class="project-mission">Strategic analysis of mobile missile launcher systems and
-                                    armored fighting vehicles, focusing on survivability and weapon integration.</p>
-                                <ul class="project-highlights">
-                                    <li>Evaluated modular combat vehicle architectures for strategic survivability
-                                        and weapon deployment</li>
-                                    <li>Hypothesized automatic loading and launch mechanisms for high-mobility
-                                        missile systems</li>
-                                    <li>Studied design trade-offs between firepower, strategic mobility, and armored
-                                        protection</li>
-                                    <li>Analyzed the evolution of modular combat platforms toward tech-heavy
-                                        battlefield solutions</li>
-                                </ul>
-                            </div>
-                            <div class="project-links">
-                                <a href="/assets/Project9.pdf" class="project-link-button"><svg
-                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                                        <polyline points="14 2 14 8 20 8"></polyline>
-                                        <line x1="16" y1="13" x2="8" y2="13"></line>
-                                        <line x1="16" y1="17" x2="8" y2="17"></line>
-                                        <polyline points="10 9 9 9 8 9"></polyline>
-                                    </svg>Report</a>
-                                <a href="https://drive.google.com/file/d/1n_eKu8PLqzI0ZlFTMMBV2g7V7w26q-oN/view?usp=sharing"
-                                    class="project-link-button" target="_blank"><svg xmlns="http://www.w3.org/2000/svg"
-                                        width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path
-                                            d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z">
-                                        </path>
-                                        <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
-                                    </svg>Video</a>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </section>
-
-            <section class="section section-divider awards-section">
-                <h2 class="section-title">Awards &amp; Certifications</h2>
-                <div class="award-grid">
-                    <a href="/assets/SPOT.pdf" class="award-card" target="_blank">
-                        <div class="award-thumbnail">
-                            <img src="https://placehold.co/400x250/d6d3d1/292524?text=SPOT+Award" alt="SPOT Award">
-                            <div class="award-icon-overlay">↗</div>
-                        </div>
-                        <div class="award-info">
-                            <h3 class="award-card-title">SPOT Award</h3>
-                            <span class="award-meta">L&T Tech Services | 2023</span>
-                        </div>
-                    </a>
-                    <a href="#" class="award-card" target="_blank">
-                        <div class="award-thumbnail">
-                            <img src="https://placehold.co/400x250/d6d3d1/292524?text=Material+Processing"
-                                alt="Material Processing">
-                            <div class="award-icon-overlay">↗</div>
-                        </div>
-                        <div class="award-info">
-                            <h3 class="award-card-title">Material Processing</h3>
-                            <span class="award-meta">Univ. Michigan | 2021</span>
-                        </div>
-                    </a>
-                    <a href="#" class="award-card" target="_blank">
-                        <div class="award-thumbnail">
-                            <img src="https://placehold.co/400x250/d6d3d1/292524?text=Python+DSA" alt="Python DSA">
-                            <div class="award-icon-overlay">↗</div>
-                        </div>
-                        <div class="award-info">
-                            <h3 class="award-card-title">Python DSA</h3>
-                            <span class="award-meta">Certification | 2022</span>
-                        </div>
-                    </a>
-                    <a href="#" class="award-card" target="_blank">
-                        <div class="award-thumbnail">
-                            <img src="https://placehold.co/400x250/d6d3d1/292524?text=Python" alt="Python">
-                            <div class="award-icon-overlay">↗</div>
-                        </div>
-                        <div class="award-info">
-                            <h3 class="award-card-title">Python Programming</h3>
-                            <span class="award-meta">Guvi Geek | 2021</span>
-                        </div>
-                    </a>
-                </div>
-            </section>
-
-            <section id="photography" class="section section-divider photography-section">
-                <h2 class="section-title">Photography</h2>
-                <div class="photo-grid">
-                    <div class="photo-item">
-                        <img src="/assets/Media/Star_trail_2.jpg" alt="Photograph 1">
-                    </div>
-                    <div class="photo-item">
-                        <img src="/assets/Media/Chikamagaluru.jpg" alt="Photograph 2">
-                    </div>
-                    <div class="photo-item">
-                        <img src="/assets/Media/LA Night Skyline.jpg" alt="Photograph 3">
-                    </div>
-                </div>
-            </section>
-
-            <section class="section section-divider out-of-academics-section">
-                <h2 class="section-title">Out of Academics</h2>
-                <div class="extra-curricular-grid">
-                    <div class="extra-curricular-item">
-                        <h3 class="job-title">Table Tennis</h3>
-                        <p class="description-text">Competitive player, focusing on strategy and precision</p>
-                    </div>
-                    <div class="extra-curricular-item">
-                        <h3 class="job-title">Volunteer Work</h3>
-                        <p class="description-text">Engaged in community service and outreach programs</p>
-                    </div>
-                    <div class="extra-curricular-item">
-                        <h3 class="job-title">Automotive Restoration</h3>
-                        <p class="description-text">Focusing on classic vehicle mechanics and restoration projects</p>
-                    </div>
-                    <div class="extra-curricular-item">
-                        <h3 class="job-title">Reading</h3>
-                        <p class="description-text">Deep diving into technical literature and historical biographies</p>
-                    </div>
-                    <div class="extra-curricular-item">
-                        <h3 class="job-title">Photography</h3>
-                        <p class="description-text">Capturing moments and exploring visual storytelling</p>
-                    </div>
-                    <div class="extra-curricular-item">
-                        <h3 class="job-title">Travel</h3>
-                        <p class="description-text">Exploring new cultures and environments</p>
-                    </div>
-                </div>
-            </section>
-
-            <section id="contact" class="section contact-section">
-                <div class="contact-header">
-                    <h2 class="section-title contact-title">Let's Connect</h2>
-                    <p class="contact-subtitle">Available for Industry Opportunities starting Feb 09, 2026</p>
-                </div>
-
-                <div class="contact-content">
-                    <p class="contact-intro">Whether you have an opportunity, want to discuss robotics, or just want to
-                        connect — I'd love to hear from you.</p>
-
-                    <div class="contact-methods">
-                        <a href="mailto:contact.anirudhgudi@gmail.com" class="contact-card email-card">
-                            <div class="contact-card-bg"></div>
-                            <div class="contact-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2">
-                                    <rect x="3" y="5" width="18" height="14" rx="2"></rect>
-                                    <path d="M3 7l9 6 9-6"></path>
-                                </svg>
-                            </div>
-                            <div class="contact-details">
-                                <strong>Email</strong>
-                                <span>contact.anirudhgudi@gmail.com</span>
-                            </div>
-                            <div class="contact-arrow">→</div>
+                    <div class="hero-cta">
+                        <a href="assets/resume.pdf" class="btn btn-primary" download target="_blank">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" style="margin-right: 0.5rem;">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="12" y1="18" x2="12" y2="12"></line>
+                                <line x1="9" y1="15" x2="15" y2="15"></line>
+                            </svg>
+                            Resume
                         </a>
+                        <a href="#contact" class="btn btn-secondary btn-contact-highlight">Contact Me</a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-                        <a href="https://linkedin.com/in/anirudh-gudi" target="_blank"
-                            class="contact-card linkedin-card">
-                            <div class="contact-card-bg"></div>
-                            <div class="contact-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2">
-                                    <path
-                                        d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
-                                    </path>
-                                    <rect x="2" y="9" width="4" height="12"></rect>
-                                    <circle cx="4" cy="4" r="2"></circle>
-                                </svg>
-                            </div>
-                            <div class="contact-details">
-                                <strong>LinkedIn</strong>
-                                <span>linkedin.com/in/anirudh-gudi</span>
-                            </div>
-                            <div class="contact-arrow">→</div>
-                        </a>
+        <div class="scroll-indicator">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 5v14M19 12l-7 7-7-7" />
+            </svg>
+        </div>
+    </section>
 
-                        <a href="cad.html" class="contact-card cad-card">
-                            <div class="contact-card-bg"></div>
-                            <div class="contact-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2">
-                                    <path
-                                        d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z">
-                                    </path>
-                                </svg>
-                            </div>
-                            <div class="contact-details">
-                                <strong>CAD Portfolio</strong>
-                                <span>Mechanical Design Gallery</span>
-                            </div>
-                            <div class="contact-arrow">→</div>
-                        </a>
+    <!-- Expertise Section - Minimalist Skills -->
+    <section id="expertise" class="expertise">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Core Expertise</h2>
+                <p class="section-subtitle">Versatile mechanical engineer with cross-disciplinary capabilities</p>
+            </div>
+
+            <div class="expertise-content">
+                <!-- Stats Column -->
+                <div class="stats-column">
+                    <div class="stat-item-large">
+                        <div class="stat-number counter" data-target="9">0</div>
+                        <div class="stat-label">Projects</div>
+                    </div>
+                    <div class="stat-item-large">
+                        <div class="stat-number counter" data-target="2">0</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                </div>
+
+                <!-- Skills Column -->
+                <div class="skills-column">
+                    <div class="skill-category">
+                        <h3 class="skill-title">
+                            <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                                <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
+                            </svg>
+                            CAD & 3D Modeling
+                        </h3>
+                        <div class="skill-list">
+                            <span class="skill-item">CATIA V5/V6</span>
+                            <span class="skill-item">CREO</span>
+                            <span class="skill-item">SolidWorks</span>
+                            <span class="skill-item">Fusion 360</span>
+                        </div>
                     </div>
 
-                    <div class="response-time">
-                        <div class="response-badge">
-                            <span class="pulse-dot"></span>
-                            Usually responds within 24 hours
+                    <div class="skill-category">
+                        <h3 class="skill-title">
+                            <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="12" cy="12" r="10" />
+                                <path d="M12 6v6l4 2" />
+                            </svg>
+                            FEA & Optimization
+                        </h3>
+                        <div class="skill-list">
+                            <span class="skill-item">Ansys</span>
+                            <span class="skill-item">Structural Analysis</span>
+                            <span class="skill-item">Design Optimization</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3 class="skill-title">
+                            <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2" />
+                                <path d="M3 9h18M9 21V9" />
+                            </svg>
+                            Robotics & ROS
+                        </h3>
+                        <div class="skill-list">
+                            <span class="skill-item">ROS 2</span>
+                            <span class="skill-item">SLAM</span>
+                            <span class="skill-item">Gazebo</span>
+                            <span class="skill-item">Path Planning</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3 class="skill-title">
+                            <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                            </svg>
+                            Control Systems
+                        </h3>
+                        <div class="skill-list">
+                            <span class="skill-item">State-Space Control</span>
+                            <span class="skill-item">EKF/UKF</span>
+                            <span class="skill-item">PID Tuning</span>
+                            <span class="skill-item">Sensor Fusion</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3 class="skill-title">
+                            <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path
+                                    d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+                            </svg>
+                            Manufacturing & DFM
+                        </h3>
+                        <div class="skill-list">
+                            <span class="skill-item">GD&T</span>
+                            <span class="skill-item">DFM/DFA</span>
+                            <span class="skill-item">Rapid Prototyping</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3 class="skill-title">
+                            <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path
+                                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                                <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+                                <line x1="12" y1="22.08" x2="12" y2="12" />
+                            </svg>
+                            Programming
+                        </h3>
+                        <div class="skill-list">
+                            <span class="skill-item">Python</span>
+                            <span class="skill-item">MATLAB</span>
+                            <span class="skill-item">C/C++</span>
                         </div>
                     </div>
                 </div>
-            </section>
-        </main>
+            </div>
+        </div>
+    </section>
 
-        <footer class="footer">
-            <p class="footer-text">&copy; 2026 Anirudh Gudi</p>
-        </footer>
+    <!-- Projects Section - Professional Asymmetric Grid -->
+    <section id="projects" class="projects-asymmetric">
+        <div class="container-pro">
+            <h2 class="section-title-pro">Featured Projects</h2>
 
+            <div class="projects-grid-asymmetric">
+                <!-- Project 1: Large Left -->
+                <div class="project-item large" data-project="0">
+                    <div class="project-visual-pro">
+                        <video autoplay loop muted playsinline class="project-img-pro" style="object-fit: cover;">
+                            <source src="assets/Media/Move Robot 1.mp4" type="video/mp4">
+                            <img src="assets/Media/Project1.png" alt="Smart Floor-Cleaning Robot"
+                                class="project-img-pro">
+                        </video>
+                    </div>
+                    <h3 class="project-title-pro">Smart Floor-Cleaning Robot</h3>
+                    <div class="project-tags-pro">
+                        <span>ROS 2</span>
+                        <span>SLAM</span>
+                        <span>Kinematics</span>
+                    </div>
+                </div>
+
+                <!-- Project 2: Small Right, Offset Down -->
+                <div class="project-item small offset-down" data-project="1">
+                    <div class="project-visual-pro">
+                        <img src="assets/Media/SensorFusion.png" alt="Adaptive Sensor Fusion" class="project-img-pro">
+                    </div>
+                    <h3 class="project-title-pro">Adaptive Sensor Fusion</h3>
+                    <div class="project-tags-pro">
+                        <span>EKF/UKF</span>
+                        <span>MATLAB</span>
+                    </div>
+                </div>
+
+                <!-- Project 3: Medium Left -->
+                <div class="project-item medium" data-project="2">
+                    <div class="project-visual-pro">
+                        <img src="assets/Media/Scara.png" alt="SCARA Fault Detection" class="project-img-pro">
+                    </div>
+                    <h3 class="project-title-pro">SCARA Fault Detection</h3>
+                    <div class="project-tags-pro">
+                        <span>MATLAB</span>
+                        <span>Control Systems</span>
+                    </div>
+                </div>
+
+                <!-- Project 4: Medium Right -->
+                <div class="project-item medium" data-project="3">
+                    <div class="project-visual-pro">
+                        <img src="assets/Media/Project1_1.png" alt="Gantry Loader Robot" class="project-img-pro">
+                    </div>
+                    <h3 class="project-title-pro">Gantry Loader Robot</h3>
+                    <div class="project-tags-pro">
+                        <span>CATIA V5</span>
+                        <span>FEA</span>
+                    </div>
+                </div>
+
+                <!-- Project 5: Small Left, Offset Up -->
+                <div class="project-item small offset-up" data-project="4">
+                    <div class="project-visual-pro">
+                        <img src="assets/Media/sensor_fusion_architecture.png" alt="Flywheel Optimization"
+                            class="project-img-pro">
+                    </div>
+                    <h3 class="project-title-pro">Flywheel Optimization</h3>
+                    <div class="project-tags-pro">
+                        <span>FEA</span>
+                        <span>Ansys</span>
+                    </div>
+                </div>
+
+                <!-- Project 6: Large Right -->
+                <div class="project-item large" data-project="5">
+                    <div class="project-visual-pro">
+                        <img src="assets/Media/Project1.png" alt="SMACBOT" class="project-img-pro">
+                    </div>
+                    <h3 class="project-title-pro">SMACBOT</h3>
+                    <div class="project-tags-pro">
+                        <span>Mechatronics</span>
+                        <span>Arduino</span>
+                    </div>
+                </div>
+
+                <!-- Project 7: Medium Left -->
+                <div class="project-item medium" data-project="6">
+                    <div class="project-visual-pro">
+                        <img src="assets/Media/LA Night Skyline.jpg" alt="Precision Worktable" class="project-img-pro">
+                    </div>
+                    <h3 class="project-title-pro">Precision Worktable</h3>
+                    <div class="project-tags-pro">
+                        <span>Control Systems</span>
+                        <span>PID</span>
+                    </div>
+                </div>
+
+                <!-- Project 8: Medium Right -->
+                <div class="project-item medium" data-project="7">
+                    <div class="project-visual-pro">
+                        <img src="assets/Media/Star_trail_2.jpg" alt="Surveillance System" class="project-img-pro">
+                    </div>
+                    <h3 class="project-title-pro">Surveillance System</h3>
+                    <div class="project-tags-pro">
+                        <span>Computer Vision</span>
+                        <span>OpenCV</span>
+                    </div>
+                </div>
+
+                <!-- Project 9: Large Left -->
+                <div class="project-item large" data-project="8">
+                    <div class="project-visual-pro">
+                        <img src="assets/Media/Project1_1.png" alt="Missile Launcher Analysis" class="project-img-pro">
+                    </div>
+                    <h3 class="project-title-pro">Missile Launcher Analysis</h3>
+                    <div class="project-tags-pro">
+                        <span>AFV Design</span>
+                        <span>Analysis</span>
+                    </div>
+                </div>
+
+                <!-- Placeholder for 10th Project -->
+                <div class="project-item placeholder-pro small">
+                    <div class="placeholder-visual-pro">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" width="40"
+                            height="40">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                        <span>Coming Soon</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Modal - Single Page Letter Layout -->
+    <div id="projectModal" class="modal-enhanced">
+        <div class="modal-backdrop-enhanced"></div>
+        <div class="modal-container-enhanced">
+            <button class="modal-close-enhanced" aria-label="Close modal">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+
+            <button class="modal-nav-prev" aria-label="Previous project">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+            </button>
+            <button class="modal-nav-next" aria-label="Next project">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </button>
+
+            <!-- Single Page Letter Layout -->
+            <div class="modal-content-letter">
+                <!-- Header with Title -->
+                <div class="modal-header-letter">
+                    <h1 id="modalTitle" class="modal-title-letter"></h1>
+                    <div id="modalTags" class="modal-tags-letter"></div>
+                </div>
+
+                <!-- Body with Professional Portfolio Layout -->
+                <div class="modal-body-letter">
+                    <!-- Content Sections -->
+                    <div class="modal-content-sections">
+                        <!-- What Section: Image + Text -->
+                        <div class="section-row">
+                            <div class="section-image">
+                                <img id="imageWhat" alt="">
+                            </div>
+                            <div class="section-column">
+                                <h2>What</h2>
+                                <p id="sectionWhat"></p>
+                            </div>
+                        </div>
+
+                        <!-- Why Section: Text + Image -->
+                        <div class="section-row">
+                            <div class="section-column">
+                                <h2>Why</h2>
+                                <p id="sectionWhy"></p>
+                            </div>
+                            <div class="section-image">
+                                <img id="imageWhy" alt="">
+                            </div>
+                        </div>
+
+                        <!-- How Section: Image + Text -->
+                        <div class="section-row">
+                            <div class="section-image">
+                                <img id="imageHow" alt="">
+                            </div>
+                            <div class="section-column">
+                                <h2>How</h2>
+                                <p id="sectionHow"></p>
+                            </div>
+                        </div>
+
+                        <!-- Results Section: Text + Image -->
+                        <div class="section-row">
+                            <div class="section-column">
+                                <h2>Results</h2>
+                                <p id="sectionResults"></p>
+                            </div>
+                            <div class="section-image">
+                                <img id="imageResults" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer with Resources -->
+                <div class="modal-footer-letter">
+                    <div id="modalResources" class="modal-resources-letter"></div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <script src="scripts.js"></script>
 
+
+
+
+
+
+
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience" style="padding: 6rem 0; background: var(--bg-primary);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Professional Journey</h2>
+                <p class="section-subtitle">Building expertise through education and industry experience</p>
+            </div>
+
+            <div style="max-width: 800px; margin: 4rem auto; display: flex; flex-direction: column; gap: 3rem;">
+                <div class="fade-in" style="padding-left: 2rem; border-left: 3px solid var(--accent-primary);">
+                    <div style="color: var(--accent-primary); font-weight: 600; margin-bottom: 0.5rem;">Sept 2024 - Dec
+                        2025</div>
+                    <h3 style="font-size: 1.5rem; color: var(--text-primary); margin-bottom: 0.5rem;">M.S. in Robotics
+                    </h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 0.5rem;">University of California, Riverside
+                    </p>
+                    <p style="color: var(--text-muted);"><strong>GPA: 3.77/4.0</strong> | Machine Learning, Robot
+                        Learning, Foundations of Robotics</p>
+                </div>
+
+                <div class="fade-in" style="padding-left: 2rem; border-left: 3px solid var(--accent-primary);">
+                    <div style="color: var(--accent-primary); font-weight: 600; margin-bottom: 0.5rem;">Apr 2025 -
+                        Present</div>
+                    <h3 style="font-size: 1.5rem; color: var(--text-primary); margin-bottom: 0.5rem;">Graduate Student
+                        Researcher</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 0.5rem;">CRIS Lab, UC Riverside</p>
+                    <p style="color: var(--text-muted);">Developing real-time footstep-planning framework for safe
+                        quadruped-human collaboration using ROS 2</p>
+                </div>
+
+                <div class="fade-in" style="padding-left: 2rem; border-left: 3px solid var(--accent-primary);">
+                    <div style="color: var(--accent-primary); font-weight: 600; margin-bottom: 0.5rem;">Sept 2022 - Jul
+                        2024</div>
+                    <h3 style="font-size: 1.5rem; color: var(--text-primary); margin-bottom: 0.5rem;">Engineer,
+                        Automotive</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 0.5rem;">L&T Technology Services</p>
+                    <p style="color: var(--text-muted);">Designed and optimized 50+ structural brackets using CATIA
+                        V5/V6, reducing material cost by 12%</p>
+                </div>
+
+                <div class="fade-in" style="padding-left: 2rem; border-left: 3px solid var(--accent-primary);">
+                    <div style="color: var(--accent-primary); font-weight: 600; margin-bottom: 0.5rem;">Graduated 2022
+                    </div>
+                    <h3 style="font-size: 1.5rem; color: var(--text-primary); margin-bottom: 0.5rem;">B.E. in Mechanical
+                        Engineering</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 0.5rem;">KLE Technological University,
+                        Hubballi</p>
+                    <p style="color: var(--text-muted);"><strong>GPA: 8.0/10</strong> | Finite Element Methods, Machine
+                        Design, CAD, Mechatronics</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact" style="padding: 6rem 0; background: var(--bg-secondary);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Let's Connect</h2>
+                <p class="section-subtitle">Available for industry engagement from February 09, 2026</p>
+            </div>
+
+            <div style="max-width: 600px; margin: 4rem auto; text-align: center;">
+                <div style="display: flex; flex-direction: column; gap: 2rem; margin-bottom: 3rem;">
+                    <div class="fade-in">
+                        <h4 style="color: var(--accent-primary); margin-bottom: 0.5rem;">Email</h4>
+                        <a href="mailto:contact.anirudhgudi@gmail.com"
+                            style="color: var(--text-primary); font-size: 1.125rem;">contact.anirudhgudi@gmail.com</a>
+                    </div>
+                    <div class="fade-in">
+                        <h4 style="color: var(--accent-primary); margin-bottom: 0.5rem;">Location</h4>
+                        <p style="color: var(--text-secondary);">Riverside, CA</p>
+                    </div>
+                </div>
+
+                <div class="fade-in" style="display: flex; gap: 2rem; justify-content: center;">
+                    <a href="https://linkedin.com/in/anirudh-gudi" target="_blank"
+                        style="color: var(--accent-primary); transition: var(--transition);">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                        </svg>
+                    </a>
+                    <a href="https://github.com/anirudhgudi" target="_blank"
+                        style="color: var(--accent-primary); transition: var(--transition);">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer
+        style="padding: 2rem 0; background: var(--bg-primary); text-align: center; border-top: 1px solid var(--border-subtle);">
+        <div class="container">
+            <p style="color: var(--text-muted);">&copy; 2026 Anirudh Gudi. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+    <script src="theme.js"></script>
+    <script src="modal.js"></script>
 </body>
 
 </html>
