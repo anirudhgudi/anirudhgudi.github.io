@@ -270,4 +270,47 @@ document.addEventListener('DOMContentLoaded', () => {
     journeyCards.forEach(card => {
         journeyObserver.observe(card);
     });
+
+    // Pronunciation Audio Logic
+    const pronunciationBtn = document.getElementById('play-pronunciation');
+
+    if (pronunciationBtn) {
+        pronunciationBtn.addEventListener('click', () => {
+            const audioPath = 'assets/Media/pronunciation.mp3';
+            const audio = new Audio(audioPath);
+
+            // Visual feedback
+            pronunciationBtn.style.opacity = '0.7';
+
+            audio.play()
+                .then(() => {
+                    // Audio playing successfully
+                    setTimeout(() => {
+                        pronunciationBtn.style.opacity = '1';
+                    }, 500);
+                })
+                .catch(error => {
+                    console.log("Audio file not found, using TTS fallback.");
+                    // Fallback to Web Speech API
+                    const utterance = new SpeechSynthesisUtterance("Anirudh Gudi");
+
+                    // Voice Selection (Try to find a Male voice)
+                    const voices = window.speechSynthesis.getVoices();
+                    const maleVoice = voices.find(v => v.name.includes('David') || v.name.includes('Male'));
+
+                    if (maleVoice) {
+                        utterance.voice = maleVoice;
+                    }
+
+                    // Tweak parameters: Normal speed
+                    utterance.rate = 1.0;
+                    utterance.pitch = 0.8;
+                    utterance.lang = 'en-US';
+
+                    window.speechSynthesis.speak(utterance);
+
+                    pronunciationBtn.style.opacity = '1';
+                });
+        });
+    }
 });
