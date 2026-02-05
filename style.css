@@ -355,7 +355,103 @@ header .container {
 
 
 
-/* Projects Section */
+
+/* Skills Marquee */
+.skills-marquee {
+    padding: var(--space-md) 0;
+    overflow: hidden;
+    background: var(--bg-main);
+    border-top: 1px solid rgba(0, 0, 0, 0.03);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+    margin-bottom: var(--space-lg);
+    white-space: nowrap;
+    position: relative;
+    width: 100%;
+}
+
+.skills-marquee::before,
+.skills-marquee::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 150px;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.skills-marquee::before {
+    left: 0;
+    background: linear-gradient(to right, var(--bg-main), transparent);
+}
+
+.skills-marquee::after {
+    right: 0;
+    background: linear-gradient(to left, var(--bg-main), transparent);
+}
+
+.marquee-content {
+    display: inline-flex;
+    /* gap removed to ensure continuous loop math */
+    animation: scroll 40s linear infinite;
+    /* padding-left removed for instant start */
+}
+
+.marquee-content:hover {
+    animation-play-state: paused;
+}
+
+.skill-item {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--text-light);
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    margin-right: 4rem;
+    /* Use margin instead of gap for seamless loop */
+}
+
+.skill-item i,
+.skill-icon-img {
+    font-size: 1.5rem;
+    width: 1.5rem;
+    /* Ensure image matches font size */
+    height: 1.5rem;
+    transition: all 0.3s ease;
+    filter: none !important;
+    /* Force Full Color */
+    opacity: 1 !important;
+    /* Force Full Visibility */
+}
+
+.skill-item:hover {
+    color: var(--text-main);
+    background: var(--bg-alt);
+}
+
+.skill-item:hover i,
+.skill-item:hover .skill-icon-img {
+    /* filter: grayscale(0%); */
+    /* opacity: 1; */
+    transform: scale(1.1);
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+
 /* Projects Section */
 .projects {
     padding: var(--space-xl) 0;
