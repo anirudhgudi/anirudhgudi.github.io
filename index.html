@@ -5,572 +5,335 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Anirudh Gudi - Mechanical Engineer specializing in Robotics, CAD Design, FEA, and Control Systems. M.S. Robotics with 2+ years automotive engineering experience.">
-    <title>Anirudh Gudi | Mechanical Engineer</title>
+        content="Anirudh Gudi - Mechanical Engineer specializing in Robotics, CAD Design, FEA, and Control Systems.">
+    <title>Anirudh Gudi</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="projects.css">
 </head>
 
 <body>
-
-    <!-- Sticky Navigation -->
-    <nav class="nav-bar">
-        <div class="nav-container">
-            <a href="#home" class="nav-logo">AG</a>
-            <div class="nav-links">
-                <a href="#home" class="nav-link">Home</a>
-                <a href="#expertise" class="nav-link">Expertise</a>
-                <a href="#projects" class="nav-link">Projects</a>
-                <a href="#experience" class="nav-link">Experience</a>
-                <a href="#contact" class="nav-link">Contact</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Theme Toggle Button -->
-    <button class="theme-toggle" aria-label="Toggle theme">
-        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="5"></circle>
-            <line x1="12" y1="1" x2="12" y2="3"></line>
-            <line x1="12" y1="21" x2="12" y2="23"></line>
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-            <line x1="1" y1="12" x2="3" y2="12"></line>
-            <line x1="21" y1="12" x2="23" y2="12"></line>
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-        </svg>
-        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-        </svg>
-    </button>
-
-    <!-- Full-Screen Cinematic Hero -->
-    <section id="home" class="hero">
-        <div class="hero-grid">
-            <!-- Left: Profile -->
-            <div class="hero-left">
-                <div class="profile-container">
-                    <div class="profile-frame">
-                        <img src="assets/Media/ProfilePicture.JPG" alt="Anirudh Gudi" class="profile-picture">
-                        <div class="profile-ring"></div>
-                        <div class="profile-ring-2"></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right: Content -->
-            <div class="hero-right">
-                <div class="hero-content-wrapper">
-                    <h1 class="hero-name">Anirudh Gudi</h1>
-                    <p class="hero-title">Mechanical Engineer</p>
-
-                    <!-- Engaging Professional Summary -->
-                    <p class="hero-summary">
-                        I'm a mechanical engineer who loves bringing ideas to life—whether that's designing robust
-                        automotive components,
-                        programming autonomous robots, or optimizing structures through FEA. With a fresh M.S. in
-                        Robotics from UC Riverside
-                        and 2+ years of hands-on automotive engineering experience, I bridge the gap between traditional
-                        mechanical design
-                        and cutting-edge robotics. When I'm not deep in CATIA or debugging ROS 2 nodes, you'll find me
-                        exploring how AI
-                        and control systems can make machines smarter and safer.
-                    </p>
-
-                    <div class="hero-cta">
-                        <a href="assets/resume.pdf" class="btn btn-primary" download target="_blank">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" style="margin-right: 0.5rem;">
-                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                                <polyline points="14 2 14 8 20 8"></polyline>
-                                <line x1="12" y1="18" x2="12" y2="12"></line>
-                                <line x1="9" y1="15" x2="15" y2="15"></line>
-                            </svg>
-                            Resume
-                        </a>
-                        <a href="#contact" class="btn btn-secondary btn-contact-highlight">Contact Me</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="scroll-indicator">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 5v14M19 12l-7 7-7-7" />
-            </svg>
-        </div>
-    </section>
-
-    <!-- Expertise Section - Minimalist Skills -->
-    <section id="expertise" class="expertise">
+    <!-- Simple Header -->
+    <header>
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Core Expertise</h2>
-                <p class="section-subtitle">Versatile mechanical engineer with cross-disciplinary capabilities</p>
-            </div>
-
-            <div class="expertise-content">
-                <!-- Stats Column -->
-                <div class="stats-column">
-                    <div class="stat-item-large">
-                        <div class="stat-number counter" data-target="9">0</div>
-                        <div class="stat-label">Projects</div>
-                    </div>
-                    <div class="stat-item-large">
-                        <div class="stat-number counter" data-target="2">0</div>
-                        <div class="stat-label">Years Experience</div>
-                    </div>
-                </div>
-
-                <!-- Skills Column -->
-                <div class="skills-column">
-                    <div class="skill-category">
-                        <h3 class="skill-title">
-                            <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <path d="M12 2L2 7l10 5 10-5-10-5z" />
-                                <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
-                            </svg>
-                            CAD & 3D Modeling
-                        </h3>
-                        <div class="skill-list">
-                            <span class="skill-item">CATIA V5/V6</span>
-                            <span class="skill-item">CREO</span>
-                            <span class="skill-item">SolidWorks</span>
-                            <span class="skill-item">Fusion 360</span>
-                        </div>
-                    </div>
-
-                    <div class="skill-category">
-                        <h3 class="skill-title">
-                            <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <circle cx="12" cy="12" r="10" />
-                                <path d="M12 6v6l4 2" />
-                            </svg>
-                            FEA & Optimization
-                        </h3>
-                        <div class="skill-list">
-                            <span class="skill-item">Ansys</span>
-                            <span class="skill-item">Structural Analysis</span>
-                            <span class="skill-item">Design Optimization</span>
-                        </div>
-                    </div>
-
-                    <div class="skill-category">
-                        <h3 class="skill-title">
-                            <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <rect x="3" y="3" width="18" height="18" rx="2" />
-                                <path d="M3 9h18M9 21V9" />
-                            </svg>
-                            Robotics & ROS
-                        </h3>
-                        <div class="skill-list">
-                            <span class="skill-item">ROS 2</span>
-                            <span class="skill-item">SLAM</span>
-                            <span class="skill-item">Gazebo</span>
-                            <span class="skill-item">Path Planning</span>
-                        </div>
-                    </div>
-
-                    <div class="skill-category">
-                        <h3 class="skill-title">
-                            <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
-                            </svg>
-                            Control Systems
-                        </h3>
-                        <div class="skill-list">
-                            <span class="skill-item">State-Space Control</span>
-                            <span class="skill-item">EKF/UKF</span>
-                            <span class="skill-item">PID Tuning</span>
-                            <span class="skill-item">Sensor Fusion</span>
-                        </div>
-                    </div>
-
-                    <div class="skill-category">
-                        <h3 class="skill-title">
-                            <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <path
-                                    d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
-                            </svg>
-                            Manufacturing & DFM
-                        </h3>
-                        <div class="skill-list">
-                            <span class="skill-item">GD&T</span>
-                            <span class="skill-item">DFM/DFA</span>
-                            <span class="skill-item">Rapid Prototyping</span>
-                        </div>
-                    </div>
-
-                    <div class="skill-category">
-                        <h3 class="skill-title">
-                            <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <path
-                                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
-                                <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
-                                <line x1="12" y1="22.08" x2="12" y2="12" />
-                            </svg>
-                            Programming
-                        </h3>
-                        <div class="skill-list">
-                            <span class="skill-item">Python</span>
-                            <span class="skill-item">MATLAB</span>
-                            <span class="skill-item">C/C++</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <h1 class="site-title">Anirudh Gudi</h1>
+            <nav class="header-nav">
+                <a href="photography.html" class="nav-text">Photography</a>
+                <a href="https://www.linkedin.com/in/anirudh-gudi/" target="_blank" aria-label="LinkedIn"><i
+                        class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/anirudhgudi" target="_blank" aria-label="GitHub"><i
+                        class="fab fa-github"></i></a>
+            </nav>
         </div>
-    </section>
+    </header>
 
-    <!-- Projects Section - Professional Asymmetric Grid -->
-    <section id="projects" class="projects-asymmetric">
-        <div class="container-pro">
-            <h2 class="section-title-pro">Featured Projects</h2>
-
-            <div class="projects-grid-asymmetric">
-                <!-- Project 1: Large Left -->
-                <div class="project-item large" data-project="0">
-                    <div class="project-visual-pro">
-                        <video autoplay loop muted playsinline class="project-img-pro" style="object-fit: cover;">
-                            <source src="assets/Media/Move Robot 1.mp4" type="video/mp4">
-                            <img src="assets/Media/Project1.png" alt="Smart Floor-Cleaning Robot"
-                                class="project-img-pro">
-                        </video>
-                    </div>
-                    <h3 class="project-title-pro">Smart Floor-Cleaning Robot</h3>
-                    <div class="project-tags-pro">
-                        <span>ROS 2</span>
-                        <span>SLAM</span>
-                        <span>Kinematics</span>
-                    </div>
-                </div>
-
-                <!-- Project 2: Small Right, Offset Down -->
-                <div class="project-item small offset-down" data-project="1">
-                    <div class="project-visual-pro">
-                        <img src="assets/Media/SensorFusion.png" alt="Adaptive Sensor Fusion" class="project-img-pro">
-                    </div>
-                    <h3 class="project-title-pro">Adaptive Sensor Fusion</h3>
-                    <div class="project-tags-pro">
-                        <span>EKF/UKF</span>
-                        <span>MATLAB</span>
-                    </div>
-                </div>
-
-                <!-- Project 3: Medium Left -->
-                <div class="project-item medium" data-project="2">
-                    <div class="project-visual-pro">
-                        <img src="assets/Media/Scara.png" alt="SCARA Fault Detection" class="project-img-pro">
-                    </div>
-                    <h3 class="project-title-pro">SCARA Fault Detection</h3>
-                    <div class="project-tags-pro">
-                        <span>MATLAB</span>
-                        <span>Control Systems</span>
-                    </div>
-                </div>
-
-                <!-- Project 4: Medium Right -->
-                <div class="project-item medium" data-project="3">
-                    <div class="project-visual-pro">
-                        <img src="assets/Media/Project1_1.png" alt="Gantry Loader Robot" class="project-img-pro">
-                    </div>
-                    <h3 class="project-title-pro">Gantry Loader Robot</h3>
-                    <div class="project-tags-pro">
-                        <span>CATIA V5</span>
-                        <span>FEA</span>
-                    </div>
-                </div>
-
-                <!-- Project 5: Small Left, Offset Up -->
-                <div class="project-item small offset-up" data-project="4">
-                    <div class="project-visual-pro">
-                        <img src="assets/Media/sensor_fusion_architecture.png" alt="Flywheel Optimization"
-                            class="project-img-pro">
-                    </div>
-                    <h3 class="project-title-pro">Flywheel Optimization</h3>
-                    <div class="project-tags-pro">
-                        <span>FEA</span>
-                        <span>Ansys</span>
-                    </div>
-                </div>
-
-                <!-- Project 6: Large Right -->
-                <div class="project-item large" data-project="5">
-                    <div class="project-visual-pro">
-                        <img src="assets/Media/Project1.png" alt="SMACBOT" class="project-img-pro">
-                    </div>
-                    <h3 class="project-title-pro">SMACBOT</h3>
-                    <div class="project-tags-pro">
-                        <span>Mechatronics</span>
-                        <span>Arduino</span>
-                    </div>
-                </div>
-
-                <!-- Project 7: Medium Left -->
-                <div class="project-item medium" data-project="6">
-                    <div class="project-visual-pro">
-                        <img src="assets/Media/LA Night Skyline.jpg" alt="Precision Worktable" class="project-img-pro">
-                    </div>
-                    <h3 class="project-title-pro">Precision Worktable</h3>
-                    <div class="project-tags-pro">
-                        <span>Control Systems</span>
-                        <span>PID</span>
-                    </div>
-                </div>
-
-                <!-- Project 8: Medium Right -->
-                <div class="project-item medium" data-project="7">
-                    <div class="project-visual-pro">
-                        <img src="assets/Media/Star_trail_2.jpg" alt="Surveillance System" class="project-img-pro">
-                    </div>
-                    <h3 class="project-title-pro">Surveillance System</h3>
-                    <div class="project-tags-pro">
-                        <span>Computer Vision</span>
-                        <span>OpenCV</span>
-                    </div>
-                </div>
-
-                <!-- Project 9: Large Left -->
-                <div class="project-item large" data-project="8">
-                    <div class="project-visual-pro">
-                        <img src="assets/Media/Project1_1.png" alt="Missile Launcher Analysis" class="project-img-pro">
-                    </div>
-                    <h3 class="project-title-pro">Missile Launcher Analysis</h3>
-                    <div class="project-tags-pro">
-                        <span>AFV Design</span>
-                        <span>Analysis</span>
-                    </div>
-                </div>
-
-                <!-- Placeholder for 10th Project -->
-                <div class="project-item placeholder-pro small">
-                    <div class="placeholder-visual-pro">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" width="40"
-                            height="40">
-                            <line x1="12" y1="5" x2="12" y2="19"></line>
-                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                        </svg>
-                        <span>Coming Soon</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Project Modal - Single Page Letter Layout -->
-    <div id="projectModal" class="modal-enhanced">
-        <div class="modal-backdrop-enhanced"></div>
-        <div class="modal-container-enhanced">
-            <button class="modal-close-enhanced" aria-label="Close modal">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <line x1="18" y1="6" x2="6" y2="18"></line>
-                    <line x1="6" y1="6" x2="18" y2="18"></line>
-                </svg>
-            </button>
-
-            <button class="modal-nav-prev" aria-label="Previous project">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polyline points="15 18 9 12 15 6"></polyline>
-                </svg>
-            </button>
-            <button class="modal-nav-next" aria-label="Next project">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polyline points="9 18 15 12 9 6"></polyline>
-                </svg>
-            </button>
-
-            <!-- Single Page Letter Layout -->
-            <div class="modal-content-letter">
-                <!-- Header with Title -->
-                <div class="modal-header-letter">
-                    <h1 id="modalTitle" class="modal-title-letter"></h1>
-                    <div id="modalTags" class="modal-tags-letter"></div>
-                </div>
-
-                <!-- Body with Professional Portfolio Layout -->
-                <div class="modal-body-letter">
-                    <!-- Content Sections -->
-                    <div class="modal-content-sections">
-                        <!-- What Section: Image + Text -->
-                        <div class="section-row">
-                            <div class="section-image">
-                                <img id="imageWhat" alt="">
-                            </div>
-                            <div class="section-column">
-                                <h2>What</h2>
-                                <p id="sectionWhat"></p>
-                            </div>
-                        </div>
-
-                        <!-- Why Section: Text + Image -->
-                        <div class="section-row">
-                            <div class="section-column">
-                                <h2>Why</h2>
-                                <p id="sectionWhy"></p>
-                            </div>
-                            <div class="section-image">
-                                <img id="imageWhy" alt="">
-                            </div>
-                        </div>
-
-                        <!-- How Section: Image + Text -->
-                        <div class="section-row">
-                            <div class="section-image">
-                                <img id="imageHow" alt="">
-                            </div>
-                            <div class="section-column">
-                                <h2>How</h2>
-                                <p id="sectionHow"></p>
-                            </div>
-                        </div>
-
-                        <!-- Results Section: Text + Image -->
-                        <div class="section-row">
-                            <div class="section-column">
-                                <h2>Results</h2>
-                                <p id="sectionResults"></p>
-                            </div>
-                            <div class="section-image">
-                                <img id="imageResults" alt="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Footer with Resources -->
-                <div class="modal-footer-letter">
-                    <div id="modalResources" class="modal-resources-letter"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-
-
-
-
-
-
-    <!-- Experience Section -->
-    <section id="experience" class="experience" style="padding: 6rem 0; background: var(--bg-primary);">
+    <!-- Hero Section -->
+    <section class="hero">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Professional Journey</h2>
-                <p class="section-subtitle">Building expertise through education and industry experience</p>
+            <div class="hero-profile">
+                <img src="assets/Media/ProfilePicture.JPG" alt="Anirudh Gudi" class="profile-picture">
             </div>
 
-            <div style="max-width: 800px; margin: 4rem auto; display: flex; flex-direction: column; gap: 3rem;">
-                <div class="fade-in" style="padding-left: 2rem; border-left: 3px solid var(--accent-primary);">
-                    <div style="color: var(--accent-primary); font-weight: 600; margin-bottom: 0.5rem;">Sept 2024 - Dec
-                        2025</div>
-                    <h3 style="font-size: 1.5rem; color: var(--text-primary); margin-bottom: 0.5rem;">M.S. in Robotics
-                    </h3>
-                    <p style="color: var(--text-secondary); margin-bottom: 0.5rem;">University of California, Riverside
-                    </p>
-                    <p style="color: var(--text-muted);"><strong>GPA: 3.77/4.0</strong> | Machine Learning, Robot
-                        Learning, Foundations of Robotics</p>
-                </div>
+            <h2 class="hero-subtitle">Mechanical Engineer and Robotics Graduate</h2>
 
-                <div class="fade-in" style="padding-left: 2rem; border-left: 3px solid var(--accent-primary);">
-                    <div style="color: var(--accent-primary); font-weight: 600; margin-bottom: 0.5rem;">Apr 2025 -
-                        Present</div>
-                    <h3 style="font-size: 1.5rem; color: var(--text-primary); margin-bottom: 0.5rem;">Graduate Student
-                        Researcher</h3>
-                    <p style="color: var(--text-secondary); margin-bottom: 0.5rem;">CRIS Lab, UC Riverside</p>
-                    <p style="color: var(--text-muted);">Developing real-time footstep-planning framework for safe
-                        quadruped-human collaboration using ROS 2</p>
-                </div>
+            <div class="hero-content">
+                <p>My name is Anirudh Gudi, and I am a mechanical engineer with a Masters degree in
+                    Robotics specializing in control and navigation. For as
+                    long as I can remember, I have had a burning passion for building robots and designing mechanical
+                    systems. I'm all about the engineering process going through several design iterations to optimize a
+                    product, rapid prototyping with CAD tools like CATIA and SolidWorks, and fine-tuning control systems
+                    is where I thrive the most. With 2+ years of automotive engineering experience and expertise in ROS
+                    2, FEA, and sensor fusion, I bridge the gap between traditional mechanical design and cutting-edge
+                    robotics.</p>
 
-                <div class="fade-in" style="padding-left: 2rem; border-left: 3px solid var(--accent-primary);">
-                    <div style="color: var(--accent-primary); font-weight: 600; margin-bottom: 0.5rem;">Sept 2022 - Jul
-                        2024</div>
-                    <h3 style="font-size: 1.5rem; color: var(--text-primary); margin-bottom: 0.5rem;">Engineer,
-                        Automotive</h3>
-                    <p style="color: var(--text-secondary); margin-bottom: 0.5rem;">L&T Technology Services</p>
-                    <p style="color: var(--text-muted);">Designed and optimized 50+ structural brackets using CATIA
-                        V5/V6, reducing material cost by 12%</p>
-                </div>
+                <p>This website provides detailed write-ups for my engineering projects, showcasing the technical
+                    aspects of my work in robotics, control systems, and mechanical design.</p>
+            </div>
 
-                <div class="fade-in" style="padding-left: 2rem; border-left: 3px solid var(--accent-primary);">
-                    <div style="color: var(--accent-primary); font-weight: 600; margin-bottom: 0.5rem;">Graduated 2022
-                    </div>
-                    <h3 style="font-size: 1.5rem; color: var(--text-primary); margin-bottom: 0.5rem;">B.E. in Mechanical
-                        Engineering</h3>
-                    <p style="color: var(--text-secondary); margin-bottom: 0.5rem;">KLE Technological University,
-                        Hubballi</p>
-                    <p style="color: var(--text-muted);"><strong>GPA: 8.0/10</strong> | Finite Element Methods, Machine
-                        Design, CAD, Mechatronics</p>
-                </div>
+            <div class="hero-links">
+                <a href="assets/resume.pdf" class="btn-link btn-highlight" target="_blank">Download Resume</a>
+                <a href="https://github.com/anirudhgudi" class="btn-link" target="_blank">GitHub Profile</a>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact" style="padding: 6rem 0; background: var(--bg-secondary);">
+    <!-- Journey Section (Minimalist Flow) -->
+    <section class="experience" id="journey">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Let's Connect</h2>
-                <p class="section-subtitle">Available for industry engagement from February 09, 2026</p>
-            </div>
+            <h2 class="section-title">My Journey</h2>
 
-            <div style="max-width: 600px; margin: 4rem auto; text-align: center;">
-                <div style="display: flex; flex-direction: column; gap: 2rem; margin-bottom: 3rem;">
-                    <div class="fade-in">
-                        <h4 style="color: var(--accent-primary); margin-bottom: 0.5rem;">Email</h4>
-                        <a href="mailto:contact.anirudhgudi@gmail.com"
-                            style="color: var(--text-primary); font-size: 1.125rem;">contact.anirudhgudi@gmail.com</a>
-                    </div>
-                    <div class="fade-in">
-                        <h4 style="color: var(--accent-primary); margin-bottom: 0.5rem;">Location</h4>
-                        <p style="color: var(--text-secondary);">Riverside, CA</p>
-                    </div>
+            <div class="journey-flow">
+
+                <!-- Card 1: Grad Research -->
+                <div class="journey-card">
+                    <span class="journey-date">Jan 2025 - Dec 2025</span>
+                    <h3 class="journey-role">Graduate Research Assistant</h3>
+                    <p class="journey-org">University of California, Riverside</p>
+                    <p class="journey-desc">Conducted advanced research in autonomous systems and legged robots.</p>
+                    <ul class="journey-details">
+                        <li><strong>Focus:</strong> Sensor Fusion, SLAM, ROS 2 Navigation, Reinforcement Learning, MPC
+                        </li>
+                        <li><strong>Tech:</strong> C++, Python, Pytorch, Mujoco, Isaac Sim/Lab</li>
+                        <!-- <li><strong>Achievement:</strong> Optimizing state estimation algorithms for mobile robots in
+                            unstructured environments.</li> -->
+                    </ul>
                 </div>
 
-                <div class="fade-in" style="display: flex; gap: 2rem; justify-content: center;">
-                    <a href="https://linkedin.com/in/anirudh-gudi" target="_blank"
-                        style="color: var(--accent-primary); transition: var(--transition);">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                        </svg>
-                    </a>
-                    <a href="https://github.com/anirudhgudi" target="_blank"
-                        style="color: var(--accent-primary); transition: var(--transition);">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                        </svg>
+                <!-- Card 2: Masters (Education) -->
+                <div class="journey-card education-card">
+                    <div class="card-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <span class="journey-date">Sep 2024 - Dec 2025</span>
+                    <h3 class="journey-role">M.S. in Robotics</h3>
+                    <p class="journey-org">University of California, Riverside | <strong>GPA: 3.77/4</strong></p>
+                    <p class="journey-desc">Specializing in Control Systems and Perception.</p>
+                    <ul class="journey-details">
+                        <li><strong>Relevant Coursework:</strong> Foundation of Robotics, Machine Learning, Design and
+                            Fabrication of Robots,
+                            Robot Learning, Artifical Intelligence for Robotics, Intelligent Transportation Systems.
+                        </li>
+                        <li><strong>Thesis:</strong> Learning Residual Footstep Policies for Quadruped Locomotion.</li>
+                    </ul>
+                </div>
+
+                <!-- Card 3: Automotive Engineer -->
+                <div class="journey-card">
+                    <span class="journey-date">Sep 2022 - Jun 2024</span>
+                    <h3 class="journey-role">Mechanical Design Engineer</h3>
+                    <p class="journey-org">Industrial Experience</p>
+                    <p class="journey-desc">Mechanical design and system optimization.</p>
+                    <ul class="journey-details">
+                        <li><strong>Key Projects:</strong> Vehicle chassis design and optimization.</li>
+                        <li><strong>Tools:</strong> CATIA V5 and 3DEXPERIENCE(V6), SolidWorks, ANSYS (FEA).</li>
+                        <li><strong>Impact:</strong> Optimized BIW components using DFM/DFA, improving design
+                            feasibility by 15%. Enhanced team efficiency by 20% through proactive interference
+                            resolution and cross-functional validation.</li>
+                    </ul>
+                </div>
+
+                <!-- Card 4: Bachelors (Education) -->
+                <div class="journey-card education-card">
+                    <div class="card-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <span class="journey-date">Aug 2018 - Jun 2022</span>
+                    <h3 class="journey-role">B.E. in Mechanical Engineering</h3>
+                    <p class="journey-org">KLE Technological University | <strong>CGPA: 8.0/10</strong></p>
+                    <p class="journey-desc">Foundation in mechanical systems and diverse engineering disciplines.</p>
+                    <ul class="journey-details">
+                        <li><strong>Activities:</strong> Robotics Club, Media Club.</li>
+                        <li><strong>Capstone:</strong> Design and fabrication of a semi-autonomous cleaning robot
+                            (SMACBOT).</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Projects Section -->
+    <section class="projects">
+        <div class="container">
+            <h2 class="section-title">Latest Projects</h2>
+
+            <div class="projects-grid">
+                <!-- Project 0: Quadruped Locomotion (NEW) -->
+                <div class="project-card" data-project="0">
+                    <img src="assets/Media/Arch.png" alt="Quadruped Locomotion" class="project-image">
+                    <h3 class="project-title">Learning Residual Footstep Policy</h3>
+                    <p class="project-desc">Hybrid RL/Planner framework for adaptive quadrupedal locomotion</p>
+                    <a href="assets/QuadProject.pdf" target="_blank" class="project-report-link"
+                        onclick="event.stopPropagation()">
+                        <i class="fas fa-file-pdf"></i> View Report
                     </a>
                 </div>
+
+                <!-- Project 1: Snake Bot (Old 0) -->
+                <div class="project-card" data-project="1">
+                    <img src="assets/Media/Snakebot.jpeg" alt="Snake Bot" class="project-image">
+                    <h3 class="project-title">Snakebot</h3>
+                    <p class="project-desc">Biomimetic robot with 8-servo articulation for hazardous terrain navigation
+                    </p>
+                    <a href="assets/Project1.pdf" target="_blank" class="project-report-link"
+                        onclick="event.stopPropagation()">
+                        <i class="fas fa-file-pdf"></i> View Report
+                    </a>
+                </div>
+
+                <!-- Project 2: FClean Bot (Old 1) -->
+                <div class="project-card" data-project="2">
+                    <img src="assets/Media/Project1_1.png" alt="FClean Bot" class="project-image">
+                    <h3 class="project-title">FClean Bot</h3>
+                    <p class="project-desc">Autonomous floor-cleaning robot with manipulator arm and SLAM</p>
+                    <a href="assets/Project2.pdf" target="_blank" class="project-report-link"
+                        onclick="event.stopPropagation()">
+                        <i class="fas fa-file-pdf"></i> View Report
+                    </a>
+                </div>
+
+                <!-- Hidden projects - revealed when "View all Projects" is clicked -->
+
+                <!-- Project 3: SMACBOT (Moved up from 6) -->
+                <div class="project-card" data-project="3">
+                    <img src="assets/Media/SMACBOT.jpg" alt="SMACBOT" class="project-image">
+                    <h3 class="project-title">SMACBOT</h3>
+                    <p class="project-desc">Automated smart floor mopping device for eco-friendly cleaning</p>
+                    <a href="assets/Project7.pdf" target="_blank" class="project-report-link"
+                        onclick="event.stopPropagation()">
+                        <i class="fas fa-file-pdf"></i> View Report
+                    </a>
+                </div>
+
+                <!-- Project 4: Adaptive Sensor Fusion (Old 2) -->
+                <div class="project-card hidden-project" data-project="4">
+                    <img src="assets/Media/sensor_fusion_architecture.png" alt="Adaptive Sensor Fusion"
+                        class="project-image">
+                    <h3 class="project-title">Adaptive Sensor Fusion</h3>
+                    <p class="project-desc">Dynamic multi-sensor weighting logic for robust vehicle localization</p>
+                    <a href="assets/Project3.pdf" target="_blank" class="project-report-link"
+                        onclick="event.stopPropagation()">
+                        <i class="fas fa-file-pdf"></i> View Report
+                    </a>
+                </div>
+
+                <!-- Project 5: Fault Detection (Old 3) -->
+                <div class="project-card hidden-project" data-project="5">
+                    <img src="assets/Media/Scara.png" alt="SCARA Robot Fault Detection" class="project-image">
+                    <h3 class="project-title">Fault Detection in SCARA Robot</h3>
+                    <p class="project-desc">Observer-based diagnostic system for isolating actuator/sensor faults</p>
+                    <a href="assets/SCARA_Fault_Detection_Presentation.pdf" target="_blank" class="project-report-link"
+                        onclick="event.stopPropagation()">
+                        <i class="fas fa-file-pdf"></i> View Report
+                    </a>
+                </div>
+                <!-- Project 6: Surveillance (Old 9) -->
+                <div class="project-card hidden-project" data-project="6">
+                    <img src="assets/Media/SurvRob.png" alt="FEA Optimization" class="project-image">
+                    <h3 class="project-title">Surveillance and Defence System</h3>
+                    <p class="project-desc">Vision-based quadrotor tracking for automated border security</p>
+                    <a href="assets/Project9.pdf" target="_blank" class="project-report-link"
+                        onclick="event.stopPropagation()">
+                        <i class="fas fa-file-pdf"></i> View Report
+                    </a>
+                </div>
+
+                <!-- Project 7: Gantry Loader (Old 4) -->
+                <div class="project-card hidden-project" data-project="7">
+                    <img src="assets/Media/sensor_fusion_architecture.png" alt="Sensor Fusion Architecture"
+                        class="project-image">
+                    <h3 class="project-title">Gantry Loader Turning Machine</h3>
+                    <p class="project-desc">3-axis Cartesian robot for automated material handling and loading</p>
+                    <a href="assets/Project5.pdf" target="_blank" class="project-report-link"
+                        onclick="event.stopPropagation()">
+                        <i class="fas fa-file-pdf"></i> View Report
+                    </a>
+                </div>
+
+                <!-- Project 8: Flywheel (Old 5) -->
+                <div class="project-card hidden-project" data-project="8">
+                    <!-- <img src="assets/Media/Flywheel.png" alt="Material Processing Analysis" class="project-image"> -->
+                    <h3 class="project-title">Design Optimization of Cast Iron Flywheel</h3>
+                    <p class="project-desc">FEA-driven geometry optimization for 35% weight reduction</p>
+                    <a href="assets/Project6.pdf" target="_blank" class="project-report-link"
+                        onclick="event.stopPropagation()">
+                        <i class="fas fa-file-pdf"></i> View Report
+                    </a>
+                </div>
+
+                <!-- Project 9: Worktable (Old 7) -->
+                <div class="project-card hidden-project" data-project="9">
+                    <!-- <img src="assets/Media/Worktable.png" alt="Advanced CAD Design" class="project-image"> -->
+                    <h3 class="project-title">Worktable Positioning System</h3>
+                    <p class="project-desc">Ultrasonic feedback control for precision machining automation</p>
+                    <a href="assets/Project8.pdf" target="_blank" class="project-report-link"
+                        onclick="event.stopPropagation()">
+                        <i class="fas fa-file-pdf"></i> View Report
+                    </a>
+                </div>
+
+
+            </div>
+
+            <div class="view-all-link">
+                <button id="viewAllBtn" class="btn-link">View all Projects</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Support Section -->
+    <section class="contact">
+        <div class="container">
+            <h2 class="section-title">Get in Touch</h2>
+
+            <div class="contact-content">
+                <p>If you're interested in my work or would like to collaborate on robotics and mechanical engineering
+                    projects, feel free to reach out. I have completed my M.S. in Robotics and am available for
+                    industry engagement from February 09, 2026.</p>
+
+                <p><strong>Contact Me:</strong></p>
+                <a href="mailto:contact.anirudhgudi@gmail.com" class="email-highlight">contact.anirudhgudi@gmail.com</a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer
-        style="padding: 2rem 0; background: var(--bg-primary); text-align: center; border-top: 1px solid var(--border-subtle);">
+    <footer>
         <div class="container">
-            <p style="color: var(--text-muted);">&copy; 2026 Anirudh Gudi. All rights reserved.</p>
+            <div class="footer-content">
+                <div class="footer-nav">
+                    <a href="#home">Home</a>
+                    <a href="#projects">Projects</a>
+                </div>
+
+
+
+                <div class="footer-contact">
+                    <p>Contact Me: <a href="mailto:contact.anirudhgudi@gmail.com">contact.anirudhgudi@gmail.com</a></p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Anirudh Gudi. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
+    <!-- Project Detail Modal -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div class="modal-body">
+                <h2 id="modalTitle" class="modal-title"></h2>
+                <img id="modalImage" class="modal-image" src="" alt="">
+
+                <div class="modal-gallery" id="modalGallery">
+                    <!-- Gallery images injected here -->
+                </div>
+
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Overview</h3>
+                    <p id="modalOverview" class="modal-section-content"></p>
+                </div>
+
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Challenge</h3>
+                    <p id="modalChallenge" class="modal-section-content"></p>
+                </div>
+
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Solution</h3>
+                    <p id="modalSolution" class="modal-section-content"></p>
+                </div>
+
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Impact</h3>
+                    <p id="modalImpact" class="modal-section-content"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="scripts.js"></script>
-    <script src="theme.js"></script>
-    <script src="modal.js"></script>
 </body>
 
 </html>

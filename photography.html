@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Photography portfolio by Anirudh Gudi - Capturing moments through the lens">
+    <title>Photography - Anirudh Gudi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .photography-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .photo-card {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .photo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .photo-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .photo-caption {
+            padding: 1rem;
+        }
+
+        .photo-title {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #000;
+            margin-bottom: 0.5rem;
+        }
+
+        .photo-desc {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: #666;
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        .back-link:hover {
+            color: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Simple Header -->
+    <header>
+        <div class="container">
+            <h1 class="site-title">Anirudh Gudi</h1>
+            <nav class="header-nav">
+                <a href="index.html">Home</a>
+                <a href="https://www.instagram.com/anirudhgudi/" target="_blank">Instagram</a>
+                <a href="https://www.linkedin.com/in/anirudh-gudi/" target="_blank">LinkedIn</a>
+                <a href="https://github.com/anirudhgudi" target="_blank">GitHub</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Photography Section -->
+    <section class="hero">
+        <div class="container">
+            <a href="index.html" class="back-link">← Back to Home</a>
+            <h2 class="section-title" style="margin-bottom: 1rem;">Photography</h2>
+            <p style="color: #666; margin-bottom: 3rem; max-width: 600px;">A collection of moments captured through my
+                lens. Exploring the intersection of engineering precision and artistic expression.</p>
+
+            <div class="photography-grid">
+                <!-- Photo 1 -->
+                <div class="photo-card">
+                    <img src="assets/Media/Chikamagaluru.jpg" alt="Chikamagaluru" class="photo-image">
+                    <div class="photo-caption">
+                        <h3 class="photo-title">Chikamagaluru</h3>
+                        <p class="photo-desc">Scenic landscape photography capturing the natural beauty of
+                            Chikamagaluru</p>
+                    </div>
+                </div>
+
+                <!-- Photo 2 -->
+                <div class="photo-card">
+                    <img src="assets/Media/LA Night Skyline.jpg" alt="LA Night Skyline" class="photo-image">
+                    <div class="photo-caption">
+                        <h3 class="photo-title">LA Night Skyline</h3>
+                        <p class="photo-desc">Los Angeles cityscape illuminated against the night sky</p>
+                    </div>
+                </div>
+
+                <!-- Photo 3 -->
+                <div class="photo-card">
+                    <img src="assets/Media/Star_trail_2.jpg" alt="Star Trails" class="photo-image">
+                    <div class="photo-caption">
+                        <h3 class="photo-title">Star Trails</h3>
+                        <p class="photo-desc">Long exposure astrophotography capturing the movement of stars</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-nav">
+                    <a href="index.html">Home</a>
+                    <a href="#photography">Photography</a>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Connect</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="photography.html">Photography</a></li>
+                        <li><a href="https://www.instagram.com/anirudhgudi/" target="_blank">Instagram</a></li>
+                        <li><a href="https://www.linkedin.com/in/anirudh-gudi/" target="_blank">LinkedIn</a></li>
+                        <li><a href="https://github.com/anirudhgudi" target="_blank">GitHub</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <p>Contact Me: <a href="mailto:contact.anirudhgudi@gmail.com">contact.anirudhgudi@gmail.com</a></p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Anirudh Gudi. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
