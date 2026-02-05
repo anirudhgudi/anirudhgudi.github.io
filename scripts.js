@@ -250,26 +250,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Experience Journey Animation
-    const journeyCards = document.querySelectorAll('.journey-card');
+    // Use global scroll reveal observer
+    const revealElements = document.querySelectorAll('.reveal');
 
-    const journeyObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry, index) => {
+    const scrollObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Add specific delay based on index for staggered effect
-                setTimeout(() => {
-                    entry.target.classList.add('visible');
-                }, index * 150);
-                journeyObserver.unobserve(entry.target);
+                entry.target.classList.add('active');
+                // Optional: Stop observing once revealed
+                scrollObserver.unobserve(entry.target);
             }
         });
     }, {
-        threshold: 0.1,
+        threshold: 0.15,
         rootMargin: "0px 0px -50px 0px"
     });
 
-    journeyCards.forEach(card => {
-        journeyObserver.observe(card);
-    });
+    revealElements.forEach(el => scrollObserver.observe(el));
 
     // Pronunciation Audio Logic
     const pronunciationBtn = document.getElementById('play-pronunciation');
