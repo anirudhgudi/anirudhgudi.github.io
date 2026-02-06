@@ -162,7 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         7: {
             title: "Gantry Loader Turning Machine",
-            image: "assets/Media/sensor_fusion_architecture.png",
+            image: "assets/Media/GantryLoader.png",
             overview: "Design and fabrication of a 3-axis Cartesian (Gantry) robot specifically engineered for automated material handling and loading for industrial turning machines.",
             challenge: "Manual material handling is labor-intensive, slow, and repetitive, leading to human error and safety hazards. Standard 6-axis arms are often too expensive for simple loading tasks.",
             solution: "Engineered a robust gantry system using a rack-and-pinion mechanism for reliable linear motion. Controlled by a PLC with integrated ultrasonic sensors for obstacle detection and collision avoidance.",
