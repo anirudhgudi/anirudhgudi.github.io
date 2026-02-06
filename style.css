@@ -592,11 +592,196 @@ header .container {
     display: block;
 }
 
+/* Awards & Certificates Section - Showcase Style */
+.awards {
+    padding: var(--space-xl) 0;
+    background: var(--bg-main);
+    border-top: 1px solid rgba(0, 0, 0, 0.03);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle background accent for awards */
+.awards::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.02) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.certificates-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: var(--space-md);
+    position: relative;
+    z-index: 1;
+}
+
+.certificate-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 1.5rem;
+    border: 1px solid var(--border);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Center align for showcase feel */
+    text-align: center;
+    height: 100%;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+}
+
+.certificate-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    border-color: transparent;
+}
+
+/* Special Glow for SPOT Award */
+.box-glow-gold {
+    border-color: rgba(212, 175, 55, 0.3);
+    background: linear-gradient(145deg, #fff, #fffbf0);
+}
+
+.box-glow-gold:hover {
+    box-shadow: 0 20px 40px rgba(212, 175, 55, 0.15);
+    border-color: rgba(212, 175, 55, 0.6);
+}
+
+.cert-icon-wrapper {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.4s ease;
+}
+
+.certificate-card:hover .cert-icon-wrapper {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.cert-brand-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+}
+
+.trophy-anim {
+    font-size: 3rem;
+    background: linear-gradient(45deg, #FFD700, #FDB931);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 2px 4px rgba(218, 165, 32, 0.3));
+}
+
+.industry-anim {
+    font-size: 3rem;
+    background: linear-gradient(45deg, #607d8b, #b0bec5);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.cert-content {
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cert-title {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 0.35rem;
+    line-height: 1.3;
+}
+
+.cert-org {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 0.25rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.75rem;
+    opacity: 0.8;
+}
+
+.cert-date {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-bottom: 1.25rem;
+    background: rgba(0, 0, 0, 0.03);
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+.cert-link {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-main);
+    text-decoration: none;
+    margin-top: auto;
+    padding: 0.6rem 1.2rem;
+    border-radius: 50px;
+    background: transparent;
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.cert-link:hover {
+    background: var(--text-main);
+    color: #fff;
+    border-color: var(--text-main);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.box-glow-gold .cert-link:hover {
+    background: linear-gradient(45deg, #FFD700, #FDB931);
+    border-color: transparent;
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Awards Responsive */
+@media (max-width: 900px) {
+    .certificates-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .certificates-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
 /* Experience Section */
 .experience {
     padding: var(--space-xl) 0;
     background: var(--bg-alt);
-    /* Soft grey background for contrast */
+    margin-top: 0;
+    /* removed separate spacing if needed */
 }
 
 /* Minimalist Journey Flow - The Timeline */
@@ -823,6 +1008,36 @@ header .container {
     color: #000;
     font-weight: 600;
 }
+
+/* Certificate Link Styling */
+.certificate-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: var(--text-main);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-left: 0.5rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.03);
+    transition: all 0.3s ease;
+    border-bottom: 2px solid transparent;
+}
+
+.certificate-link:hover {
+    background: rgba(0, 0, 0, 0.08);
+    border-bottom-color: var(--text-main);
+    transform: translateX(2px);
+}
+
+.certificate-link i {
+    font-size: 0.85rem;
+    color: #d4af37;
+    /* Gold color for award icon */
+}
+
 
 /* Mobile Responsive */
 @media (max-width: 600px) {
