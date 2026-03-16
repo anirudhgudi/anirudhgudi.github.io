@@ -393,7 +393,7 @@ header .container {
 .marquee-content {
     display: inline-flex;
     /* gap removed to ensure continuous loop math */
-    animation: scroll 40s linear infinite;
+    animation: scroll 30s linear infinite;
     /* padding-left removed for instant start */
 }
 
