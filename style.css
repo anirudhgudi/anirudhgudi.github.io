@@ -417,7 +417,7 @@ header .container {
 }
 
 .skill-item i,
-.skill-icon-img {
+.skill-item .skill-icon-img {
     font-size: 1.5rem;
     width: 1.5rem;
     /* Ensure image matches font size */
