@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ],
             overview: "Advanced state estimation system combining Extended Kalman Filter (EKF) and Unscented Kalman Filter (UKF) for multi-sensor data fusion in robotic applications. Enables accurate position and velocity estimation from noisy sensor measurements.",
             challenge: "Individual sensors (IMU, GPS, encoders) have inherent noise and limitations. The challenge was to optimally combine multiple sensor inputs to produce accurate, reliable state estimates even when individual sensors provide conflicting or noisy data.",
-            solution: "Implemented both EKF and UKF algorithms in C++ to handle linear and non-linear sensor models. Developed adaptive weighting system that adjusts sensor trust based on real-time noise characteristics. Integrated with ROS 2 for seamless sensor data processing and state publishing.",
+            solution: "Implemented both EKF and UKF algorithms in MATLAB to handle linear and non-linear sensor models. Developed adaptive weighting system that adjusts sensor trust based on real-time noise characteristics. Integrated with ROS 2 for seamless sensor data processing and state publishing.",
             impact: "Reduced position estimation error by 60% compared to single-sensor approaches. System successfully handles sensor failures and maintains accurate state estimation, critical for autonomous navigation applications."
         },
         5: {
