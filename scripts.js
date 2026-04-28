@@ -117,6 +117,14 @@ document.addEventListener('DOMContentLoaded', () => {
             impact: "Achieved efficient automated cleaning coverage in Gazebo simulations while demonstrating the ability to actively interact with the environment, significantly increasing the autonomy of domestic service robots."
         },
         3: {
+            title: "Gantry Loader Turning Machine",
+            image: "assets/Media/GantryLoader.png",
+            overview: "Design and fabrication of a 3-axis Cartesian (Gantry) robot specifically engineered for automated material handling and loading for industrial turning machines.",
+            challenge: "Manual material handling is labor-intensive, slow, and repetitive, leading to human error and safety hazards. Standard 6-axis arms are often too expensive for simple loading tasks.",
+            solution: "Engineered a robust gantry system using a rack-and-pinion mechanism for reliable linear motion. Controlled by a PLC with integrated ultrasonic sensors for obstacle detection and collision avoidance.",
+            impact: "Successfully automated the material loading cycle, improving production throughput and ensuring a safer working environment through reduced human-machine interaction."
+        },
+        4: {
             title: "SMACBOT",
             image: "assets/Media/SMACBOT.jpg",
             gallery: [
@@ -128,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
             solution: "Development of a \"SMACBOT\" featuring automated navigation, optimized usage of water and chemicals, and a design focused on quick-drying and user-friendliness. The system notifies the user once the cleaning task is complete.",
             impact: "Significantly reduced physical effort and time for floor maintenance while promoting better resource management (water and chemical efficiency)."
         },
-        4: {
+        5: {
             title: "Adaptive Sensor Fusion",
             image: "assets/Media/sensor_fusion_architecture.png",
             gallery: [
@@ -140,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
             solution: "Implemented both EKF and UKF algorithms in MATLAB to handle linear and non-linear sensor models. Developed adaptive weighting system that adjusts sensor trust based on real-time noise characteristics. Integrated with ROS 2 for seamless sensor data processing and state publishing.",
             impact: "Reduced position estimation error by 60% compared to single-sensor approaches. System successfully handles sensor failures and maintains accurate state estimation, critical for autonomous navigation applications."
         },
-        5: {
+        6: {
             title: "Fault Detection in SCARA Robot",
             image: "assets/Media/Scara.png",
             overview: "An advanced observer-based diagnostic system for monitoring the health and performance of SCARA robotic systems in real-time.",
@@ -148,7 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
             solution: "Developed a Luenberger Observer model that generates \"residuals\"—mathematical differences between actual and predicted states. By analyzing these residuals, the system precisely isolates faults in actuators or sensors.",
             impact: "Created a robust diagnostic framework that improves reliability and safety, enabling predictive maintenance and reducing unexpected operational costs."
         },
-        6: {
+        7: {
             title: "Surveillance and Defence System",
             image: "assets/Media/SurvRob.png",
             gallery: [
@@ -159,14 +167,6 @@ document.addEventListener('DOMContentLoaded', () => {
             challenge: "Manual surveillance systems are prone to human error, fatigue, and delays in critical decision-making, which can compromise security.",
             solution: "Integration of quadrotors with computer vision algorithms to detect and track targets autonomously. The system uses visual feedback to track objects based on image coordinates, allowing for GPS-independent operation.",
             impact: "Created a more reliable and responsive surveillance framework that reduces human intervention and improves the speed and accuracy of target detection."
-        },
-        7: {
-            title: "Gantry Loader Turning Machine",
-            image: "assets/Media/GantryLoader.png",
-            overview: "Design and fabrication of a 3-axis Cartesian (Gantry) robot specifically engineered for automated material handling and loading for industrial turning machines.",
-            challenge: "Manual material handling is labor-intensive, slow, and repetitive, leading to human error and safety hazards. Standard 6-axis arms are often too expensive for simple loading tasks.",
-            solution: "Engineered a robust gantry system using a rack-and-pinion mechanism for reliable linear motion. Controlled by a PLC with integrated ultrasonic sensors for obstacle detection and collision avoidance.",
-            impact: "Successfully automated the material loading cycle, improving production throughput and ensuring a safer working environment through reduced human-machine interaction."
         },
         8: {
             title: "Design Optimization of Cast Iron Flywheel",
