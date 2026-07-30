@@ -84,9 +84,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Project data with Overview/Challenge/Solution/Impact structure
     const projectData = {
         0: {
-            title: "Learning Residual Footstep Policy",
+            title: "Quadruped Robotics System",
             image: "assets/Media/Arch.png",
-            overview: "A hybrid locomotion framework developed to enhance quadrupedal robot movement by combining classical footstep planners with Deep Reinforcement Learning (RL). The system uses the Quad-SDK control stack and MuJoCo for physics simulation.",
+            overview: "A hybrid locomotion framework developed to enhance quadrupedal robot movement by combining classical footstep planners with Deep Reinforcement Learning (RL). The system uses the Quad-SDK control stack and MuJoCo for physics simulation in a mechatronics and robotics systems context.",
             challenge: "Standard model-based planners are efficient on flat ground but lack adaptability for complex terrains. Pure RL approaches often lack the safety and interpretability crucial for real-world robotics.",
             solution: "Implemented a residual learning approach using PPO-trained RL to output small Cartesian residuals that refine nominal foot targets from a Raibert planner. This maintains base stability while enabling adaptive corrections for terrain irregularities.",
             impact: "Successfully validated the end-to-end planning pipeline on flat terrain. Demonstrated that the residual policy can refine tracking behavior without compromising system stability. Modular architecture allows easy integration into ROS 2 stacks."
@@ -174,7 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
             overview: "An engineering study aimed at using simulation-driven design to optimize the geometry of a cast iron flywheel for energy storage in IC engines or punch presses.",
             challenge: "Conventional flywheel designs are often over-engineered, resulting in excessive weight and material costs. This unnecessary mass increases rotational inertia beyond requirement and reduces system efficiency.",
             solution: "Utilized Finite Element Analysis (FEA) in ANSYS to conduct a detailed stress and deformation study across various geometries (rim vs. spoke types). Optimized parameters like rim thickness, width, and number of arms for better material distribution.",
-            impact: "Achieved a significant reduction in material weight (up to 35%) and manufacturing cost while maintaining a high safety factor, demonstrating how computational analysis can refine traditional mechanical components."
+            impact: "Achieved a significant reduction in material weight (up to 35%) and manufacturing cost while maintaining a high safety factor, demonstrating how computational analysis can refine traditional mechatronics and robotics systems components."
         },
         9: {
             title: "Worktable Positioning System",
