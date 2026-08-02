@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Notes on ROS 2, motion planning, and going from CAD to URDF — written by Anirudh Gudi, a robotics engineer with a mechanical design background.">
+    <title>Writing — Anirudh Gudi</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <script>
+        (function () {
+            var saved = localStorage.getItem('theme');
+            if (saved) document.documentElement.setAttribute('data-theme', saved);
+        })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="shree-text">श्री</div>
+    <header>
+        <div class="container">
+            <a href="index.html" class="site-title">Anirudh Gudi</a>
+            <nav class="header-nav">
+                <a href="blog.html" class="nav-text">Writing</a>
+                <a href="photography.html" class="nav-text">Photography</a>
+                <a href="https://www.linkedin.com/in/anirudh-gudi/" target="_blank" aria-label="LinkedIn"><i
+                        class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/anirudhgudi" target="_blank" aria-label="GitHub"><i
+                        class="fab fa-github"></i></a>
+                <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                    <i class="fas fa-sun"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <section class="blog-hero">
+        <div class="container">
+            <h1>Field Notes</h1>
+            <p>Longer-form write-ups on the robotics fundamentals I keep coming back to — written from a mechanical
+                design background, so the gaps I explain are the ones I actually had.</p>
+        </div>
+    </section>
+
+    <div class="blog-tabs container">
+        <button class="tab-btn active" data-target="ros2">ROS 2 <span class="tab-level">Beginner → Advanced</span></button>
+        <button class="tab-btn" data-target="motion-planning">Motion Planning <span class="tab-level">Beginner → Advanced</span></button>
+        <button class="tab-btn" data-target="urdf">CAD → URDF <span class="tab-level">Beginner → Advanced</span></button>
+    </div>
+
+    <!-- ============ POST 1: ROS 2 ============ -->
+    <section class="post-panel active" id="ros2">
+        <div class="container post-wrap">
+            <div class="post-meta">
+                <span>Robotics Software</span>
+                <span>·</span>
+                <span>~9 min read</span>
+            </div>
+            <h1 class="post-title">ROS 2, from a mechanical engineer's seat</h1>
+            <p class="post-intro">The first time I opened a ROS 2 workspace, I'd already wired a Raspberry Pi to a
+                PCA9685 servo driver by hand for Snakebot, so I assumed I understood "software talking to hardware."
+                I didn't — not the way ROS 2 wanted me to. This is the explanation I wish I'd had: nodes and topics
+                explained the way a mechanical engineer already thinks about assemblies and wiring harnesses, then
+                the parts that actually got me stuck later.</p>
+
+            <div class="level-nav">
+                <a href="#ros2-beginner" class="level-chip">Beginner</a>
+                <a href="#ros2-intermediate" class="level-chip">Intermediate</a>
+                <a href="#ros2-advanced" class="level-chip">Advanced</a>
+            </div>
+
+            <div class="post-section" id="ros2-beginner">
+                <h2><span class="stage-tag">Beginner</span> Nodes are components, topics are the harness</h2>
+                <p>Before ROS 2, my Snakebot code was one Python script: read a sensor, compute a servo angle, write
+                    it out, repeat. It worked, but it didn't scale — every new sensor meant threading it into the same
+                    monolithic loop.</p>
+                <p>ROS 2 splits that loop into <strong>nodes</strong> — independent programs that each do one job.
+                    A camera driver is a node. A footstep planner is a node. A motor controller is a node. They don't
+                    call each other's functions directly; they publish and subscribe to <strong>topics</strong>,
+                    which are just named, typed data streams. Think of it the way I think about a wiring harness on
+                    a physical robot: each wire (topic) carries one signal type (message), and any component that
+                    needs that signal taps into the harness instead of running a dedicated line to the source.</p>
+                <pre><code>ros2 topic list
+ros2 topic echo /joint_states
+ros2 node list</code></pre>
+                <p>Those three commands got me further than any tutorial diagram. <code>topic list</code> shows you
+                    the harness; <code>topic echo</code> lets you probe a wire like a multimeter; <code>node
+                    list</code> shows you every component currently powered on. <code>rqt_graph</code> draws the
+                    whole harness diagram for you — genuinely the closest thing ROS 2 has to a wiring schematic, and
+                    the first tool I reach for on an unfamiliar stack.</p>
+                <div class="field-note">
+                    <strong>Field note</strong>
+                    A message type is a connector shape. A publisher and subscriber on the same topic name but
+                    different message types simply won't "mate" — ROS 2 won't crash loudly, the subscriber just never
+                    receives anything. The first time this happened to me I spent an hour debugging a "dead" sensor
+                    that was actually publishing fine on a topic I was listening to with the wrong type.
+                </div>
+            </div>
+
+            <div class="post-section" id="ros2-intermediate">
+                <h2><span class="stage-tag">Intermediate</span> Workspaces, launch files, and the assembly analogy</h2>
+                <p>A ROS 2 <strong>package</strong> is roughly a part file — one focused piece of functionality with
+                    its own dependencies. A <strong>workspace</strong>, built with <code>colcon build</code>, is the
+                    assembly: it pulls every package together and resolves how they connect. Once you have more than
+                    two or three nodes, you stop launching them by hand in separate terminals and write a
+                    <strong>launch file</strong> — the equivalent of an assembly drawing that specifies which parts
+                    go where, with what parameters, in what order.</p>
+                <p>For the quadruped footstep planner, my launch file had to bring up the Quad-SDK simulation bridge,
+                    the state estimator, and the planning node together, in the right sequence, with matched
+                    parameters (control frequency, robot description path, gains). Getting that launch file right
+                    was genuinely more finicky than the planning algorithm itself.</p>
+                <h3>Services, actions, and when a topic isn't enough</h3>
+                <p>Topics are fire-and-forget — good for continuous streams like IMU data or joint states. But
+                    sometimes you need a request/response: "compute this specific trajectory and tell me when it's
+                    done." That's a <strong>service</strong> (synchronous, blocking) or an <strong>action</strong>
+                    (asynchronous, with feedback and the ability to cancel). I use actions for anything with a
+                    duration and a possible failure — commanding a swing-leg trajectory, for instance, where I want
+                    progress feedback and the ability to abort mid-motion if a support-polygon guard trips.</p>
+                <h3>TF2: coordinate frames without losing your mind</h3>
+                <p>Every part in a CAD assembly has a coordinate system relative to its parent. TF2 is that same
+                    idea, live at runtime: it's a tree of coordinate frames (<code>base_link</code> →
+                    <code>hip</code> → <code>foot</code>, say) that ROS 2 keeps updated so any node can ask "where is
+                    the foot relative to the world, right now?" without every node needing to do its own forward
+                    kinematics.</p>
+            </div>
+
+            <div class="post-section" id="ros2-advanced">
+                <h2><span class="stage-tag">Advanced</span> QoS profiles and the sim-to-hardware bridge</h2>
+                <p>This is the part that isn't in the beginner tutorials, and the part that actually mattered once I
+                    was fusing LiDAR, camera, IMU, and foot-force sensing into a single state estimate for the
+                    quadruped. Every ROS 2 topic has a <strong>Quality of Service (QoS)</strong> profile —
+                    reliability (best-effort vs. guaranteed delivery), history depth, and durability. A LiDAR scan
+                    publishing at 10 Hz and an IMU publishing at 400 Hz have no business using the same defaults.</p>
+                <div class="field-note">
+                    <strong>Field note</strong>
+                    I lost the better part of a day to a planner node that silently received zero messages from a
+                    sensor node — both sides looked healthy in <code>rqt_graph</code>. The cause: one node used the
+                    default "reliable" QoS and the other used "best-effort," and ROS 2's DDS layer refuses to connect
+                    publishers and subscribers with incompatible QoS rather than degrading gracefully. Now checking
+                    <code>ros2 topic info -v</code> for QoS mismatches is one of the first things I do when a topic
+                    looks "connected" but silent.
+                </div>
+                <p>The other advanced-but-unavoidable piece is bridging simulation and hardware. My footstep planner
+                    ran in MuJoCo through a ROS 2 bridge into Quad-SDK, converting foot targets into inverse-dynamics
+                    and swing-PD commands. The planning and learning logic didn't change between sim and hardware —
+                    but the timing did. Simulation can run faster or slower than real time and nothing complains;
+                    real actuators do not forgive a control loop that misses its deadline. That's where
+                    <strong>lifecycle nodes</strong> (nodes with explicit configure/activate/deactivate states) and
+                    <code>ros2_control</code>'s hardware interface abstraction earn their complexity — they exist
+                    specifically to make the transition from "simulated joint" to "real motor with real latency" a
+                    configuration change instead of a rewrite.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ POST 2: MOTION PLANNING ============ -->
+    <section class="post-panel" id="motion-planning">
+        <div class="container post-wrap">
+            <div class="post-meta">
+                <span>Robotics Fundamentals</span>
+                <span>·</span>
+                <span>~10 min read</span>
+            </div>
+            <h1 class="post-title">How a robot decides where to step</h1>
+            <p class="post-intro">"Motion planning" covers a wider range of problems than any one algorithm, and I
+                learned that the hard way by working across very different ones: a Cartesian gantry loader with hard
+                workspace limits, a SCARA arm doing inverse kinematics, and a quadruped deciding, twice a second,
+                where its feet go next. This is the general landscape, not a single-algorithm deep dive — with the
+                actual guards and heuristics I've used along the way.</p>
+
+            <div class="level-nav">
+                <a href="#mp-beginner" class="level-chip">Beginner</a>
+                <a href="#mp-intermediate" class="level-chip">Intermediate</a>
+                <a href="#mp-advanced" class="level-chip">Advanced</a>
+            </div>
+
+            <div class="post-section" id="mp-beginner">
+                <h2><span class="stage-tag">Beginner</span> Workspace vs. configuration space</h2>
+                <p>The everyday meaning of "where is the robot" — its position in the room — is the
+                    <strong>workspace</strong>. But planning almost never happens there directly. It happens in
+                    <strong>configuration space (C-space)</strong>: the space of every joint angle or actuator
+                    position the robot can take. A point in C-space fully describes the robot's pose; a path through
+                    C-space is a motion.</p>
+                <p>Why bother with the abstraction? Because obstacles are easiest to reason about in the workspace
+                    (a wall is a wall), but planning is easiest to execute in C-space (a valid path is one where every
+                    joint stays within its limits and nothing intersects). Motion planning is largely the work of
+                    translating one into the other. On the gantry loader, this was concrete and geometric: a
+                    1500 mm lift and 1000 mm travel range with a rack-and-pinion drive meant the "obstacles" were
+                    mostly the machine's own physical limits, and the C-space was just two independent linear axes —
+                    about as simple as this problem gets.</p>
+                <p>Also worth knowing early: <strong>holonomic</strong> systems (like that gantry, or a drone) can
+                    move in any direction in C-space instantly; <strong>non-holonomic</strong> systems (a car, a legged
+                    robot mid-stride) have constraints on which directions they can move in right now, which is why a
+                    car can't strafe sideways into a parking spot and a quadruped can't teleport a foot without first
+                    lifting it.</p>
+            </div>
+
+            <div class="post-section" id="mp-intermediate">
+                <h2><span class="stage-tag">Intermediate</span> The three families</h2>
+                <p>Most classical planners fall into one of three buckets:</p>
+                <h3>Search-based</h3>
+                <p>Discretize the space into a grid or graph and search it — A*, Dijkstra, D* Lite. Predictable,
+                    complete (they'll find a solution if one exists on the graph), and cheap in low dimensions. Great
+                    for 2D navigation; painful once you're searching a 6-DOF arm's joint space, because the grid
+                    grows exponentially with dimensions.</p>
+                <h3>Sampling-based</h3>
+                <p>RRT, RRT*, PRM. Instead of discretizing everything, randomly sample valid configurations and build
+                    a tree or graph connecting them. This is what makes high-dimensional planning (a 4-DOF SCARA arm,
+                    a 6-DOF manipulator) tractable — you never have to enumerate the full space, just enough of it to
+                    find a path. The tradeoff is that plain RRT gives you <em>a</em> path, not a good one; RRT* adds
+                    incremental rewiring to converge toward an optimal one given enough time.</p>
+                <h3>Optimization-based</h3>
+                <p>Formulate the trajectory as a numerical optimization — minimize a cost (distance, jerk, torque)
+                    subject to constraints (joint limits, obstacle clearance). CHOMP and TrajOpt are the well-known
+                    examples. These tend to produce smoother, more natural trajectories than sampling-based methods,
+                    but need a decent initial guess and are more sensitive to getting stuck in local minima.</p>
+                <div class="field-note">
+                    <strong>Field note</strong>
+                    On the SCARA arm work, inverse kinematics gave closed-form joint solutions directly — no search
+                    needed, because a 4-DOF SCARA with the right joint layout has an analytical IK solution. The
+                    lesson that stuck: always check whether your problem has a closed-form or heuristic solution
+                    before reaching for a general-purpose planner. General planners are for when the structure of
+                    the problem doesn't hand you a shortcut.
+                </div>
+            </div>
+
+            <div class="post-section" id="mp-advanced">
+                <h2><span class="stage-tag">Advanced</span> Footstep planning: heuristics, guards, and learned residuals</h2>
+                <p>Legged locomotion is a different kind of motion planning problem: you're not just finding a
+                    collision-free path, you're deciding <em>where to place discrete contact points</em> while
+                    keeping the robot balanced, dozens of times per second. This is the core of the work I did for my
+                    capstone.</p>
+                <p>The classical starting point is the <strong>Raibert heuristic</strong>: place the next foothold
+                    based on the body's velocity, a desired velocity, and the stance time, so the leg "catches up" to
+                    where the body is heading. It's cheap, real-time, and physically well-motivated — but it assumes
+                    flat, predictable terrain and doesn't adapt to irregularities it wasn't designed for.</p>
+                <p>The approach I built pairs that heuristic with a <strong>PPO-trained residual policy</strong> that
+                    outputs a 12-dimensional correction on top of the Raibert-nominal footholds — one 3D adjustment
+                    per leg. The heuristic still does most of the work; the learned policy only has to correct what
+                    the heuristic gets wrong, which is a much narrower thing to learn than locomotion from scratch.
+                    Three things made this safe enough to trust:</p>
+                <ul>
+                    <li><strong>Workspace guards</strong> — reject any residual that would push a foot outside the
+                        leg's reachable volume.</li>
+                    <li><strong>Clearance guards</strong> — reject footholds that would cause a collision or an
+                        unreasonably short step.</li>
+                    <li><strong>Support-polygon guards</strong> — reject corrections that would leave the robot's
+                        center of mass outside the polygon formed by its planted feet, which is the geometric
+                        definition of "about to fall over."</li>
+                </ul>
+                <p>These guards run analytically, not learned — so even a policy that's undertrained or exploring
+                    aggressively during training can't produce a foothold that's kinematically or statically
+                    invalid. It's the same instinct as the mechanical tolerance stack-ups I've done: define the hard
+                    limits explicitly, and let the flexible part of the system operate only inside them.</p>
+                <p>Trained to 1.25M steps and validated against square, circle, and figure-8 reference trajectories,
+                    the residual policy improved foot-placement quality on terrain the base heuristic wasn't tuned
+                    for, without the guards ever having to intervene during clean tracking — which is the result you
+                    want: the safety net there, but rarely pulled taut.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ POST 3: URDF ============ -->
+    <section class="post-panel" id="urdf">
+        <div class="container post-wrap">
+            <div class="post-meta">
+                <span>Mechanical Design × Robotics</span>
+                <span>·</span>
+                <span>~9 min read</span>
+            </div>
+            <h1 class="post-title">From CAD assembly to URDF</h1>
+            <p class="post-intro">I spent three years designing Body-in-White sheet-metal structures in CATIA before
+                I ever opened a URDF file. The first time I did, it felt like a bad translation of a language I
+                already spoke fluently — the concepts all had CAD equivalents, but the dialect was different enough
+                to cause real bugs. This is the map between the two, and the specific places I've watched that
+                translation break.</p>
+
+            <div class="level-nav">
+                <a href="#urdf-beginner" class="level-chip">Beginner</a>
+                <a href="#urdf-intermediate" class="level-chip">Intermediate</a>
+                <a href="#urdf-advanced" class="level-chip">Advanced</a>
+            </div>
+
+            <div class="post-section" id="urdf-beginner">
+                <h2><span class="stage-tag">Beginner</span> Parts become links, mates become joints</h2>
+                <p>A URDF (Unified Robot Description Format) file describes a robot as a tree of two elements:</p>
+                <ul>
+                    <li><strong>Links</strong> — rigid bodies. In CAD terms, these are your parts (or rigid
+                        sub-assemblies). Each link carries three descriptions: <code>visual</code> (what it looks
+                        like — can be a detailed mesh), <code>collision</code> (a simplified geometry used for
+                        physics/collision checking), and <code>inertial</code> (mass, center of mass, and inertia
+                        tensor).</li>
+                    <li><strong>Joints</strong> — the connection between two links, with a type. This is your CAD
+                        mate, made explicit and typed: <code>revolute</code> (a pin joint with limits — a servo),
+                        <code>continuous</code> (a revolute joint with no limits — a wheel), <code>prismatic</code>
+                        (a slider — a linear actuator), or <code>fixed</code> (a rigid mate, no motion).</li>
+                </ul>
+                <pre><code>&lt;joint name="link1_to_link2" type="revolute"&gt;
+  &lt;parent link="link1"/&gt;
+  &lt;child link="link2"/&gt;
+  &lt;origin xyz="0 0 0.05" rpy="0 0 0"/&gt;
+  &lt;axis xyz="0 1 0"/&gt;
+  &lt;limit lower="-1.57" upper="1.57" effort="10" velocity="2"/&gt;
+&lt;/joint&gt;</code></pre>
+                <p>Every one of Snakebot's 8 servo joints maps to a block almost exactly like this — the
+                    <code>limit</code> tag is literally the same physical constraint I calculated by hand from servo
+                    range and mechanical clearance during the original design.</p>
+            </div>
+
+            <div class="post-section" id="urdf-intermediate">
+                <h2><span class="stage-tag">Intermediate</span> What CAD gives you for free, and what it doesn't</h2>
+                <p>The single biggest advantage of coming from CAD: you already have accurate mass, center of mass,
+                    and inertia tensor for every part, computed from real geometry and material density — the exact
+                    <code>inertial</code> block URDF needs. Most robotics-first URDFs I've seen use rough guessed or
+                    default inertia values, because computing an inertia tensor by hand for an irregular shape is
+                    genuinely painful. If you're exporting from SolidWorks or CATIA, use that — it's usually more
+                    accurate than anything you'd hand-derive.</p>
+                <p>What CAD doesn't hand you automatically: <strong>axis and origin conventions.</strong> CAD
+                    assemblies are built around whatever reference geometry was convenient for design intent — often
+                    with Z as "up" but with no consistent convention for which way is "forward." ROS convention is
+                    X-forward, Y-left, Z-up, right-handed. When you export a mechanism designed with a different
+                    working axis (common, since design intent axes rarely match robotics convention), every joint's
+                    <code>origin</code> and <code>axis</code> tag needs to be re-derived, not just copied — get this
+                    wrong on one joint and everything downstream in the kinematic chain rotates about the wrong axis.</p>
+                <h3>Xacro for the parts that repeat</h3>
+                <p>Snakebot has 8 nearly identical joint modules; a SCARA arm has 4. Writing each out by hand in raw
+                    URDF is exactly the kind of repetitive, error-prone work CAD taught me to avoid with patterns and
+                    mate references. <strong>Xacro</strong> is URDF's answer — macros with parameters, so one
+                    template joint definition becomes 8 real joints differing only in their origin offset and name.
+                    It's the URDF equivalent of a CAD pattern feature.</p>
+            </div>
+
+            <div class="post-section" id="urdf-advanced">
+                <h2><span class="stage-tag">Advanced</span> Where the description stops matching the machine</h2>
+                <p>A URDF that looks right and loads without errors can still be wrong in ways that only show up
+                    once you drop it into a physics engine.</p>
+                <div class="field-note">
+                    <strong>Field note</strong>
+                    The first URDF I exported straight from a CAD assembly loaded fine in RViz — geometry looked
+                    correct, joints moved correctly — but the moment I dropped it into simulation, it exploded:
+                    links flying apart on the first physics step. The cause was an inertia tensor exported in the
+                    wrong units relative to what the exporter assumed, producing a physically implausible
+                    mass-to-inertia ratio. The visual and collision geometry were fine; the invisible
+                    <code>inertial</code> block was the actual bug. Now checking inertia values against a sanity
+                    estimate (mass × characteristic length²) is a standard step before trusting a new URDF in
+                    simulation.
+                </div>
+                <p>A few other places the CAD-to-URDF translation gets lossy:</p>
+                <ul>
+                    <li><strong>Collision mesh complexity</strong> — a detailed visual mesh exported straight from
+                        CAD will tank physics-engine performance if reused as the collision mesh. It needs to be
+                        decimated or replaced with primitive shapes (boxes, cylinders) or convex hulls — CAD accuracy
+                        is a liability here, not an asset.</li>
+                    <li><strong>Joint dynamics</strong> — CAD tells you nothing about damping or friction at a joint;
+                        those have to be measured or estimated and added manually (<code>&lt;dynamics
+                        damping="..." friction="..."/&gt;</code>), and they matter enormously for how a simulated
+                        joint actually behaves under control.</li>
+                    <li><strong>Simulator-specific extensions</strong> — Gazebo wants <code>&lt;gazebo&gt;</code>
+                        tags and plugin references; getting a URDF into MuJoCo typically means converting to MJCF,
+                        which has its own conventions for contacts and actuators. The base URDF is portable; the
+                        simulation-ready version rarely is, without extra work per target.</li>
+                    <li><strong>ros2_control transmissions</strong> — if the URDF is driving real hardware, joints
+                        need <code>&lt;transmission&gt;</code> tags and a hardware interface definition so
+                        <code>ros2_control</code> knows how to map a commanded effort or position to an actual motor
+                        driver — the software equivalent of the wire harness I'd have built by hand for Snakebot's
+                        PCA9685 driver.</li>
+                </ul>
+                <p>The pattern across all of these: URDF wants a description that's simultaneously visually
+                    accurate, physically accurate, and computationally cheap, and CAD only naturally gives you the
+                    first two. The mechanical design background gets you most of the way there fast — it just doesn't
+                    get you the whole way for free.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-nav">
+                    <a href="index.html">Home</a>
+                    <a href="blog.html">Writing</a>
+                    <a href="photography.html">Photography</a>
+                </div>
+                <div class="footer-contact">
+                    <p>Contact Me: <a href="mailto:contact.anirudhgudi@gmail.com">contact.anirudhgudi@gmail.com</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026. All rights reserved. Built by Anirudh Gudi</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabs = document.querySelectorAll('.tab-btn');
+            const panels = document.querySelectorAll('.post-panel');
+
+            function activate(target, updateHash) {
+                tabs.forEach(t => t.classList.toggle('active', t.dataset.target === target));
+                panels.forEach(p => p.classList.toggle('active', p.id === target));
+                if (updateHash) history.replaceState(null, '', '#' + target);
+                window.scrollTo({ top: document.querySelector('.blog-hero').offsetHeight, behavior: 'instant' });
+            }
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => activate(tab.dataset.target, true));
+            });
+
+            const initial = window.location.hash.replace('#', '');
+            const validTargets = Array.from(tabs).map(t => t.dataset.target);
+            if (initial && validTargets.includes(initial)) {
+                activate(initial, false);
+            }
+        });
+    </script>
+</body>
+
+</html>
