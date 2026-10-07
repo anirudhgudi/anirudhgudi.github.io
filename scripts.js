@@ -113,9 +113,9 @@ function initSite() {
         0: {
             title: "Quadruped Robotics System",
             image: "assets/Media/Arch.png",
-            // gallery: [
-            //     "assets/Media/QuadArchitecture.png",
-            // ],
+            gallery: [
+                // "assets/Media/QuadArchitecture.png",
+            ],
             stats: [
                 { value: "12D", label: "Residual Output" },
                 { value: "1.25M", label: "Training Steps" },
@@ -460,3 +460,34 @@ if (document.readyState === 'loading') {
 } else {
     initSite();
 }
+
+// ============================================
+// Analytics: cookieless click events (GoatCounter)
+// Page views are counted automatically by the GoatCounter script in <head>.
+// ============================================
+(function initClickTracking() {
+    function track(path, title) {
+        if (window.goatcounter && typeof window.goatcounter.count === 'function') {
+            window.goatcounter.count({ path: path, title: title, event: true });
+        }
+    }
+
+    document.addEventListener('click', function (e) {
+        const link = e.target.closest('a[href]');
+        if (!link) return;
+
+        const href = link.getAttribute('href');
+        const label = (link.getAttribute('aria-label') || link.textContent || '').trim().slice(0, 60);
+        const page = location.pathname.split('/').pop() || 'index.html';
+
+        if (/\.pdf($|\?)/i.test(href)) {
+            track('download-' + href.split('/').pop(), 'Download: ' + label + ' (from ' + page + ')');
+        } else if (href.startsWith('mailto:')) {
+            track('email-click', 'Email click (from ' + page + ')');
+        } else if (/^https?:\/\//i.test(href) && link.hostname !== location.hostname) {
+            track('outbound-' + link.hostname.replace(/^www\./, ''), 'Outbound: ' + href);
+        } else if (!href.startsWith('#')) {
+            track('nav-' + href.replace(/[^a-z0-9#._-]/gi, ''), 'Nav: ' + label + ' (from ' + page + ')');
+        }
+    });
+})();
