@@ -96,6 +96,20 @@ function initSite() {
 
     // Project data with Overview/Challenge/Solution/Impact structure
     const projectData = {
+        10: {
+            title: "IROS 2026 Earth Rover Challenge Navigation Pipeline",
+            image: "assets/Media/Frodobot.webp",
+            stats: [
+                { value: "ROS 2", label: "Navigation Stack" },
+                { value: "EKF", label: "State Estimation" },
+                { value: "GPS-Denied", label: "Operating Mode" },
+            ],
+            stack: ["ROS 2", "Sensor Fusion", "Python", "C++", "Gemini ER2"],
+            overview: "An autonomous vision-based navigation system for the IROS 2026 Earth Rover Challenge, built around ROS 2 pub/sub architectures and telemetry from Frodobots hardware.",
+            challenge: "The rover must execute goal-oriented navigation in GPS-denied environments while combining imperfect onboard sensing with dynamic visual information.",
+            solution: "Architected the ROS 2 navigation pipeline, built and tuned a sensor fusion bridge node using an Extended Kalman Filter through robot_localization to process IMU data and wheel velocity telemetry, and integrated Gemini ER2 vision-language-action foundation models for dynamic path execution.",
+            impact: "Established a real-time state estimation and navigation foundation for autonomous Earth rover operation across varied terrain and changing goals."
+        },
         0: {
             title: "Quadruped Robotics System",
             image: "assets/Media/Arch.png",
