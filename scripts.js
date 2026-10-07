@@ -113,9 +113,9 @@ function initSite() {
         0: {
             title: "Quadruped Robotics System",
             image: "assets/Media/Arch.png",
-            gallery: [
-                "assets/Media/QuadArchitecture.png",
-            ],
+            // gallery: [
+            //     "assets/Media/QuadArchitecture.png",
+            // ],
             stats: [
                 { value: "12D", label: "Residual Output" },
                 { value: "1.25M", label: "Training Steps" },
